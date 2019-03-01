@@ -1,0 +1,28 @@
+{% set page = 'error' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 500 : Erreur Interne{% endblock %}
+{% block body %}
+  <div class="col-md-12">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <h1 class="display-1" style="color: #e9453c;">Erreur 500</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <a href="{{ path("index") }}">
+
+        <p class="alert alert-danger">
+          <span class="glyphicon glyphicon-remove"></span>
+          Un problème est survenu sur le site. Cliquez ici pour retourner sur la page d'accueil.
+        </p>
+        </a>
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
