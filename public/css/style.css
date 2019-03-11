@@ -1,0 +1,11 @@
+/* NAVBAR */
+.navbar-light .navbar-brand { color: white; }
+.navbar-light .navbar-brand:hover { color: white; }
+
+.navbar-light .navbar-nav .nav-link  { color: white;}
+.navbar-light .navbar-nav .active > .nav-link  { color: white;}
+.navbar-light .navbar-nav .nav-link:hover  { color: red;}
+
+p { color: white;}
+
+h1 { color: #1F65A1; }

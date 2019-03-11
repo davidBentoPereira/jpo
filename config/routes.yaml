@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\FrontController::index
+
+histoire:
+    path: /histoire-du-lycee
+    controller: App\Controller\FrontController::histoire

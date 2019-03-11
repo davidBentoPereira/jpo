@@ -3,17 +3,23 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 
 class FrontController extends AbstractController
 {
     /**
-     * @Route("/front", name="front")
+     * Page Accueil
      */
     public function index()
     {
-        return $this->render('front/index.html.twig', [
-            'controller_name' => 'FrontController',
-        ]);
+        return $this->render('front/index.html.twig');
     }
+
+    /**
+     * Page Histoire du Lycée
+     */
+    public function histoire()
+    {
+        return $this->render('front/histoire.html.twig');
+    }
+
 }
