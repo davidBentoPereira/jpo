@@ -1,11 +1,18 @@
+h1 { font-family: Roboto-Bold, sans-serif; color: #1F65A1; }
+p { font-family: roboto, sans-serif; }
+
 /* NAVBAR */
-.navbar-light .navbar-brand { color: white; }
-.navbar-light .navbar-brand:hover { color: white; }
+.navbar-light .navbar-brand { color: white; font-family: Roboto-Bold, sans-serif}
+.navbar-light .navbar-brand:hover { color: white; font-family: Roboto-Bold, sans-serif}
 
 .navbar-light .navbar-nav .nav-link  { color: white;}
-.navbar-light .navbar-nav .active > .nav-link  { color: white;}
-.navbar-light .navbar-nav .nav-link:hover  { color: red;}
+.navbar-light .navbar-nav .active > .nav-link  { color: white; font-family: Roboto-Bold, sans-serif}
+.navbar-light .navbar-nav .nav-link:hover  { color: white; font-weight: bold; font-family: Roboto-Bold, sans-serif}
 
 p { color: white;}
+h1 {  }
 
-h1 { color: #1F65A1; }
+header-img
+
+/* FOOTER */
+footer { background-color: #1F65A1}
