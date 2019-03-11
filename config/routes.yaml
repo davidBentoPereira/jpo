@@ -1,3 +1,7 @@
 index:
     path: /
     controller: App\Controller\FrontController::index
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::index
