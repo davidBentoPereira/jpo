@@ -11,9 +11,13 @@ filiere:
     path: /filiere
     controller: App\Controller\FrontController::filiere
 
-questionnaires:
-    path: /questionnaires
-    controller: App\Controller\FrontController::questionnaires
+sondages:
+    path: /sondages
+    controller: App\Controller\FrontController::sondages
+
+sondage:
+    path: /sondages/sondage
+    controller: App\Controller\FrontController::sondage
 
 ulis:
     path: /unite-localise-pour-l-inclusion-scolaire

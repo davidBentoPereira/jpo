@@ -16,6 +16,15 @@ nav { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; }
 footer { background-color: #1F65A1; border-radius: 15px;}
 #google-map { border-radius: 40px; }
 
+
+
+/* MLDS */
+#mlds .block{ background-color: #DDDDDD; border-radius: 15px;}
+#mlds p { color: black; }
+
+/* Questionnaires */
+#questionnaires table a { color: black; }
+
 /* Histoire du Lycée */
 #main-content { background-color: #DDDDDD; border-radius: 15px; }
 #main-content h1 { color: black;}

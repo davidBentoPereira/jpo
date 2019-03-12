@@ -49,11 +49,19 @@ class FrontController extends AbstractController
     }
 
     /**
-     * Page Questionnaires
+     * Page Sondages
      */
-    public function questionnaires(): Response
+    public function sondages(): Response
     {
-        return $this->render('front/questionnaires.html.twig');
+        return $this->render('front/sondages.html.twig');
+    }
+
+    /**
+     * Page Sondage
+     */
+    public function sondage(): Response
+    {
+        return $this->render('front/sondage.html.twig');
     }
 
     /**
