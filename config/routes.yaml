@@ -1,4 +1,8 @@
 # - - - - - FRONT - - - - -
+index:
+    path: /
+    controller: App\Controller\FrontController::index
+
 formations:
     path: /formations
     controller: App\Controller\FrontController::formations
