@@ -1,0 +1,55 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Filière!{% endblock %}
+
+{% block body %}
+    <div class="container mt-4 mb-4" id="mlds">
+
+        <div class="row">
+            <div class="col-12 block">
+                <h1 class="text-center">Accueil Relations Clientèle Usager</h1>
+                <p>La MLDS est un dispositif hébergé au Lycée professionnel Marcelle Pardé. Elle intervient sur l’ensemble du bassin de formation Ain-Ouest</p>
+                <p>La MLDS a 2 objectifs :</p>
+                <ul>
+                    <li>Prendre en charge les élèves sans qualification</li>
+                    <li>Préparer tous les élèves de plus de 16 ans en rupture scolaire à une qualification leur permettant une insertion professionnelle et sociale</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row justify-content-around text-justify mt-4">
+            <div class="col-3 block">
+                <div class="row mt-2 justify-content-center">
+                    <div><img src="{{ asset('img/icon/target.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                </div>
+
+                <h2 class="text-center">Objectifs</h2>
+                <ul>
+                    <li>Retour en formation initiale ou vers une formation diplômante.</li>
+                    <li>Tendre vers une insertion sociale et professionnelle réussie des élèves</li>
+                </ul>
+            </div>
+
+            <div class="col-3 block">
+                <div class="row mt-2 justify-content-center">
+                    <div><img src="{{ asset('img/icon/support.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                </div>
+
+                <h2 class="text-center">Propositions d’actions</h2>
+                <p>Repérage et action de prévention : accueillir et remotiver le jeune qui reste dans son établissement d’origine.
+                    Aider le jeune à reprendre confiance en lui et construire un projet en tenant compte de ses acquis, en adaptant ses objectifs à ses besoins et les réalités économiques. Proposer des modules individualisés (périodes en entreprises ou en lycée professionnel).
+                </p>
+            </div>
+
+            <div class="col-3 block">
+                <div class="row mt-2 justify-content-center">
+                    <div><img src="{{ asset('img/icon/translator.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                </div>
+
+                <h2 class="text-center">Accueil des allophones</h2>
+                <p>Aider le jeune nouvellement arrivé en France pour s’intégrer dans une scolarité normale ou entrer dans la vie active.</p>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

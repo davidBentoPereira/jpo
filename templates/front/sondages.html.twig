@@ -1,0 +1,92 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Sondages{% endblock %}
+
+{% block body %}
+    <div class="container" id="questionnaires">
+
+        <div class="row mt-4 mb-4">
+            <div class="col-12 text-center d-flex row justify-content-center align-items-center">
+                <img src="{{ asset('img/icon/survey.svg') }}" alt="" width="40px">
+                <h1>Sondages</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table">
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Journée portes ouvertes 19 Avril 2019</th>
+                        <th scope="col">Date de début</th>
+                        <th scope="col">Date de fin</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00 </a></td>
+                    </tr>
+                    </tbody>
+
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Journée Portes ouvertes 12 Janvier 2020</th>
+                        <th scope="col">Date de début</th>
+                        <th scope="col">Date de fin</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><a href="{{ path('sondage') }}">Sondage ASSP (Option Structure)</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                        <td><a href="{{ path('sondage') }}">10/04/2019 - 09h00</a></td>
+                    </tr>
+                    </tbody>
+
+                    <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Journée Portes ouvertes 14 Juin 2021</th>
+                        <th scope="col">Date de début</th>
+                        <th scope="col">Date de fin</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><a href="{{ path('sondage') }}">Sondage Métiers de la mode</a></td>
+                        <td><a href="{{ path('sondage') }}">14/06/2021 à 09h00</a></td>
+                        <td><a href="{{ path('sondage') }}">14/06/2021 à 09h00</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td><a href="{{ path('sondage') }}">Sondage 3ème prépa Métiers</a></td>
+                        <td><a href="{{ path('sondage') }}">14/06/2021 à 09h00 </a></td>
+                        <td><a href="{{ path('sondage') }}">14/06/2021 à 09h00 </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br />
+            </div>
+        </div>
+    </div>
+{% endblock %}

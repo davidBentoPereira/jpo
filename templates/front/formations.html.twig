@@ -1,0 +1,52 @@
+{% extends 'front/base.html.twig' %}
+
+{% block title %}Résumé des Formations{% endblock %}
+
+{% block body %}
+    <div class="container mt-4 mb-4">
+
+        <div class="row mb-3">
+            <div class="col-12 text-center d-flex row justify-content-center">
+                <h1>Résumé des formations</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th scope="col">...</th>
+                        <th scope="col">Bac Pro ASSP <br /> Accompagnement Soins et Services à la Personne</th>
+                        <th scope="col">Bac Pro ECP <br /> Esthétique Cosmétique Parfumerie</th>
+                        <th scope="col">Bac Pro MM <br />Métiers de la Mode</th>
+                        <th scope="col">Bac Pro ARCU <br />Accueil Relation aux Clients et Usagers</th>
+                        <th scope="col">Bac Pro COM <br />Commerce</th>
+                        <th scope="col">Bac Pro GA <br />Gestion Administration</th>
+                        <th scope="col">CAP EVS <br />Employé de Vente Spécialisé</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
