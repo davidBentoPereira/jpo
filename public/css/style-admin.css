@@ -77,6 +77,7 @@
     color: #999999;
     display: block;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .sidebar-nav li a:hover {
@@ -107,7 +108,87 @@
     margin: 10px;
 }
 
+.navbar {
+    color: white;
+}
+
 .icon {
     width: 22px;
     margin: 5px 5px 10px 5px;
+}
+
+#content {
+    margin-left: 188px;
+}
+
+.text-right {
+    align-content: right;
+}
+
+.btn {
+    font-size: 16px;
+}
+
+/* ----- Cards ----- */
+
+.card {
+    height: 250px;
+    width: 250px;
+    display: flex;
+    margin: 15px;
+    color: white;
+}
+
+.card h2 {
+    margin: auto;
+}
+
+.card-add {
+    background-color: #8bc34a;
+}
+
+.card-basic {
+     background-color: #2a3181;
+ }
+
+.card-basic button {
+    width: auto;
+    margin: auto;
+    margin-top: -10px;
+    text-align: center;
+    justify-content: flex-end;
+}
+
+.card-add img {
+    height: auto;
+    width: 135px;
+    margin: auto;
+}
+
+.card-chart {
+    height: 400px;
+    width: 650px;
+    display: flex;
+    background-color: white;
+    border: 1px;
+    border-color: #1A1A1A;
+    border-style: solid;
+}
+
+.card-survey button {
+    margin: auto;
+}
+
+.tag-event {
+    margin: auto;
+    background-color: #e564ff;
+    border-radius: 5px;
+    height: 25px;
+    width: auto;
+    color: black;
+}
+
+.btn-survey {
+    justify-content: flex-end;
+    padding: .2rem;
 }
