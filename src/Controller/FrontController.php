@@ -72,6 +72,4 @@ class FrontController extends AbstractController
         return $this->render('front/histoire.html.twig');
     }
 
-
-
 }
