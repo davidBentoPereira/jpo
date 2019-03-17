@@ -6,6 +6,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Admin;
 use App\Entity\Page;
+use App\Entity\Section;
 use App\Service\EncryptingService;
 use App\Service\SlugGeneratorService;
 
@@ -27,9 +28,21 @@ class AppFixtures extends Fixture
         $admin = new Admin("test@example.com", $encryptingService->getEncryptedString());
         $manager->persist($admin);
 
-        $page = new Page("Page Test");
-        $manager->persist($page);
-
+        /**
+         * Création des pages formations
+         */
+        for($i = 1; $i < 7; ++$i)
+        {
+            $sections = [];
+            $page = new Page("Page ".$i);
+            for($j = 1; $j < 7; ++$j)
+            {
+                $section = new Section($j, "Title ".$j, "Description ".$j);
+                // $manager->persist($section);
+                $page->addSection($section);
+            }
+            $manager->persist($page);
+        }
         $manager->flush();
     }
 }
