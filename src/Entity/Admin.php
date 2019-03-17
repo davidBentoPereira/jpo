@@ -10,10 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Admin
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Id()
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
-    private $uid;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -24,21 +25,26 @@ class Admin
      * @ORM\Column(type="string", length=255)
      */
     private $encryptedPassword;
-
-    public function getUid(): ?string
+    
+    public function __construct(string $mail, string $encryptedPassword)
     {
-        return $this->uid;
-    }
-
-    public function construct(string $mail, string $password){
-        $this->uid = uniqid();
         $this->mail = $mail;
-        $this->password = $password;
+        $this->encryptedPassword = $encryptedPassword;
+    }
+    
+    public function getId(): ?string
+    {
+        return $this->id;
     }
 
-    public function setUid(string $uid): self
+    public function getMail(): ?string
     {
-        $this->uid = $uid;
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
 
         return $this;
     }
