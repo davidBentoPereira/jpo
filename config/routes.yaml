@@ -17,3 +17,7 @@ event:
 survey:
     path: /admin/survey
     controller: App\Controller\AdminController::survey
+
+addEvent:
+    path: /admin/addEvent
+    controller: App\Controller\AdminController::addEvent
