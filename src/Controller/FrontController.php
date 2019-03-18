@@ -8,10 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FrontController extends AbstractController
 {
-    /**
-     * Page Index
-     */
-    public function index(): Response
+    public function index()
     {
         return $this->render('front/index.html.twig');
     }
