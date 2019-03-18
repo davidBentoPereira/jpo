@@ -32,9 +32,14 @@ histoire:
     controller: App\Controller\FrontController::histoire
 
 login:
-    path: /login
+    path: /connexion
     controller: App\Controller\AuthController::login
-    methods: POST
+    methods: GET|POST
+
+logout:
+    path: /deconnexion
+    controller: App\Controller\AuthController::logout
+    methods: GET
 
 
     # - - - - - ADMIN - - - - -

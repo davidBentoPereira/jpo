@@ -11,26 +11,43 @@ use App\Service\EncryptingService;
 
 class AuthController extends AbstractController
 {
+    private $messages = [];
+
     public function login(Request $request, ObjectManager $manager)
     {
-        if(!$request->isMethod('POST')) return $this->redirectToRoute('index');
+        if($request->isMethod('POST')){
+            $mail = $request->request->get('mail');
+            $password = $request->request->get('password');
+            $encryptingService = new EncryptingService($password);
 
-        $mail = $request->request->get('mail');
-        $password = $request->request->get('password');
-        $encryptingService = new EncryptingService($password);
+            $admin = $this->getDoctrine()
+                ->getRepository(Admin::class)
+                ->findOneBy([
+                    "mail" => $mail,
+                    "encryptedPassword" => $encryptingService->getEncryptedString()
+                ]);
 
-        $admin = $this->getDoctrine()
-            ->getRepository(Admin::class)
-            ->findOneBy([
-                "mail" => $mail,
-                "encryptedPassword" => $encryptingService->getEncryptedString()
-            ]);
-
-        if($admin === null)
-        {
-            return $this->redirectToRoute('index');
+            if ($admin)
+            {
+                return $this->redirectToRoute('dashboard');
+            }
+            else{
+                $this->messages[] = [
+                    'content' => 'Adresse mail ou mot de passe invalide.',
+                    'class' => 'danger'
+                ];
+            }
         }
-        
-        return $this->redirectToRoute('index');        
+
+        return $this->render('front/login.html.twig', ['messages' => $this->messages]);
+    }
+
+    public function logout()
+    {
+        $this->messages[] = [
+            'content' => 'Vous vous êtes déconnecté.',
+            'class' => 'success'
+        ];
+        return $this->render('front/login.html.twig', ['messages' => $this->messages]);
     }
 }
