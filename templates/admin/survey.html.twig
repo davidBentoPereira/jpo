@@ -20,9 +20,8 @@
                 </div>
                 <div class="flex-end">
                     <a href="" id="delete-survey" class="btn btn-danger btn-survey"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
-                    <a href="" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
-                    <a href="" id="result-survey" class="btn btn-success"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</a>
-
+                    <a href="{{ path('editSurvey') }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+                    <a href="" id="result-survey" class="btn btn-success btn-survey"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</a>
                 </div>
             </div>
         {% endfor %}

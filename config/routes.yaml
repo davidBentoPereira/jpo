@@ -33,10 +33,13 @@ histoire:
     
     # - - - - - ADMIN - - - - -
 
+
+#--- Dashboard
 dashboard:
     path: /admin
     controller: App\Controller\admin\AdminController::index
 
+#--- Event
 event:
     path: /admin/event
     controller: App\Controller\admin\EventController::event
@@ -53,6 +56,7 @@ deleteEvent:
     path: /admin/deleteEvent
     controller: App\Controller\admin\EventController::deleteEvent
 
+#--- Survey
 survey:
     path: /admin/survey
     controller: App\Controller\admin\SurveyController::survey
@@ -61,6 +65,11 @@ addSurvey:
     path: admin/addSurvey
     controller: App\Controller\admin\SurveyController::addSurvey
 
+editSurvey:
+    path: admin/editSurvey
+    controller: App\Controller\admin\SurveyController::editSurvey
+
+#--- Page
 page:
     path: /admin/page
     controller: App\Controller\admin\PageController::page

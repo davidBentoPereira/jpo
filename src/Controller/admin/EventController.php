@@ -21,7 +21,6 @@ class EventController extends AbstractController
     public function addEvent(Request $request)
     {
         $form = $this->createForm(EventType::class);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,7 +35,6 @@ class EventController extends AbstractController
     public function editEvent(Request $request)
     {
         $form = $this->createForm(EventType::class);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
