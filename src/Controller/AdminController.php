@@ -6,6 +6,7 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends AbstractController
 {
@@ -32,10 +33,38 @@ class AdminController extends AbstractController
         return $this->render('admin/survey.html.twig');
     }
 
-    public function addEvent()
+    public function addEvent(Request $request)
     {
         $form = $this->createForm(EventType::class);
-        return $this->render('admin/addEvent.html.twig',
-            ['form' => $form->createView()]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('event');
+        }
+
+        return $this->render('admin/formEvent.html.twig',
+            ['form' => $form->createView(),
+                'type' => 'add']);
+    }
+
+    public function editEvent(Request $request)
+    {
+        $form = $this->createForm(EventType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('event');
+        }
+
+        return $this->render('admin/formEvent.html.twig',
+            ['form' => $form->createView(),
+                'type' => 'edit']);
+    }
+
+    public function deleteEvent()
+    {
+        return $this->render('admin/event.html.twig');
     }
 }
