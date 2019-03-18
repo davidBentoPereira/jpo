@@ -1,19 +1,37 @@
+# - - - - - FRONT - - - - -
 index:
     path: /
     controller: App\Controller\FrontController::index
 
-dashboard:
-    path: /admin
-    controller: App\Controller\AdminController::index
+formations:
+    path: /formations
+    controller: App\Controller\FrontController::formations
 
-page:
-    path: /admin/page
-    controller: App\Controller\AdminController::page
+filiere:
+    path: /filiere
+    controller: App\Controller\FrontController::filiere
 
-event:
-    path: /admin/event
-    controller: App\Controller\AdminController::event
+sondages:
+    path: /sondages
+    controller: App\Controller\FrontController::sondages
 
-survey:
-    path: /admin/survey
-    controller: App\Controller\AdminController::survey
+sondage:
+    path: /sondages/sondage
+    controller: App\Controller\FrontController::sondage
+
+ulis:
+    path: /unite-localise-pour-l-inclusion-scolaire
+    controller: App\Controller\FrontController::ulis
+
+mlds:
+    path: /mission-de-lutte-contre-le-decrochage-scolaire
+    controller: App\Controller\FrontController::mlds
+
+histoire:
+    path: /histoire-du-lycee
+    controller: App\Controller\FrontController::histoire
+
+
+
+
+    # - - - - - ADMIN - - - - -
