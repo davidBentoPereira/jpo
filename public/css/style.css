@@ -1,0 +1,32 @@
+body { background-image: url('../img/background.png')}
+/* GENERAL */
+h1, p, ul li { font-family: 'Montserrat', sans-serif; color: black;}
+a { color: #ffffff; font-family: 'Montserrat', sans-serif}
+a:hover { color: white;}
+
+/* NAVBAR */
+#header-img {border-top-left-radius: 15px; border-top-right-radius: 15px;}
+nav { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+.navbar-light .navbar-nav .nav-link  { color: white; font-family: 'Montserrat-bold', sans-serif;}
+.navbar-light .navbar-nav .nav-link:hover  { color: white}
+
+/* FOOTER */
+footer { background-color: #1F65A1; border-radius: 15px;}
+footer p { color: white;}
+#google-map { border-radius: 40px; }
+
+/* Formations */
+#formations table tr { font-size: 0.85em; }
+#formations table td { font-size: 0.8em; }
+
+/* MLDS */
+.block { background-color: #ffffff; border-radius: 15px;}
+#mlds p { color: black; }
+
+/* Questionnaires */
+#questionnaires table a { color: black; }
+
+/* Histoire du Lycée */
+#main-content { background-color: #f1f2f3; border-radius: 15px; }
+#main-content h1 { color: black;}
+#main-content p { color: black;}
