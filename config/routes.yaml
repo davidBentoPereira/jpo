@@ -6,14 +6,23 @@ index:
 formations:
     path: /formations
     controller: App\Controller\FrontController::formations
+dashboard:
+    path: /admin
+    controller: App\Controller\AdminController::index
 
 filiere:
     path: /filiere
     controller: App\Controller\FrontController::filiere
+page:
+    path: /admin/page
+    controller: App\Controller\AdminController::page
 
 sondages:
     path: /sondages
     controller: App\Controller\FrontController::sondages
+event:
+    path: /admin/event
+    controller: App\Controller\AdminController::event
 
 survey:
     path: /admin/survey
