@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark bg-dark">
+    <h6>Administration</h6>
+    <button id="signout" type="button" class="btn btn-danger text-right">Déconnexion<img src="{{ asset('img/icon/sign-out.png') }}" class="icon"/></button>
+</nav>
+<div id="wrapper" class="active">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul id="sidebar_menu" class="sidebar-nav">
+            <li class="sidebar-brand"><img src="{{ asset('img/logo-admin.png') }}" id="logo-img"/></li>
+        </ul>
+        <ul class="sidebar-nav" id="sidebar">
+            <li><a href="{{ path('dashboard') }}"><img src="{{ asset('img/icon/home.png') }}" class="icon"/>Dashboard</a></li>
+            <li><a href="{{ path('page') }}"><img src="{{ asset('img/icon/file.png') }}" class="icon"/>Page</a></li>
+            <li><a href="{{ path('event') }}"><img src="{{ asset('img/icon/event.png') }}" class="icon"/>Evenement</a></li>
+            <li><a href="{{ path('survey') }}"><img src="{{ asset('img/icon/poll.png') }}" class="icon"/>Sondage</a></li>
+        </ul>
+    </div>
+</div>
