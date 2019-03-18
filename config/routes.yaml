@@ -15,6 +15,14 @@ sondages:
     path: /sondages
     controller: App\Controller\FrontController::sondages
 
+survey:
+    path: /admin/survey
+    controller: App\Controller\AdminController::survey
+
+addEvent:
+    path: /admin/addEvent
+    controller: App\Controller\AdminController::addEvent
+    
 sondage:
     path: /sondages/sondage
     controller: App\Controller\FrontController::sondage
@@ -30,8 +38,6 @@ mlds:
 histoire:
     path: /histoire-du-lycee
     controller: App\Controller\FrontController::histoire
-
-
-
-
+    
     # - - - - - ADMIN - - - - -
+

@@ -38,6 +38,11 @@ class Event
      */
     private $surveys;
 
+    /**
+     * @ORM\Column(type="string", length=300, nullable=true)
+     */
+    private $description;
+
     public function __construct(
         string $title,
         \DateTimeImmutable $dateOfOpening,
@@ -121,4 +126,22 @@ class Event
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+
 }

@@ -1,17 +1,21 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}AdminController{% endblock %}
+{% block title %}Evenements{% endblock %}
 
 {% block body %}
-<h1>Evenement</h1>
-<div class="row">
-    <div class="card card-add">
-        <img src="{{ asset('img/icon/add.png') }}"/>
+    <h1>Evenement</h1>
+    <div class="row">
+        <a href="{{ path('addEvent') }}">
+            <div class="card card-add">
+                <img src="{{ asset('img/icon/add.png') }}"/>
+            </div>
+        </a>
+        {% for event in events %}
+            <div class="card card-basic">
+                <h2>{{ event.title }}</h2>
+                <button id="delete-event" type="button" class="btn btn-danger text-right"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</button>
+                <button id="edit-event" type="button" class="btn btn-info text-right"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</button>
+            </div>
+        {% endfor %}
     </div>
-    <div class="card card-basic">
-        <h2>Titre de l'evenement</h2>
-        <button id="delete-event" type="button" class="btn btn-danger text-right"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</button>
-        <button id="edit-event" type="button" class="btn btn-info text-right"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</button>
-    </div>
-</div>
 {% endblock %}

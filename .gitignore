@@ -17,16 +17,4 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-\.idea/encodings\.xml
-
-\.idea/jpo\.iml
-
-\.idea/misc\.xml
-
-\.idea/modules\.xml
-
-\.idea/php\.xml
-
-\.idea/vcs\.xml
-
-\.idea/workspace\.xml
+\.idea
