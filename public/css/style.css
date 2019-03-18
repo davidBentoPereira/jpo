@@ -8,7 +8,7 @@ a:hover { color: white;}
 #header-img {border-top-left-radius: 15px; border-top-right-radius: 15px;}
 nav { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 .navbar-light .navbar-nav .nav-link  { color: white; font-family: 'Montserrat-bold', sans-serif;}
-.navbar-light .navbar-nav .nav-link:hover  { color: white}
+.navbar-light .navbar-nav .nav-link:hover  { font-size: 1.05em; color: white; text-decoration: underline;}
 
 /* FOOTER */
 footer { background-color: #1F65A1; border-radius: 15px;}
