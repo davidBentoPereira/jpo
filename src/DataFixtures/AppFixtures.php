@@ -16,13 +16,18 @@ use App\Entity\Response;
 use App\Entity\ResponseValue;
 use App\Service\EncryptingService;
 use App\Service\SlugGeneratorService;
-
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class AppFixtures extends Fixture
 {
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
-
-
         /**
          * Les fixtures suivantes sont à utiliser en dévelopement.
          * Il est fortement déconseillé de les appliquer sur la base de données en production.
@@ -34,8 +39,12 @@ class AppFixtures extends Fixture
         * Mail : test@example.com
         * Mot de passe : test
         */
-        $encryptingService = new EncryptingService("test");
-        $admin = new Admin("test@example.com", $encryptingService->getEncryptedString());
+        $admin = new Admin();
+        $admin->setEmail("test@example.com");
+        $admin->setPassword($this->passwordEncoder->encodePassword(
+            $admin, "test"
+        ));
+        $admin->setRoles(["ROLE_ADMIN"]);
         $manager->persist($admin);
 
 
