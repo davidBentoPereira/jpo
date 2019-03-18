@@ -3,22 +3,12 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-<<<<<<< HEAD
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class FrontController extends AbstractController
 {
-    /**
-     * Page Index
-     */
     public function index(): Response
-=======
-
-class FrontController extends AbstractController
-{
-    public function index()
->>>>>>> integration-admin
     {
         return $this->render('front/index.html.twig');
     }
