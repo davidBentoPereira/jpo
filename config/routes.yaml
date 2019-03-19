@@ -49,7 +49,7 @@ addEvent:
     controller: App\Controller\admin\EventController::addEvent
 
 editEvent:
-    path: /admin/editEvent
+    path: /admin/editEvent/{id}
     controller: App\Controller\admin\EventController::editEvent
 
 deleteEvent:

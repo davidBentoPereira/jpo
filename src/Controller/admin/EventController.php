@@ -44,18 +44,31 @@ class EventController extends AbstractController
                 'type' => 'add']);
     }
 
-    public function editEvent(Request $request)
+    public function editEvent($id, Request $request)
     {
+        $repository = $this->getDoctrine()->getRepository(Event::class);
+        $event = $repository->findOneBy(['id' => $id]);
+
         $form = $this->createForm(EventType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->getMethod() == 'POST') {
+                $entityManager = $this->getDoctrine()->getManager();
+                $data = $form->getData();;
+                $event->setTitle( $data['title']);
+                $event->setDateOfClosure($data['dateOfClosure']);
+                $event->setDescription($data['description']);
+                $entityManager->persist($event);
+                $entityManager->flush();
+            }
             return $this->redirectToRoute('event');
         }
 
         return $this->render('admin/formEvent.html.twig',
             ['form' => $form->createView(),
-                'type' => 'edit']);
+                'type' => 'edit',
+                'event' => $event]);
     }
 
     public function deleteEvent()
