@@ -3,6 +3,17 @@
     margin-right:0px;
 }
 
+.btn-violet {
+    background-color: #D260FF;
+    color: white;
+}
+
+.btn-violet:hover {
+    color: #fff;
+    background-color: #BF53E9;
+    border-color: #AF49D7;
+}
+
 #wrapper {
     padding-left: 70px;
     transition: all .4s ease 0s;
@@ -127,6 +138,12 @@
 
 .btn {
     font-size: 16px;
+    margin: 17px;
+}
+
+#signout {
+    margin: 0;
+    padding: 2px;
 }
 
 /* ----- Cards ----- */
@@ -151,18 +168,16 @@
      background-color: #2a3181;
  }
 
-.card-basic button {
-    width: auto;
-    margin: auto;
-    margin-top: -10px;
-    text-align: center;
-    justify-content: flex-end;
-}
-
 .card-add img {
     height: auto;
     width: 135px;
     margin: auto;
+}
+
+.card-basic a {
+    width: auto;
+    margin-top: -10px;
+    align-content: flex-end;
 }
 
 .card-chart {
@@ -175,7 +190,7 @@
     border-style: solid;
 }
 
-.card-survey button {
+.card-survey a {
     margin: auto;
 }
 
@@ -185,10 +200,35 @@
     border-radius: 5px;
     height: 25px;
     width: auto;
+    padding: 1%;
     color: black;
 }
 
 .btn-survey {
-    justify-content: flex-end;
     padding: .2rem;
+    margin: 0;
+}
+
+.flex-end {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+    height: 50%;
+}
+.btn.btn-danger.btn-survey, .btn.btn-info.btn-survey, .btn.btn-success.btn-survey{
+    width: auto;
+    margin: 2px;
+    height: 3rem;
+}
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 30%;
+}
+
+.tag-event-div {
+    height: 20%;
 }

@@ -1,0 +1,26 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Ajout Evenement{% endblock %}
+
+{% block body %}
+    {% if type == 'add' %}
+        <h1>Nouveau sondage</h1>
+    {% else %}
+        <h1>Modifier le sondage</h1>
+    {% endif %}
+    {{ form_start(form) }}
+    <div class="col-md-6">
+        <div class="form-group">
+            {{ form_row(form.title) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.event) }}
+        </div>
+        <div class="form-group">
+            {{ form_row(form.description) }}
+        </div>
+        <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
+        <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

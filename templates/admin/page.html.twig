@@ -3,16 +3,20 @@
 {% block title %}AdminController{% endblock %}
 
 {% block body %}
-<h1>Page</h1>
+    <h1>Page</h1>
     <div class="row">
-        <div class="card card-add">
-            <img src="{{ asset('img/icon/add.png') }}"/>
-        </div>
-        <div class="card card-basic">
-            <h2>Nom de la page</h2>
-            <button id="delete-page" type="button" class="btn btn-danger text-right"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</button>
-            <button id="edit-page" type="button" class="btn btn-info text-right"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</button>
-        </div>
+        <a href="">
+            <div class="card card-add">
+                <img src="{{ asset('img/icon/add.png') }}"/>
+            </div>
+        </a>
+        {% for page in pages %}
+            <div class="card card-basic">
+                <h2>{{ page.title }}</h2>
+                <a href="" id="delete-page" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                <a href="" id="edit-page" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

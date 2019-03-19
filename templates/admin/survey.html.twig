@@ -1,27 +1,29 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}AdminController{% endblock %}
+{% block title %}Sondage{% endblock %}
 
 {% block body %}
     <h1>Sondage</h1>
     <div class="row">
-        <div class="card card-add">
-            <img src="{{ asset('img/icon/add.png') }}"/>
-        </div>
-        <div class="card card-basic card-survey">
-            <div class="row">
-                <div class="tag-event">Evenement associé </div>
+        <a href="{{ path('addSurvey') }}">
+            <div class="card card-add">
+                <img src="{{ asset('img/icon/add.png') }}"/>
             </div>
-            <div class="row">
-                <h2>Nom du sondage</h2>
+        </a>
+        {% for survey in surveys %}
+            <div class="card card-basic card-survey">
+                <div class="row tag-event-div">
+                    <div class="tag-event">{{ survey.event.title }}  </div>
+                </div>
+                <div class="row title">
+                    <h2>{{ survey.title }}</h2>
+                </div>
+                <div class="flex-end">
+                    <a href="" id="delete-survey" class="btn btn-danger btn-survey"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                    <a href="{{ path('editSurvey') }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+                    <a href="" id="result-survey" class="btn btn-success btn-survey"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</a>
+                </div>
             </div>
-            <div class="row">
-                <button id="delete-survey" type="button" class="btn btn-danger text-right btn-survey" style=";"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</button>
-                <button id="edit-survey" type="button" class="btn btn-info text-right btn-survey" style=""><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</button>
-            </div>
-            <div class="row">
-                <button id="result-survey" type="button" class="btn btn-success text-right"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</button>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}

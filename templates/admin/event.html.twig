@@ -13,8 +13,8 @@
         {% for event in events %}
             <div class="card card-basic">
                 <h2>{{ event.title }}</h2>
-                <button id="delete-event" type="button" class="btn btn-danger text-right"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</button>
-                <button id="edit-event" type="button" class="btn btn-info text-right"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</button>
+                <a href="{{ path('deleteEvent') }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                <a href="{{ path('editEvent') }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
             </div>
         {% endfor %}
     </div>
