@@ -24,6 +24,18 @@ class EventController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if($request->getMethod() == 'POST')
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $data = $form->getData();;
+                $title = $data['title'];
+                $dateOfOpening = new \DateTimeImmutable('now');
+                $dateOfClosure = $data['dateOfClosure'];
+                $event = new Event($title, $dateOfOpening, $dateOfClosure);
+                $event->setDescription($data['description']);
+                $entityManager->persist($event);
+                $entityManager->flush();
+            }
             return $this->redirectToRoute('event');
         }
 
