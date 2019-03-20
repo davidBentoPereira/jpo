@@ -81,3 +81,7 @@ page_add:
 page_edit:
     path: /admin/editer-une-page/{id}
     controller: App\Controller\admin\PageController::pageEdit
+
+page_delete:
+    path: /admin/suppression-filiere/{id}
+    controller: App\Controller\admin\PageController::pageDelete

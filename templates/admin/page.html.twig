@@ -3,8 +3,6 @@
 {% block title %}AdminController{% endblock %}
 
 {% block body %}
-    {{ dump() }}
-
     <h1>Page</h1>
     <div class="row">
         <a href="{{ path('page_add') }}">
@@ -15,30 +13,29 @@
         {% for filiere in filieres %}
             <div class="card card-basic d-flex flex-column p-2">
                 <h4 class="text-center mt-3 mb-4">{{ filiere.title }}</h4>
-                <a href="" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Supprimer</a>
+                <a href="{{ path('page_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Supprimer</a>
+                {#<a href="" id="delete-event" class="btn btn-danger btn-block" data-toggle="modal" data-target="#exampleModal"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Supprimer</a>#}
                 <a href="{{ path('page_edit', {'id': filiere.id }) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Editer</a>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {#<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+                {#<div class="modal-dialog" role="document">#}
+                    {#<div class="modal-content">#}
+                        {#<div class="modal-header">#}
+                            {#<h5 class="modal-title" id="exampleModalLabel">Voulez-vous vraiment supprimer cette filière ?</h5>#}
+                            {#<button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+                                {#<span aria-hidden="true">&times;</span>#}
+                            {#</button>#}
+                        {#</div>#}
+                        {#<div class="modal-footer justify-content-center">#}
+                            {#<a href="{{ path('page_delete', {'id': filiere.id}) }}">#}
+                                {#<button type="button" class="btn btn-danger btn-block">Supprimer</button>#}
+                            {#</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
         {% endfor %}
     </div>
 

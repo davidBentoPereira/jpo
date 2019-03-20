@@ -14,9 +14,7 @@ class PageController extends AbstractController
 {
     public function page(FiliereRepository $repo): Response
     {
-        $filieres = $repo->findAll();
-//        $repo->deleteFiliere(5);
-        return $this->render('admin/page.html.twig', ['filieres' => $filieres]);
+        return $this->render('admin/page.html.twig', ['filieres' => $repo->findAll()]);
     }
 
     public function pageAdd(Request $request, EntityManagerInterface $em): Response
@@ -55,5 +53,11 @@ class PageController extends AbstractController
         }
 
         return $this->render('admin/page_edit.html.twig', ['pageForm' => $pageForm->createView()]);
+    }
+
+    public function pageDelete($id, FiliereRepository $repo)
+    {
+        $repo->deleteFiliere($id);
+        return $this->redirectToRoute('page');
     }
 }
