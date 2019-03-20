@@ -73,6 +73,10 @@ deleteSurvey:
     path: admin/deleteSurvey/{id}
     controller: App\Controller\admin\SurveyController::deleteSurvey
 
+resultSurvey:
+    path: admin/resultSurvey/{id}
+    controller: App\Controller\admin\SurveyController::resultSurvey
+
 #--- Page
 page:
     path: /admin/page

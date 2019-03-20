@@ -80,4 +80,13 @@ class SurveyController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('survey');
     }
+
+    public function resultSurvey($id,  SurveyRepository $surveyRepository)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $survey = $surveyRepository->findOneBy(['id' => $id]);
+
+        return $this->render('admin/resultSurvey.html.twig',
+            ['survey' => $survey]);
+    }
 }

@@ -1,6 +1,6 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Ajout Evenement{% endblock %}
+{% block title %}Formulaire Sondage{% endblock %}
 
 {% block body %}
     {% if type == 'add' %}
@@ -11,7 +11,7 @@
 
     {% if survey is defined %}
         {{ form_start(form) }}
-        <div class="col-md-6">
+        <div class="col-md-11">
             <div class="form-group">
                 {{ form_label(form.title, 'Titre') }}
                 {{ form_widget(form.title, {'attr': {'value': survey.title }}) }}
@@ -22,6 +22,25 @@
                 {{ form_widget(form.event, {value : id }) }}
             </div>
             <div class="form-group">
+                {% set questions = survey.questions %}
+                {% set inc = 1 %}
+                <div class="row">
+                    {% for question in questions %}
+                        <div class="card">
+                            <div class="card-body question">
+                                <h5 class="card-title">Question n°{{ inc }}</h5>
+                                <div class="body-question">
+                                    <p class="card-text">{{ question.title }}</p>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.label }}</h6>
+                                </div>
+                                <div class="end-question">
+                                    <a href="#" class="btn btn-violet">Modification</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% set inc = inc + 1 %}
+                    {% endfor %}
+                </div>
             </div>
             <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
@@ -29,7 +48,7 @@
         {{ form_end(form) }}
     {% else %}
         {{ form_start(form) }}
-        <div class="col-md-6">
+        <div class="col-md-11">
             <div class="form-group">
                 {{ form_row(form.title) }}
             </div>
