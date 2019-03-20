@@ -22,16 +22,19 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('formations') }}">Tableau des formations</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Accueil Relations Clientèle Usager</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">ASSP  (Option Structure)</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Commerce</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Esthétique – Cosmétique - Parfumerie</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Gestion - Administration</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Métiers de la Mode</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">3ème Prépa Métiers</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">C.A.P Vente (Option B produits d’équipement courant)</a>
-                            <a class="dropdown-item" href="{{ path('filiere') }}">Formation Aide Soignante</a>
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Accueil Relations Clientèle Usager</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">ASSP  (Option Structure)</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Commerce</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Esthétique – Cosmétique - Parfumerie</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Gestion - Administration</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Métiers de la Mode</a>#}
+                            {#<div class="dropdown-divider"></div>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">3ème Prépa Métiers</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">C.A.P Vente (Option B produits d’équipement courant)</a>#}
+                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Formation Aide Soignante</a>#}
+                            {% for listFiliere in listFilieres %}
+                                <a class="dropdown-item" href="{{ path('filiere', {'id': listFiliere.id, 'title': listFiliere.title}) }}">{{ listFiliere.title }}</a>
+                            {% endfor %}
                         </div>
                     </li>
 

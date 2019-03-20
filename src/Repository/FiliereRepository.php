@@ -19,32 +19,13 @@ class FiliereRepository extends ServiceEntityRepository
         parent::__construct($registry, Filiere::class);
     }
 
-    // /**
-    //  * @return Filiere[] Returns an array of Filiere objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function deleteFiliere($id)
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $entityManager = $this->getEntityManager();
 
-    /*
-    public function findOneBySomeField($value): ?Filiere
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $entityManager
+            ->createQuery('DELETE App\Entity\Filiere v WHERE v.id = :id')
+            ->setParameter('id', $id)
+            ->execute();
     }
-    */
 }

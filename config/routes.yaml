@@ -8,7 +8,7 @@ formations:
     controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere
+    path: /filiere/{id}/{title}
     controller: App\Controller\FrontController::filiere
 
 sondages:

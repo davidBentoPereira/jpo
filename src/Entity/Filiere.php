@@ -272,16 +272,4 @@ class Filiere
 
         return $this;
     }
-
-    public function getTextBlock6(): ?string
-    {
-        return $this->textBlock6;
-    }
-
-    public function setTextBlock6(?string $textBlock6): self
-    {
-        $this->textBlock6 = $textBlock6;
-
-        return $this;
-    }
 }
