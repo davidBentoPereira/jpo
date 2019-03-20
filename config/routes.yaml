@@ -30,14 +30,8 @@ mlds:
 histoire:
     path: /histoire-du-lycee
     controller: App\Controller\FrontController::histoire
-    
-    # - - - - - ADMIN - - - - -
 
-
-#--- Dashboard
-dashboard:
-    path: /admin
-    controller: App\Controller\admin\AdminController::index
+    # - - - - - AUTH - - - - -
 
 login:
     path: /connexion
@@ -46,35 +40,15 @@ login:
 
 logout:
     path: /logout
-#--- Event
+    # - - - - - ADMIN - - - - -
+dashboard:
+    path: /admin
+    controller: App\Controller\admin\AdminController::index
+
 event:
     path: /admin/event
     controller: App\Controller\admin\EventController::event
 
-addEvent:
-    path: /admin/addEvent
-    controller: App\Controller\admin\EventController::addEvent
-
-editEvent:
-    path: /admin/editEvent/{id}
-    controller: App\Controller\admin\EventController::editEvent
-
-    # - - - - - ADMIN - - - - -
-dashboard:
-    path: /admin
-    controller: App\Controller\AdminController::index
-
-page:
-    path: /admin/page
-    controller: App\Controller\AdminController::page
-
-event:
-    path: /admin/event
-    controller: App\Controller\AdminController::event
-
-survey:
-    path: /admin/survey
-    controller: App\Controller\AdminController::survey
 deleteEvent:
     path: /admin/deleteEvent/{id}
     controller: App\Controller\admin\EventController::deleteEvent
@@ -87,6 +61,14 @@ survey:
 addSurvey:
     path: admin/addSurvey
     controller: App\Controller\admin\SurveyController::addSurvey
+
+addEvent:
+    path: /admin/addEvent
+    controller: App\Controller\admin\EventController::addEvent
+
+editEvent:
+    path: /admin/editEvent/{id}
+    controller: App\Controller\admin\EventController::editEvent
 
 editSurvey:
     path: admin/editSurvey/{id}
