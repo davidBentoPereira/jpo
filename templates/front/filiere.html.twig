@@ -1,23 +1,16 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Filière!{% endblock %}
+{% block title %}Filière{% endblock %}
 
 {% block body %}
+
     <div class="container mt-4 mb-4" id="mlds">
 
         <div class="row">
-            <div class="col-12 block shadow p-3 text-justify hvr-underline-from-center">
-                <h1 class="text-center h3">Accueil Relations Clientèle Usager</h1>
-                <p class="text-center"><em>Admission après la classe de 3ème - La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine</em></p>
-                <p>
-                    Le titulaire du Bac pro ARCU accueille les clients ou les usagers en face à face ou par téléphone et
-                    assure la prise en charge de leurs demandes ou réclamations ; conseille, informe et assiste le client
-                    ou l’usager ; propose et réalise des ventes de services ; exerce ses activités dans les entreprises
-                    de services aux particuliers ou aux entreprises (agences de tourisme, société de location, compagnies
-                    aérienne, maritime et ferroviaire, organismes de crédit et assurances, centres de loisirs…), dans les
-                    services d’information et de production, les administrations, les SAV d’entreprises, mairies, hôtels
-                    de région, hôpitaux…
-                </p>
+            <div class="col-12 block shadow p-3 m-3 text-justify hvr-underline-from-center">
+                <h1 class="text-center h3">{{ filiere.title }}</h1>
+                <p class="text-center"><em>{{ filiere.candidate }}</em></p>
+                <p>{{ filiere.description|raw }}</p>
             </div>
         </div>
 
@@ -27,14 +20,8 @@
                     <div><img src="{{ asset('img/icon/settings.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
 
-                <h2 class="text-center h4">Qualités Requises</h2>
-                <ul>
-                    <li>Etre à l'écoute</li>
-                    <li>Rigoureux</li>
-                    <li>Dynamique</li>
-                    <li>Présentation soigné</li>
-                    <li>Contact aisé</li>
-                </ul>
+                <h2 class="text-center h4">{{ filiere.titleBlock1 }}</h2>
+                {{ filiere.textBlock1|raw }}
             </div>
 
             <div class="col-3 block shadow p-3  hvr-float-shadow">
@@ -42,11 +29,8 @@
                     <div><img src="{{ asset('img/icon/handyman-tools.png') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
 
-                <h2 class="text-center h4">Compétences Développées</h2>
-                <p>
-                    Capacité à répondre aux demandes en face à face ou par téléphone, développement du sens de l’écoute,  valuation de la satisfaction de l’interlocuteur, compétences commerciales : savoir vendre des
-                    services, assurer le démarchage, traiter la mise à jour de fichiers prospects, établir des factures et encaisser.
-                </p>
+                <h2 class="text-center h4">{{ filiere.titleBlock2 }}</h2>
+                {{ filiere.textBlock2|raw }}
             </div>
 
             <div class="col-3 block shadow p-3 hvr-float-shadow">
@@ -54,10 +38,8 @@
                     <div><img src="{{ asset('img/icon/university-lecture.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
 
-                <h2 class="text-center h4">Les formations en entreprise</h2>
-                <p>22 semaines de stage en entreprise réparties sur 3 ans que dure
-                    la formation : hôtel, centre médical, mairie, administrations,
-                    agence intérim, organisme culturel, entreprise</p>
+                <h2 class="text-center h4">{{ filiere.titleBlock3 }}</h2>
+                {{ filiere.textBlock3|raw }}
             </div>
         </div>
 
@@ -67,12 +49,8 @@
                     <div><img src="{{ asset('img/icon/business-person.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
 
-                <h2 class="text-center h4">Vie active</h2>
-                <ul>
-                    <li>Hôte/Hôtesse d’accueil / de caisse / en agence événementielle</li>
-                    <li>Chargé(e) de l’accueil</li>
-                    <li>Standardiste</li>
-                </ul>
+                <h2 class="text-center h4">{{ filiere.titleBlock4 }}</h2>
+                {{ filiere.textBlock4|raw }}
             </div>
 
             <div class="col-5 block shadow p-3 hvr-float-shadow">
@@ -80,13 +58,8 @@
                     <div><img src="{{ asset('img/icon/study.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
 
-                <h2 class="text-center h4">Poursuite d'Etudes</h2>
-                <ul>
-                    <li>Mention complémentaire Accueil dans les transports : Agent d’escale en aéroport ou dans une société aéroportuaire</li>
-                    <li>Mention complémentaire Accueil réception : réceptionniste dans les établissements d’hébergement (hôtel, résidence médicalisée, centre de loisirs…)</li>
-                    <li>BTS Tourisme : production de vente de voyages et séjours pour des clients français et étrangers</li>
-                    <li>BTS Assistant(e) de gestion PME – PMI : assistant(e)  commercial(e), secrétaire</li>
-                </ul>
+                <h2 class="text-center h4">{{ filiere.titleBlock5 }}</h2>
+                {{ filiere.textBlock5|raw }}
             </div>
         </div>
 

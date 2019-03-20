@@ -8,7 +8,7 @@ formations:
     controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere
+    path: /filiere/{id}/{title}
     controller: App\Controller\FrontController::filiere
 
 sondages:
@@ -30,6 +30,14 @@ mlds:
 histoire:
     path: /histoire-du-lycee
     controller: App\Controller\FrontController::histoire
+    
+    # - - - - - ADMIN - - - - -
+
+
+#--- Dashboard
+dashboard:
+    path: /admin
+    controller: App\Controller\admin\AdminController::index
 
 login:
     path: /connexion
@@ -38,7 +46,18 @@ login:
 
 logout:
     path: /logout
+#--- Event
+event:
+    path: /admin/event
+    controller: App\Controller\admin\EventController::event
 
+addEvent:
+    path: /admin/addEvent
+    controller: App\Controller\admin\EventController::addEvent
+
+editEvent:
+    path: /admin/editEvent/{id}
+    controller: App\Controller\admin\EventController::editEvent
 
     # - - - - - ADMIN - - - - -
 dashboard:
@@ -56,3 +75,44 @@ event:
 survey:
     path: /admin/survey
     controller: App\Controller\AdminController::survey
+deleteEvent:
+    path: /admin/deleteEvent/{id}
+    controller: App\Controller\admin\EventController::deleteEvent
+
+#--- Survey
+survey:
+    path: /admin/survey
+    controller: App\Controller\admin\SurveyController::survey
+
+addSurvey:
+    path: admin/addSurvey
+    controller: App\Controller\admin\SurveyController::addSurvey
+
+editSurvey:
+    path: admin/editSurvey/{id}
+    controller: App\Controller\admin\SurveyController::editSurvey
+
+deleteSurvey:
+    path: admin/deleteSurvey/{id}
+    controller: App\Controller\admin\SurveyController::deleteSurvey
+
+resultSurvey:
+    path: admin/resultSurvey/{id}
+    controller: App\Controller\admin\SurveyController::resultSurvey
+
+#--- Page
+page:
+    path: /admin/liste-des-pages
+    controller: App\Controller\admin\PageController::page
+
+page_add:
+    path: /admin/ajouter-une-page
+    controller: App\Controller\admin\PageController::pageAdd
+
+page_edit:
+    path: /admin/editer-une-page/{id}
+    controller: App\Controller\admin\PageController::pageEdit
+
+page_delete:
+    path: /admin/suppression-filiere/{id}
+    controller: App\Controller\admin\PageController::pageDelete
