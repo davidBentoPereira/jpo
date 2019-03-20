@@ -26,11 +26,20 @@
                 {% set inc = 1 %}
                 <div class="row">
                     {% for question in questions %}
-                        <div class="card">
-                            <div class="card-body question">
-                                <h5 class="card-title">Question n°{{ inc }}</h5>
+                        <div class="card question">
+                            <div class="card-header">
+                                <div class="row btn-suppr-flex-row">
+                                    <div class="head-quest-title">
+                                        Question n°{{ inc }}
+                                    </div>
+                                    <div class="head-quest-btn">
+                                        <a href="#" class="btn btn-danger btn-suppr"><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="body-question">
-                                    <p class="card-text">{{ question.title }}</p>
+                                    <h5 class="card-title">{{ question.title }}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.label }}</h6>
                                 </div>
                                 <div class="end-question">
