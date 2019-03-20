@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container" id="main-content">
-        <h1 class="modal-title" id="exampleModalLabel">Connexion à l'espace d'administration</h1>
+        <h1 class="modal-title" id="exampleModalLabel" style="text-align: center">Connexion à l'espace d'administration</h1>
             {% if messages|length > 0 %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message['class'] }}" role="alert">
@@ -13,7 +13,7 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            <div class="col-8">
+        <div class="col-8"  style="margin: auto">
             <form action="{{ path('login') }}" method="POST">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

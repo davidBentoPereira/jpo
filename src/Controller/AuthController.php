@@ -19,35 +19,31 @@ class AuthController extends AbstractController
         UserPasswordEncoderInterface $encoder
     )
     {
-        if($request->isMethod('POST')){
+        if($request->isMethod('POST'))
+        {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
-            $mockedAdminSubmited = new Admin();
-            $mockedAdminSubmited->setEmail($email);
-            $mockedAdminSubmited->setPassword($encoder->encodePassword(
-                $mockedAdminSubmited, $password
-            ));
-
             $admin = $this->getDoctrine()
-                ->getRepository(Admin::class)
-                ->findOneBy([
-                    "email" => $mockedAdminSubmited->getEmail()
+            ->getRepository(Admin::class)
+            ->findOneBy([
+                "email" => $email
                 ]);
 
-            return new Response(var_dump($mockedAdminSubmited)."<hr/>".var_dump($admin));
-
-            // if ($admin)
-            // {
-            //     return $this->redirectToRoute('dashboard');
-            // }
-            // else
-            // {
-            //     $this->messages[] = [
-            //         'content' => 'Adresse mail ou mot de passe invalide.',
-            //         'class' => 'danger'
-            //     ];
-            // }
+            if (
+                $admin &&
+                $encoder->isPasswordValid($admin, $password)
+            )
+            {
+                // return $this->redirectToRoute('dashboard');
+            }
+            else
+            {
+                $this->messages[] = [
+                    'content' => 'Adresse mail ou mot de passe invalide.',
+                    'class' => 'danger'
+                ];
+            }
         }
 
         return $this->render('front/login.html.twig', ['messages' => $this->messages]);
