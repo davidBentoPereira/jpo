@@ -4,6 +4,7 @@ namespace App\Controller\admin;
 
 use App\Entity\Event;
 use App\Form\EventType;
+use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,7 +28,7 @@ class EventController extends AbstractController
             if($request->getMethod() == 'POST')
             {
                 $entityManager = $this->getDoctrine()->getManager();
-                $data = $form->getData();;
+                $data = $form->getData();
                 $title = $data['title'];
                 $dateOfOpening = new \DateTimeImmutable('now');
                 $dateOfClosure = $data['dateOfClosure'];
@@ -44,9 +45,8 @@ class EventController extends AbstractController
                 'type' => 'add']);
     }
 
-    public function editEvent($id, Request $request)
+    public function editEvent($id, Request $request, EventRepository $repository)
     {
-        $repository = $this->getDoctrine()->getRepository(Event::class);
         $event = $repository->findOneBy(['id' => $id]);
 
         $form = $this->createForm(EventType::class);
@@ -55,7 +55,7 @@ class EventController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             if ($request->getMethod() == 'POST') {
                 $entityManager = $this->getDoctrine()->getManager();
-                $data = $form->getData();;
+                $data = $form->getData();
                 $event->setTitle( $data['title']);
                 $event->setDateOfClosure($data['dateOfClosure']);
                 $event->setDescription($data['description']);

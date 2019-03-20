@@ -10,6 +10,7 @@
             <h1>Modifier l'événement {{ event.title }}</h1>
         {% endif %}
     {% endif %}
+
     {% if event is defined %}
         {{ form_start(form) }}
         <div class="col-md-10">
@@ -21,7 +22,7 @@
                 <div class="row">
                     {{ form_label(form.dateOfClosure, 'Date de fin') }}
                     <div class="col-md-2">
-                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour', 'class': '' }, 'value': event.dateOfClosure.format('d')})}}
+                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour' }, 'value': event.dateOfClosure.format('d')})}}
                     </div> /
                     <div class="col-md-2">
                         {{ form_widget(form.dateOfClosure.date.month, {'attr': {'placeholder': 'mois' }, 'value': event.dateOfClosure.format('m')})}}
@@ -36,7 +37,6 @@
                         {{ form_widget(form.dateOfClosure.time.minute, {'attr': {'placeholder': 'minute' }, 'value': event.dateOfClosure.format('i')})}}
                     </div>
                 </div>
-                <small>Date de fin actuelle : {{ event.dateOfClosure|date("d/m/Y H:i:s") }}</small>
             </div>
             <div class="form-group">
                 {{ form_label(form.description, 'Description') }}
@@ -56,7 +56,7 @@
                 <div class="row">
                     {{ form_label(form.dateOfClosure, 'Date de fin') }}
                     <div class="col-md-2">
-                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour', 'class': '' }})}}
+                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour'}})}}
                     </div> /
                     <div class="col-md-2">
                         {{ form_widget(form.dateOfClosure.date.month, {'attr': {'placeholder': 'mois' }})}}

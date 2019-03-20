@@ -66,7 +66,7 @@ addSurvey:
     controller: App\Controller\admin\SurveyController::addSurvey
 
 editSurvey:
-    path: admin/editSurvey
+    path: admin/editSurvey/{id}
     controller: App\Controller\admin\SurveyController::editSurvey
 
 #--- Page
