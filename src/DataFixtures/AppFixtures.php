@@ -38,11 +38,10 @@ class AppFixtures extends Fixture
         $admin = new Admin("test@example.com", $encryptingService->getEncryptedString());
         $manager->persist($admin);
 
-
         /**
          * Génération des fixtures des pages formations
          */
-        for($i = 1; $i < 7; ++$i)
+        /*for($i = 1; $i < 7; ++$i)
         {
             $sections = [];
             $page = new Page("Page ".$i);
@@ -52,7 +51,7 @@ class AppFixtures extends Fixture
                 $page->addSection($section);
             }
             $manager->persist($page);
-        }
+        }*/
 
 
         /**

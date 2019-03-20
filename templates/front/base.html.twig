@@ -17,7 +17,8 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    {% include 'front/base/nav.html.twig' %}
+    {#{% include 'front/base/nav.html.twig' %}#}
+    {{ render(controller('App\\Controller\\FrontController::navbarListFiliere')) }}
     {% block body %}{% endblock %}
     {% include 'front/base/footer.html.twig' %}
     <!-- Bootstrap JS -->
