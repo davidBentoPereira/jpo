@@ -5,12 +5,12 @@ security:
             # bcrypt or argon2i are recommended
             # argon2i is more secure, but requires PHP 7.2 or the Sodium extension
             algorithm: bcrypt
-            cost: 12
+
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         # used to reload user from session & other features (e.g. switch_user)
-        app_admin_provider:
+        app_user_provider:
             entity:
                 class: App\Entity\Admin
                 property: email
@@ -21,11 +21,12 @@ security:
         main:
             anonymous: ~
             form_login:
-                login_path: login
+                default_target_path: dashboard
                 check_path: login
+                failure_path: /
             logout:
-                path: /logout
-                target: /
+                path: logout
+                target: /connexion
 
             # activate different ways to authenticate
 
@@ -39,4 +40,3 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }

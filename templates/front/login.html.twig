@@ -3,18 +3,30 @@
 {% block title %}Connexion à l'espace administrateur!{% endblock %}
 
 {% block body %}
+    <style>
+        .container{
+            text-align: center;
+            padding: 15px 0;
+        }
+        form{
+            text-align: left;
+            margin: auto;
+        }
+        input{
+            margin-left: 15px;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            border-radius: 3px;
+            color: #fff;
+        }
+    </style>
     <div class="container" id="main-content">
-        <h1 class="modal-title" id="exampleModalLabel" style="text-align: center">Connexion à l'espace d'administration</h1>
-            {% if messages|length > 0 %}
-                {% for message in messages %}
-                    <div class="alert alert-{{ message['class'] }}" role="alert">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        {{ message['content'] }}
-                    </div>
-                {% endfor %}
-            {% endif %}
+        <h1 class="modal-title" id="exampleModalLabel">Connexion à l'espace d'administration</h1>
         <div class="col-8"  style="margin: auto">
-            <form action="{{ path('login') }}" method="POST">
+            {# <form action="{{ path('login') }}" method="POST">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -30,7 +42,8 @@
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-outline-secondary btn-block"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
                 </div>
-            </form>
+            </form> #}
+            {{ form(loginForm) }}
         </div>
     </div>
 {% endblock %}

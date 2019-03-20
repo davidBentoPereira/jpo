@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use App\FormType\LoginType;
 use App\Entity\Admin;
 
 class AuthController extends AbstractController
@@ -16,45 +18,21 @@ class AuthController extends AbstractController
     public function login(
         Request $request,
         ObjectManager $manager,
-        UserPasswordEncoderInterface $encoder
+        UserPasswordEncoderInterface $encoder,
+        AuthenticationUtils $authenticationUtils
     )
     {
-        if($request->isMethod('POST'))
-        {
-            $email = $request->request->get('email');
-            $password = $request->request->get('password');
+        $error = $authenticationUtils->getLastAuthenticationError();
 
-            $admin = $this->getDoctrine()
-            ->getRepository(Admin::class)
-            ->findOneBy([
-                "email" => $email
-                ]);
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-            if (
-                $admin &&
-                $encoder->isPasswordValid($admin, $password)
-            )
-            {
-                // return $this->redirectToRoute('dashboard');
-            }
-            else
-            {
-                $this->messages[] = [
-                    'content' => 'Adresse mail ou mot de passe invalide.',
-                    'class' => 'danger'
-                ];
-            }
-        }
+        $form = $this->createForm(LoginType::class);
 
-        return $this->render('front/login.html.twig', ['messages' => $this->messages]);
-    }
-
-    public function logout()
-    {
-        $this->messages[] = [
-            'content' => 'Vous vous êtes déconnecté.',
-            'class' => 'success'
-        ];
-        return $this->render('front/login.html.twig', ['messages' => $this->messages]);
+        return $this->render('front/login.html.twig',
+            [
+                'messages' => $this->messages,
+                'loginForm' => $form->createView()
+            ]
+        );
     }
 }

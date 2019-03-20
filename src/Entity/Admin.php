@@ -18,7 +18,7 @@ class Admin implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(name="email", type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
@@ -66,6 +66,8 @@ class Admin implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }

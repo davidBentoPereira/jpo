@@ -37,9 +37,7 @@ login:
     methods: GET|POST
 
 logout:
-    path: /deconnexion
-    controller: App\Controller\AuthController::logout
-    methods: GET
+    path: /logout
 
 
     # - - - - - ADMIN - - - - -
