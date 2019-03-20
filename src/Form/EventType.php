@@ -24,6 +24,7 @@ class EventType extends AbstractType
                     ]])
             ->add('dateOfClosure', DateTimeType::class,
                 ["label" => "Date de fin",
+                    'widget' => 'text',
                     'input' => "datetime_immutable",
                     'placeholder' => [
                         'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',

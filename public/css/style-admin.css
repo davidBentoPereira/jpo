@@ -232,3 +232,19 @@
 .tag-event-div {
     height: 20%;
 }
+
+.question {
+    color: black;
+}
+
+.body-question {
+    height: 65%;
+}
+
+.end-question {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    height: 25%;
+}

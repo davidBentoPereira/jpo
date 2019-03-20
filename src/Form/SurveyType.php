@@ -25,15 +25,10 @@ class SurveyType extends AbstractType
                         "placeholder" => "Entrez votre titre"
                     ]])
             ->add('event', EntityType::class, [
+                'label' => 'Evenement',
                 'class' => Event::class,
                 'choice_label' => 'title',
             ])
-            ->add('description', TextareaType::class,
-                ["label" => "Description",
-                    "attr" => [
-                        "class" => "form-control",
-                        "placeholder" => "Entrez votre description"
-                    ]])
         ;
     }
 
