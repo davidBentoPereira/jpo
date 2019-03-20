@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use App\FormType\LoginType;
+use App\Form\LoginType;
 use App\Entity\Admin;
 
 class AuthController extends AbstractController
