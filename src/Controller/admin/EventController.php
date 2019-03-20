@@ -71,8 +71,12 @@ class EventController extends AbstractController
                 'event' => $event]);
     }
 
-    public function deleteEvent()
+    public function deleteEvent($id,  EventRepository $eventRepository)
     {
-        return $this->render('admin/event.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $event = $eventRepository->findOneBy(['id' => $id]);
+        $entityManager->remove($event);
+        $entityManager->flush();
+        return $this->redirectToRoute('event');
     }
 }

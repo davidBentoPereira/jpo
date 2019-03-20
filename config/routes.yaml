@@ -53,7 +53,7 @@ editEvent:
     controller: App\Controller\admin\EventController::editEvent
 
 deleteEvent:
-    path: /admin/deleteEvent
+    path: /admin/deleteEvent/{id}
     controller: App\Controller\admin\EventController::deleteEvent
 
 #--- Survey
@@ -68,6 +68,10 @@ addSurvey:
 editSurvey:
     path: admin/editSurvey/{id}
     controller: App\Controller\admin\SurveyController::editSurvey
+
+deleteSurvey:
+    path: admin/deleteSurvey/{id}
+    controller: App\Controller\admin\SurveyController::deleteSurvey
 
 #--- Page
 page:

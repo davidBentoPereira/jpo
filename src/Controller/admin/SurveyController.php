@@ -72,8 +72,12 @@ class SurveyController extends AbstractController
                 'survey' => $survey]);
     }
 
-    public function deleteSurvey()
+    public function deleteSurvey($id,  SurveyRepository $surveyRepository)
     {
-        return $this->render('admin/survey.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $survey = $surveyRepository->findOneBy(['id' => $id]);
+        $entityManager->remove($survey);
+        $entityManager->flush();
+        return $this->redirectToRoute('survey');
     }
 }
