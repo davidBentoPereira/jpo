@@ -3,18 +3,20 @@
 {% block title %}AdminController{% endblock %}
 
 {% block body %}
+    {{ dump() }}
+
     <h1>Page</h1>
     <div class="row">
-        <a href="">
+        <a href="{{ path('page_add') }}">
             <div class="card card-add">
                 <img src="{{ asset('img/icon/add.png') }}"/>
             </div>
         </a>
         {% for page in pages %}
-            <div class="card card-basic">
-                <h2>{{ page.title }}</h2>
-                <a href="" id="delete-page" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
-                <a href="" id="edit-page" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+            <div class="card card-basic d-flex flex-column p-2">
+                <h4 class="text-center mt-3 mb-4">{{ page.title }}</h4>
+                <a href="" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Supprimer</a>
+                <a href="{{ path('page_edit', {'id': page.id }) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Editer</a>
             </div>
         {% endfor %}
     </div>

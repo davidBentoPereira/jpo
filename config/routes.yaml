@@ -71,5 +71,13 @@ editSurvey:
 
 #--- Page
 page:
-    path: /admin/page
+    path: /admin/liste-des-pages
     controller: App\Controller\admin\PageController::page
+
+page_add:
+    path: /admin/ajouter-une-page
+    controller: App\Controller\admin\PageController::pageAdd
+
+page_edit:
+    path: /admin/editer-une-page/{id}
+    controller: App\Controller\admin\PageController::pageEdit
