@@ -4,11 +4,11 @@ index:
     controller: App\Controller\FrontController::index
 
 formations:
-    path: /tableau-resume-des-formations
+    path: /tableau-des-formations
     controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere/{id}/{title}
+    path: /filiere-{id}/{title}
     controller: App\Controller\FrontController::filiere
 
 sondages:
