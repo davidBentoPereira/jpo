@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <div class="body-question">
                                     <h5 class="card-title">{{ question.title }}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.label }}</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.resume }}</h6>
                                 </div>
                                 <div class="end-question">
                                     <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{#{{ asset('img/icon/edit.png') }}#}" class="icon">Modification</a>
@@ -51,7 +51,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <a class="btn btn-violet" type="button" href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
+            <a {#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#} class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
@@ -66,7 +66,7 @@
             </div>
             <div class="form-group">
             </div>
-            <a data-toggle="modal" data-target="#modalQuestion" href="{{ path('addQuestion', {'id':survey.id}) }}" id="btnModalQuestion" class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
+            <a {#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#} class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
