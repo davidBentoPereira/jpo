@@ -33,7 +33,7 @@
                             {#<a class="dropdown-item" href="{{ path('filiere') }}">C.A.P Vente (Option B produits d’équipement courant)</a>#}
                             {#<a class="dropdown-item" href="{{ path('filiere') }}">Formation Aide Soignante</a>#}
                             {% for listFiliere in listFilieres %}
-                                <a class="dropdown-item" href="{{ path('filiere', {'id': listFiliere.id, 'title': listFiliere.title}) }}">{{ listFiliere.title }}</a>
+                                <a class="dropdown-item" href="{{ path('filiere', {'id': listFiliere.id, 'title': listFiliere.urlSlug }) }}">{{ listFiliere.title }}</a>
                             {% endfor %}
                         </div>
                     </li>
