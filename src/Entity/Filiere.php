@@ -97,16 +97,28 @@ class Filiere
         return $this->id;
     }
 
+    public function getUrlSlug(): ?string
+    {
+        return $this->urlSlug;
+    }
+
+    public function setUrlSlug(?string $urlSlug): self
+    {
+        $this->candidate = $urlSlug;
+
+        return $this;
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(?string $title): self
+    public function setTitle(?string $title)
     {
         $this->title = $title;
+        $this->initUrlSlug();
 
-        return $this;
     }
 
     public function getCandidate(): ?string
@@ -138,12 +150,11 @@ class Filiere
         return $this->titleBlock1;
     }
 
-    public function initUrlSlug(): string
+    public function initUrlSlug()
     {
         $slugGeneratorService = new SlugGeneratorService($this->title);
         $this->urlSlug = $slugGeneratorService->getSlug();
 
-        return $this;
     }
 
     public function setTitleBlock1(?string $titleBlock1): self

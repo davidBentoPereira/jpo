@@ -4,7 +4,7 @@ index:
     controller: App\Controller\FrontController::index
 
 formations:
-    path: /formations
+    path: /tableau-resume-des-formations
     controller: App\Controller\FrontController::formations
 
 filiere:
