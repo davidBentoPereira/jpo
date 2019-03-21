@@ -8,7 +8,7 @@ formations:
     controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere
+    path: /filiere/{id}/{title}
     controller: App\Controller\FrontController::filiere
 
 sondages:
@@ -30,27 +30,24 @@ mlds:
 histoire:
     path: /histoire-du-lycee
     controller: App\Controller\FrontController::histoire
-    
+
+    # - - - - - AUTH - - - - -
+
+login:
+    path: /connexion
+    controller: App\Controller\AuthController::login
+    methods: GET|POST
+
+logout:
+    path: /logout
     # - - - - - ADMIN - - - - -
-
-
-#--- Dashboard
 dashboard:
     path: /admin
     controller: App\Controller\admin\AdminController::index
 
-#--- Event
 event:
     path: /admin/event
     controller: App\Controller\admin\EventController::event
-
-addEvent:
-    path: /admin/addEvent
-    controller: App\Controller\admin\EventController::addEvent
-
-editEvent:
-    path: /admin/editEvent/{id}
-    controller: App\Controller\admin\EventController::editEvent
 
 deleteEvent:
     path: /admin/deleteEvent/{id}
@@ -64,6 +61,14 @@ survey:
 addSurvey:
     path: admin/addSurvey
     controller: App\Controller\admin\SurveyController::addSurvey
+
+addEvent:
+    path: /admin/addEvent
+    controller: App\Controller\admin\EventController::addEvent
+
+editEvent:
+    path: /admin/editEvent/{id}
+    controller: App\Controller\admin\EventController::editEvent
 
 editSurvey:
     path: admin/editSurvey/{id}
@@ -79,5 +84,17 @@ resultSurvey:
 
 #--- Page
 page:
-    path: /admin/page
+    path: /admin/liste-des-pages
     controller: App\Controller\admin\PageController::page
+
+page_add:
+    path: /admin/ajouter-une-page
+    controller: App\Controller\admin\PageController::pageAdd
+
+page_edit:
+    path: /admin/editer-une-page/{id}
+    controller: App\Controller\admin\PageController::pageEdit
+
+page_delete:
+    path: /admin/suppression-filiere/{id}
+    controller: App\Controller\admin\PageController::pageDelete
