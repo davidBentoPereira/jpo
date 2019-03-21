@@ -4,18 +4,19 @@
 
 {% block body %}
 
-    <div class="container mt-4 mb-4" id="mlds">
+    <div class="mx-3 px-3">
 
         <div class="row">
-            <div class="col-12 block shadow p-3 m-3 text-justify hvr-underline-from-center">
+            <div class="col-12 shadow p-3 m-3 text-justify hvr-underline-from-center">
                 <h1 class="text-center h3">{{ filiere.title }}</h1>
                 <p class="text-center"><em>{{ filiere.candidate }}</em></p>
                 <p>{{ filiere.description|raw }}</p>
             </div>
         </div>
 
-        <div class="row justify-content-around text-justify mt-4">
-            <div class="col-3 block shadow p-3">
+        <d  iv class="row justify-content-around text-justify mt-4">
+
+            <div class="col-3 shadow p-3">
                 <div class="row mt-2 justify-content-center">
                     <div><img src="{{ asset('img/icon/settings.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
@@ -24,7 +25,7 @@
                 {{ filiere.textBlock1|raw }}
             </div>
 
-            <div class="col-3 block shadow p-3">
+            <div class="col-3  shadow p-3">
                 <div class="row mt-2 justify-content-center">
                     <div><img src="{{ asset('img/icon/handyman-tools.png') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
@@ -33,7 +34,7 @@
                 {{ filiere.textBlock2|raw }}
             </div>
 
-            <div class="col-3 block shadow p-3">
+            <div class="col-3  shadow p-3">
                 <div class="row mt-2 justify-content-center">
                     <div><img src="{{ asset('img/icon/university-lecture.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
@@ -44,7 +45,7 @@
         </div>
 
         <div class="row justify-content-around text-justify mt-4">
-            <div class="col-5 block shadow p-3">
+            <div class="col-5  shadow p-3">
                 <div class="row mt-2 justify-content-center">
                     <div><img src="{{ asset('img/icon/business-person.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
@@ -53,7 +54,7 @@
                 {{ filiere.textBlock4|raw }}
             </div>
 
-            <div class="col-5 block shadow p-3">
+            <div class="col-5  shadow p-3">
                 <div class="row mt-2 justify-content-center">
                     <div><img src="{{ asset('img/icon/study.svg') }}" alt="" class="mx-auto" width="50px"></div>
                 </div>
