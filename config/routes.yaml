@@ -45,42 +45,56 @@ dashboard:
     path: /admin
     controller: App\Controller\admin\AdminController::index
 
-event:
-    path: /admin/event
-    controller: App\Controller\admin\EventController::event
-
-deleteEvent:
-    path: /admin/deleteEvent/{id}
-    controller: App\Controller\admin\EventController::deleteEvent
-
 #--- Survey
 survey:
     path: /admin/survey
     controller: App\Controller\admin\SurveyController::survey
 
 addSurvey:
-    path: admin/addSurvey
+    path: admin/add-survey
     controller: App\Controller\admin\SurveyController::addSurvey
 
-addEvent:
-    path: /admin/addEvent
-    controller: App\Controller\admin\EventController::addEvent
-
-editEvent:
-    path: /admin/editEvent/{id}
-    controller: App\Controller\admin\EventController::editEvent
-
 editSurvey:
-    path: admin/editSurvey/{id}
+    path: admin/edit-survey/{id}
     controller: App\Controller\admin\SurveyController::editSurvey
 
 deleteSurvey:
-    path: admin/deleteSurvey/{id}
+    path: admin/delete-survey/{id}
     controller: App\Controller\admin\SurveyController::deleteSurvey
 
 resultSurvey:
-    path: admin/resultSurvey/{id}
+    path: admin/result-survey/{id}
     controller: App\Controller\admin\SurveyController::resultSurvey
+
+    #--- Question
+addQuestion:
+    path: admin/edit-survey/{id}/add-question
+    controller: App\Controller\admin\SurveyController::addQuestion
+
+editQuestion:
+    path: admin/edit-survey/{idSurvey}/add-question/{idQuestion}
+    controller: App\Controller\admin\SurveyController::editQuestion
+
+deleteQuestion:
+    path: admin/edit-survey/{id}/delete-question/{idQuestion}
+    controller: App\Controller\admin\SurveyController::deleteQuestion
+
+#--- Event
+event:
+    path: /admin/event
+    controller: App\Controller\admin\EventController::event
+
+deleteEvent:
+    path: /admin/delete-event/{id}
+    controller: App\Controller\admin\EventController::deleteEvent
+
+addEvent:
+    path: /admin/add-event
+    controller: App\Controller\admin\EventController::addEvent
+
+editEvent:
+    path: /admin/edit-event/{id}
+    controller: App\Controller\admin\EventController::editEvent
 
 #--- Page
 page:

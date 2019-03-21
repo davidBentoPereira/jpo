@@ -33,7 +33,7 @@
                                         Question n°{{ inc }}
                                     </div>
                                     <div class="head-quest-btn">
-                                        <a href="#" class="btn btn-danger btn-suppr"><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a>
+                                        <a href="{{ path('deleteQuestion', {'id':survey.id, 'idQuestion': question.id}) }}" class="btn btn-danger btn-suppr"><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.label }}</h6>
                                 </div>
                                 <div class="end-question">
-                                    <a href="#" class="btn btn-violet">Modification</a>
+                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{#{{ asset('img/icon/edit.png') }}#}" class="icon">Modification</a>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
+            <a class="btn btn-violet" type="button" href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
@@ -66,9 +66,40 @@
             </div>
             <div class="form-group">
             </div>
-            <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
+            <a data-toggle="modal" data-target="#modalQuestion" href="{{ path('addQuestion', {'id':survey.id}) }}" id="btnModalQuestion" class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
     {% endif %}
+
+    {#----- QUESTION MODAL-----#}
+    {#<div class="modal modal-alert fade" id="modalQuestion" aria-labelledby="modalQuestion">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-title">
+
+                </div>
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="icon-cross"></span> Annuler</button>
+                    <button type="button" data-id="" data-type="" id="validModalList" class="btn btn-danger"><span class="icon-checkmark"></span> Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>#}
+
+
+    {# ----- SCRIPT ----- #}
+   {# <script>
+        $(document).ready(function () {
+            $('#btnModalQuestion').click(function () {
+                $('#modalQuestion').modal("show");
+            });
+        });
+    </script>#}
 {% endblock %}
