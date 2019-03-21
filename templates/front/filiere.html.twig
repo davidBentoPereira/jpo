@@ -6,63 +6,81 @@
 
     <div class="mx-3 px-3">
 
-        <div class="row">
-            <div class="col-12 shadow p-3 m-3 text-justify hvr-underline-from-center">
-                <h1 class="text-center h3">{{ filiere.title }}</h1>
-                <p class="text-center"><em>{{ filiere.candidate }}</em></p>
-                <p>{{ filiere.description|raw }}</p>
+        <div class="row justify-content-center text-justify">
+
+            <div class="card col-12 shadow p-3 m-3 hvr-underline-from-center">
+                <div class="card-body">
+                    <h1 class="card-title text-center h3">{{ filiere.title }}</h1>
+                    <p class="card-text"><em>{{ filiere.candidate }}</em></p>
+                    <p class="card-text">{{ filiere.description|raw }}</p>
+                </div>
             </div>
+
         </div>
 
-        <d  iv class="row justify-content-around text-justify mt-4">
+        <div class="row justify-content-around text-justify mt-4">
 
-            <div class="col-3 shadow p-3">
-                <div class="row mt-2 justify-content-center">
-                    <div><img src="{{ asset('img/icon/settings.svg') }}" alt="" class="mx-auto" width="50px"></div>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="row mt-2 justify-content-center">
+                        <div><img src="{{ asset('img/icon/settings.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center h4">{{ filiere.titleBlock1 }}</h2>
+                        <p class="card-text">{{ filiere.textBlock1|raw }}</p>
+                    </div>
                 </div>
 
-                <h2 class="text-center h4">{{ filiere.titleBlock1 }}</h2>
-                {{ filiere.textBlock1|raw }}
-            </div>
-
-            <div class="col-3  shadow p-3">
-                <div class="row mt-2 justify-content-center">
-                    <div><img src="{{ asset('img/icon/handyman-tools.png') }}" alt="" class="mx-auto" width="50px"></div>
+                <div class="card">
+                    <div class="row mt-2 justify-content-center">
+                        <div><img src="{{ asset('img/icon/handyman-tools.png') }}" alt="" class="mx-auto" width="50px"></div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center h4">{{ filiere.titleBlock2 }}</h2>
+                        <p class="card-text">{{ filiere.textBlock2|raw }}</p>
+                    </div>
                 </div>
 
-                <h2 class="text-center h4">{{ filiere.titleBlock2 }}</h2>
-                {{ filiere.textBlock2|raw }}
-            </div>
-
-            <div class="col-3  shadow p-3">
-                <div class="row mt-2 justify-content-center">
-                    <div><img src="{{ asset('img/icon/university-lecture.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                <div class="card">
+                    <div class="row mt-2 justify-content-center">
+                        <div><img src="{{ asset('img/icon/university-lecture.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center h4">{{ filiere.titleBlock3 }}</h2>
+                        <p class="card-text">{{ filiere.textBlock3|raw }}</p>
+                    </div>
                 </div>
-
-                <h2 class="text-center h4">{{ filiere.titleBlock3 }}</h2>
-                {{ filiere.textBlock3|raw }}
             </div>
         </div>
 
         <div class="row justify-content-around text-justify mt-4">
-            <div class="col-5  shadow p-3">
-                <div class="row mt-2 justify-content-center">
-                    <div><img src="{{ asset('img/icon/business-person.svg') }}" alt="" class="mx-auto" width="50px"></div>
+
+            <div class="card-deck">
+
+                <div class="card col-6">
+                    <div class="row mt-2 justify-content-center">
+                        <div><img src="{{ asset('img/icon/business-person.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center h4">{{ filiere.titleBlock4 }}</h2>
+                        <p class="card-text">{{ filiere.textBlock4|raw }}</p>
+                    </div>
                 </div>
 
-                <h2 class="text-center h4">{{ filiere.titleBlock4 }}</h2>
-                {{ filiere.textBlock4|raw }}
-            </div>
-
-            <div class="col-5  shadow p-3">
-                <div class="row mt-2 justify-content-center">
-                    <div><img src="{{ asset('img/icon/study.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                <div class="card col-6">
+                    <div class="row mt-2 justify-content-center">
+                        <div><img src="{{ asset('img/icon/study.svg') }}" alt="" class="mx-auto" width="50px"></div>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title text-center h4">{{ filiere.titleBlock5 }}</h2>
+                        <p class="card-text">{{ filiere.textBlock5|raw }}</p>
+                    </div>
                 </div>
-
-                <h2 class="text-center h4">{{ filiere.titleBlock5 }}</h2>
-                {{ filiere.textBlock5|raw }}
             </div>
+
         </div>
+
+
 
     </div>
 {% endblock %}
