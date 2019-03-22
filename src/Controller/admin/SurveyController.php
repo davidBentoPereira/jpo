@@ -7,9 +7,11 @@ use App\Entity\Survey;
 use App\Form\QuestionType;
 use App\Form\SurveyType;
 use App\Repository\EventRepository;
+use App\Repository\QuestionOptionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuestionTypeRepository;
 use App\Repository\SurveyRepository;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -110,7 +112,7 @@ class SurveyController extends AbstractController
                 $title = $data['title'];
                 $idQuestionType = $data['questionType'];
                 $question = new Question($title);
-                $question->setQuestionType($questionTypeRepository->findOneBy(['id' => $idQuestionType]));
+                $question->setQuestionType($idQuestionType);
                 $question->setSurvey($survey);
                 $entityManager->persist($question);
                 $entityManager->flush();
@@ -139,7 +141,7 @@ class SurveyController extends AbstractController
                 $title = $data['title'];
                 $idQuestionType = $data['questionType'];
                 $question->setTitle($title);
-                $question->setQuestionType($questionTypeRepository->findOneBy(['id' => $idQuestionType]));
+                $question->setQuestionType($idQuestionType);
                 $question->setSurvey($survey);
                 $entityManager->persist($question);
                 $entityManager->flush();
@@ -162,5 +164,16 @@ class SurveyController extends AbstractController
         $entityManager->remove($question);
         $entityManager->flush();
         return $this->redirectToRoute('editSurvey', ['id'=>$id]);
+    }
+
+    public function deleteChoice($idChoice, $idSurvey,$idQuestion, QuestionOptionRepository $questionOptionRepository, QuestionRepository $questionRepository, SurveyRepository $surveyRepository)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $survey = $surveyRepository->findOneBy(['id' => $idSurvey]);
+        $question = $questionRepository->findOneBy(['id' => $idQuestion]);
+        $choice = $questionOptionRepository->findOneBy(['id'=>$idChoice]);
+        $entityManager->remove($choice);
+        $entityManager->flush();
+        return $this->redirectToRoute('editQuestion', ['idSurvey'=>$idSurvey, 'idQuestion'=>$idQuestion]);
     }
 }

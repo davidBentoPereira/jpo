@@ -5,11 +5,9 @@
 {% block body %}
     <h1>Sondage</h1>
     <div class="row">
-        <a href="{{ path('addSurvey') }}">
-            <div class="card card-add">
-                <img src="{{ asset('img/icon/add.png') }}"/>
-            </div>
-        </a>
+        <div class="card card-add">
+            <a href="{{ path('addSurvey') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
+        </div>
         {% for survey in surveys %}
             <div class="card card-basic card-survey">
                 <div class="row tag-event-div">

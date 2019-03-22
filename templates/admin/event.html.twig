@@ -5,11 +5,9 @@
 {% block body %}
     <h1>Evenement</h1>
     <div class="row">
-        <a href="{{ path('addEvent') }}">
-            <div class="card card-add">
-                <img src="{{ asset('img/icon/add.png') }}"/>
-            </div>
-        </a>
+        <div class="card card-add">
+            <a href="{{ path('addEvent') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
+        </div>
         {% for event in events %}
             <div class="card card-basic">
                 <h2>{{ event.title }}</h2>

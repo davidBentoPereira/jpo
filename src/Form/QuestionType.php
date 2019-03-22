@@ -27,6 +27,7 @@ class QuestionType extends AbstractType
                 ["label" => "Type de la question",
                     'class' => \App\Entity\QuestionType::class,
                     'choice_label' => 'resume',
+                    'choice_value' => 'label'
                     ])
         ;
     }

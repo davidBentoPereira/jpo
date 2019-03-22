@@ -149,7 +149,7 @@
 
 .card {
     height: 250px;
-    width: 250px;
+    width: 16%;
     display: flex;
     margin: 15px;
     color: white;
@@ -167,10 +167,12 @@
      background-color: #2a3181;
  }
 
-.card-add img {
+.card-add-img {
+    display: flex;
     height: auto;
-    width: 135px;
+    width: 65%;
     margin: auto;
+    margin-top: 14%;
 }
 
 .card-basic a {
@@ -234,8 +236,8 @@
 
 .question {
     color: black;
-    width: 30rem;
-    height: 17rem;
+    width: 30%;
+    height: 20%;
 }
 
 .body-question {
@@ -275,4 +277,12 @@
 
 .choices {
     margin-bottom: 2%;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-on {
+    display: block;
 }

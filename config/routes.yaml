@@ -72,12 +72,16 @@ addQuestion:
     controller: App\Controller\admin\SurveyController::addQuestion
 
 editQuestion:
-    path: admin/edit-survey/{idSurvey}/add-question/{idQuestion}
+    path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}
     controller: App\Controller\admin\SurveyController::editQuestion
 
 deleteQuestion:
     path: admin/edit-survey/{id}/delete-question/{idQuestion}
     controller: App\Controller\admin\SurveyController::deleteQuestion
+
+deleteChoice:
+  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}/delete-choice/{idChoice}
+  controller: App\Controller\admin\SurveyController::deleteChoice
 
 #--- Event
 event:
