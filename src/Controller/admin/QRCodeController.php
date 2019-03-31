@@ -23,7 +23,7 @@ class QRCodeController extends AbstractController
     public function rendering(Request $request)
     {
         $protocol = $request->isSecure() ? "https" : "http";
-        $port = $request->getPort() != 8000 ? "" : ":".$request->getPort();
+        $port = $request->getPort() == 80 ? "" : ":".$request->getPort();
         $domain = $protocol."://".$request->getHost().$port;
 
         $fullUrl = $domain.$request->query->get('url');
@@ -33,7 +33,7 @@ class QRCodeController extends AbstractController
         $qrCode->setMargin(10);
         $qrCode->setEncoding('UTF-8');
 
-        return new QrCodeResponse($qrCode);
+        // return new QrCodeResponse($qrCode);
 
         // $fileSystem = new Filesystem();
         // $fileSystem->touch($domain.'/img/qrcode/test.png');
@@ -42,7 +42,8 @@ class QRCodeController extends AbstractController
         // $qrCode->writeFile($domain.'/img/qrcode/test.png');
 
         return $this->render('admin/qrcodes/rendering.html.twig', [
-            'url' => $fullUrl
+            'url' => $fullUrl,
+            'qrCode' => $qrCode
         ]);
     }
 }

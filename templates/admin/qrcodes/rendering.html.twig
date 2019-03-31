@@ -5,4 +5,5 @@
 {% block body %}
     <a class="btn btn-primary" href="{{ path('qrcodelist') }}">Retour</a>
     <p>Url associée : <a href="{{ url }}">{{ url }}</a></p>
+    {{ qrCode.writeString }}
 {% endblock %}

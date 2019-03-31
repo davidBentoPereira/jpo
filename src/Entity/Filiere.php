@@ -232,8 +232,6 @@ class Filiere
 
     }
 
-
-
     public function getTitle(): ?string
 
     {
@@ -245,14 +243,10 @@ class Filiere
 
 
     public function setTitle(?string $title)
-
     {
 
         $this->title = $title;
-
         $this->initUrlSlug();
-
-
 
     }
 
@@ -313,7 +307,6 @@ class Filiere
         return $this->titleBlock1;
 
     }
-
 
 
     public function setTitleBlock1(?string $titleBlock1): self
