@@ -22,8 +22,8 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('formations') }}">Tableau des formations</a>
                             <div class="dropdown-divider"></div>
-                            {% for listFiliere in listFilieres %}
-                                <a class="dropdown-item" href="{{ path('filiere', {'id': listFiliere.id, 'title': listFiliere.urlSlug }) }}">{{ listFiliere.title }}</a>
+                            {% for filiere in listFilieres %}
+                                <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': filiere.urlSlug}) }}">{{ filiere.title }}</a>
                             {% endfor %}
                         </div>
                     </li>

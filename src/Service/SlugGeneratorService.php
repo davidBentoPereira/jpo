@@ -11,8 +11,6 @@ class SlugGeneratorService
         $stringToSlugify = $this->removeAccents($stringToSlugify);
         $stringToSlugify = strtolower($stringToSlugify);
         $stringToSlugify = str_replace(" ", "-", $stringToSlugify);
-
-
         $this->slug = $stringToSlugify;
     }
 

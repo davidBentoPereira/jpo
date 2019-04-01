@@ -98,3 +98,11 @@ page_edit:
 page_delete:
     path: /admin/suppression-filiere/{id}
     controller: App\Controller\admin\PageController::pageDelete
+
+#--- QR Code
+qrcodelist:
+    path: "admin/qr-codes"
+    controller: App\Controller\admin\QRCodeController::index
+qrcoderendering:
+    path: "admin/qr-codes/rendu"
+    controller: App\Controller\admin\QRCodeController::rendering
