@@ -95,7 +95,15 @@
         });
 
         //Input des choix
-        let i = {{ question.nbQuestionOptions }};
+        let i = 0;
+        {% if question is defined %}
+            if ({{ question.nbQuestionOptions }})
+            {
+                let i = {{ question.nbQuestionOptions }};
+            } else {
+                let i = 0;
+            }
+        {% endif %}
         $('#btnAddChoice').click(function () {
             if(i == 0){
                 $('#choices').append('<h6>Choix</h6>');

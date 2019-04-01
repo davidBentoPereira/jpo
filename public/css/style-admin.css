@@ -286,3 +286,14 @@
 .display-on {
     display: block;
 }
+
+.card-result {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    height: 450px;
+    width: auto;
+    display: flex;
+    margin: 1%;
+    padding: 1%;
+}

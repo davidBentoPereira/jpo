@@ -140,8 +140,9 @@ class SurveyController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $data = $form->getData();/*var_dump($data);die();*/
                 $title = $data['title'];
-                $idQuestionType = $data['questionType'];
+                $questionType = $data['questionType'];
                 $questionOptions = $question->getQuestionOptions();
+
                 foreach ($questionOptions as $realOption)
                 {
                     $id = $realOption->getId();
@@ -153,14 +154,26 @@ class SurveyController extends AbstractController
                 if(isset($_POST['options']))
                 {
                     foreach ($_POST['options'] as $option) {
-                        $newOption = new QuestionOption($option);
-                        $newOption->setQuestion($question);
-                        $entityManager->persist($newOption);
+                        if(!is_null($option) && isset($option) && $option != '')
+                        {
+                            $newOption = new QuestionOption($option);
+                            $newOption->setQuestion($question);
+                            $entityManager->persist($newOption);
+                            $entityManager->flush();
+                        }
+                    }
+                }
+
+                if($questionType->getLabel() == 'Simple Text' || $questionType->getLabel() == 'Textarea')
+                {
+                    foreach ($questionOptions as $option)
+                    {
+                        $entityManager->remove($option);
                         $entityManager->flush();
                     }
                 }
+                $question->setQuestionType($questionType);
                 $question->setTitle($title);
-                $question->setQuestionType($idQuestionType);
                 $question->setSurvey($survey);
                 $entityManager->persist($question);
                 $entityManager->flush();
