@@ -27,7 +27,7 @@
                     {% for option in question.questionOptions %}
                         <div class="row">
                             <div class="col-md-10">
-                                <input type="text" id="choice-{{ option.id }}" placeholder="" class="form-control choices" value="{{ option.value }}"/>
+                                <input type="text" id="choice-{{ option.id }}" name="option-{{ option.id }}" placeholder="" class="form-control choices" value="{{ option.value }}"/>
                             </div>
                             <div class="col-md-1">
                                 <a class="btn btn-danger btn-suppr" href="{{ path('deleteChoice', {'idChoice':option.id, 'idSurvey': survey.id, 'idQuestion': question.id}) }}">
@@ -95,13 +95,13 @@
         });
 
         //Input des choix
-        let i = 0;
+        let i = {{ question.nbQuestionOptions }};
         $('#btnAddChoice').click(function () {
             if(i == 0){
                 $('#choices').append('<h6>Choix</h6>');
             }
             i++;
-            $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
+            $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
         });
     </script>
 {% endblock %}

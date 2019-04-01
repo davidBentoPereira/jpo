@@ -3,6 +3,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Question;
+use App\Entity\QuestionOption;
 use App\Entity\Survey;
 use App\Form\QuestionType;
 use App\Form\SurveyType;
@@ -133,13 +134,31 @@ class SurveyController extends AbstractController
         $form = $this->createForm(QuestionType::class);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             if($request->getMethod() == 'POST')
             {
                 $entityManager = $this->getDoctrine()->getManager();
-                $data = $form->getData();
+                $data = $form->getData();/*var_dump($data);die();*/
                 $title = $data['title'];
                 $idQuestionType = $data['questionType'];
+                $questionOptions = $question->getQuestionOptions();
+                foreach ($questionOptions as $realOption)
+                {
+                    $id = $realOption->getId();
+                    if(isset($_POST['option-'.$id]))
+                    {
+                        $realOption->setValue($_POST['option-'.$id]);
+                    }
+                }
+                if(isset($_POST['options']))
+                {
+                    foreach ($_POST['options'] as $option) {
+                        $newOption = new QuestionOption($option);
+                        $newOption->setQuestion($question);
+                        $entityManager->persist($newOption);
+                        $entityManager->flush();
+                    }
+                }
                 $question->setTitle($title);
                 $question->setQuestionType($idQuestionType);
                 $question->setSurvey($survey);
