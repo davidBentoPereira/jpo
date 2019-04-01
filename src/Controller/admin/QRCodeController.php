@@ -25,11 +25,9 @@ class QRCodeController extends AbstractController
     {
         $protocol = $request->isSecure() ? "https" : "http";
 
-        $port = $request->getPort() == 80 ? "" : ":".$request->getPort();
+        $host = $protocol.'://'.$_SERVER['HTTP_HOST'];
 
-        $domain = $protocol."://".$request->getHost().$port;
-
-        $pageUrl = $domain.$request->query->get('url');
+        $pageUrl = $host.$request->query->get('url');
 
         $qrCode = new QrCode($pageUrl);
 
@@ -39,7 +37,7 @@ class QRCodeController extends AbstractController
 
         $qrCode->setSize(300);
 
-        $qrCode->setMargin(10);
+        $qrCode->setMargin(10); 
 
         $qrCode->setEncoding('UTF-8');
 
@@ -51,7 +49,7 @@ class QRCodeController extends AbstractController
 
         return $this->render('admin/qrcodes/rendering.html.twig', [
             'pageUrl' => $pageUrl,
-            'fileUrl' => $domain.$filePath
+            'fileUrl' => $host.$filePath
         ]);
     }
 }
