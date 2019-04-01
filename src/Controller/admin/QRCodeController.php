@@ -25,7 +25,7 @@ class QRCodeController extends AbstractController
     {
         $protocol = $request->isSecure() ? "https" : "http";
 
-        $host = $protocol.'://'.$_SERVER['HTTP_HOST'];
+        $host = $protocol.'://'.($_SERVER['HTTP_HOST'] == 'jpo' ? 'jpo/public' : $_SERVER['HTTP_HOST']);
 
         $pageUrl = $host.$request->query->get('url');
 
