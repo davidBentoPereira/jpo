@@ -292,8 +292,19 @@
     border-color: black;
     border-style: solid;
     height: 450px;
-    width: auto;
+    width: 45%;
     display: flex;
     margin: 1%;
     padding: 1%;
+    flex-direction: column;
+}
+
+.result-title {
+    height: 20%;
+    width: 100%;
+}
+
+.result-body {
+    height: 80%;
+    width: 100%;
 }
