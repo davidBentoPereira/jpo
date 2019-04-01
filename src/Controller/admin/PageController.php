@@ -14,7 +14,7 @@ class PageController extends AbstractController
 {
     public function page(FiliereRepository $repo): Response
     {
-        return $this->render('admin/page.html.twig', ['filieres' => $repo->findAll()]);
+        return $this->render('admin/page.html.twig', ['filieres' => $repo->findAllFilieresSortedByRank()]);
     }
 
     public function pageAdd(Request $request, EntityManagerInterface $em): Response
