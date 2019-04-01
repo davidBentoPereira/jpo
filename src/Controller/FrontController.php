@@ -51,7 +51,7 @@ class FrontController extends AbstractController
 
     public function navbarListFiliere(FiliereRepository $repo): Response
     {
-        return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAll()]);
+        return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAllFilieresSortedByRank()]);
     }
 
 }
