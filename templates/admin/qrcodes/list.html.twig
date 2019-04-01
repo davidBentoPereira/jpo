@@ -8,7 +8,7 @@
     <h2>Filières</h2>
     <ul class="list-group">
         {% for filiere in filieres %}
-            <a href="{{ path('qrcoderendering') }}?url={{ path('filiere', { 'id': filiere.getId, 'title': filiere.getUrlSlug }) }}">
+            <a href="{{ path('qrcoderendering') }}?url={{ path('filiere', { 'id': filiere.getId, 'title': filiere.getUrlSlug }) }}&slug={{ filiere.getUrlSlug }}">
                 <li class="list-group-item">{{ filiere.getTitle }}</li>
             </a>
         {% endfor %}

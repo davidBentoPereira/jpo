@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc7f7bd46a7cecee1ddde7738c07687d",
+    "content-hash": "e539d421de92ab7f3740d4c544ffbc73",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1342,24 +1342,21 @@
         },
         {
             "name": "endroid/installer",
-            "version": "1.0.8",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/installer.git",
-                "reference": "b41b44ae2e410609be3b7f080b626dfc9ff4822a"
+                "reference": "d4ae2bbd7977148dcb514ad625ece1a36f751a8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/installer/zipball/b41b44ae2e410609be3b7f080b626dfc9ff4822a",
-                "reference": "b41b44ae2e410609be3b7f080b626dfc9ff4822a",
+                "url": "https://api.github.com/repos/endroid/installer/zipball/d4ae2bbd7977148dcb514ad625ece1a36f751a8b",
+                "reference": "d4ae2bbd7977148dcb514ad625ece1a36f751a8b",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7|^6.0"
+                "php": ">=7.2"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1383,7 +1380,7 @@
                     "email": "info@endroid.nl"
                 }
             ],
-            "time": "2018-11-30T13:00:41+00:00"
+            "time": "2019-03-30T21:42:01+00:00"
         },
         {
             "name": "endroid/qr-code",
@@ -1447,6 +1444,63 @@
                 "qrcode"
             ],
             "time": "2019-03-03T08:34:10+00:00"
+        },
+        {
+            "name": "endroid/qr-code-bundle",
+            "version": "3.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/endroid/qr-code-bundle.git",
+                "reference": "4230d9524b85199abb7594ad8a6c5b323a90cfa6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/endroid/qr-code-bundle/zipball/4230d9524b85199abb7594ad8a6c5b323a90cfa6",
+                "reference": "4230d9524b85199abb7594ad8a6c5b323a90cfa6",
+                "shasum": ""
+            },
+            "require": {
+                "endroid/qr-code": "^3.4.4",
+                "php": ">=7.1",
+                "symfony/framework-bundle": "^3.4|^4.0",
+                "symfony/twig-bundle": "^3.4|^4.0",
+                "symfony/yaml": "^3.4|^4.0"
+            },
+            "require-dev": {
+                "endroid/bundle-test": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Endroid\\QrCodeBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen van den Enden",
+                    "email": "info@endroid.nl"
+                }
+            ],
+            "description": "Endroid QR Code Bundle",
+            "homepage": "https://github.com/endroid/qr-code-bundle",
+            "keywords": [
+                "bundle",
+                "code",
+                "endroid",
+                "php",
+                "qr",
+                "symfony"
+            ],
+            "time": "2018-11-30T12:54:26+00:00"
         },
         {
             "name": "fig/link-util",
@@ -5611,7 +5665,6 @@
         },
         {
             "name": "twig/twig",
-<<<<<<< HEAD
             "version": "v2.7.3",
             "source": {
                 "type": "git",
@@ -5622,18 +5675,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/twigphp/Twig/zipball/52b9a5bd41c8c53a1d784f90ca25e33bf558a6b3",
                 "reference": "52b9a5bd41c8c53a1d784f90ca25e33bf558a6b3",
-=======
-            "version": "v2.7.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "70c59531da43afe598c66135e39cac39475a2f51"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/70c59531da43afe598c66135e39cac39475a2f51",
-                "reference": "70c59531da43afe598c66135e39cac39475a2f51",
->>>>>>> ea5608b1275f95b9d533d2061388a93047c597f1
                 "shasum": ""
             },
             "require": {
@@ -5687,11 +5728,7 @@
             "keywords": [
                 "templating"
             ],
-<<<<<<< HEAD
             "time": "2019-03-21T14:53:02+00:00"
-=======
-            "time": "2019-03-12T18:48:26+00:00"
->>>>>>> ea5608b1275f95b9d533d2061388a93047c597f1
         },
         {
             "name": "webmozart/assert",

@@ -120,6 +120,9 @@
     "endroid/qr-code": {
         "version": "3.5.6"
     },
+    "endroid/qr-code-bundle": {
+        "version": "3.3.3"
+    },
     "facebook/webdriver": {
         "version": "1.6.0"
     },
