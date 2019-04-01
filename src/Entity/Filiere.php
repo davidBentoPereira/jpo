@@ -87,6 +87,16 @@ class Filiere
      */
     private $textBlock5;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $rank;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $colorPicker;
+
     public function __construct()
     {
 //        $this->initUrlSlug();
@@ -280,6 +290,30 @@ class Filiere
     public function setTitleBlock6(?string $titleBlock6): self
     {
         $this->titleBlock6 = $titleBlock6;
+
+        return $this;
+    }
+
+    public function getRank(): ?int
+    {
+        return $this->rank;
+    }
+
+    public function setRank(?int $rank): self
+    {
+        $this->rank = $rank;
+
+        return $this;
+    }
+
+    public function getColorPicker(): ?string
+    {
+        return $this->colorPicker;
+    }
+
+    public function setColorPicker(?string $colorPicker): self
+    {
+        $this->colorPicker = $colorPicker;
 
         return $this;
     }

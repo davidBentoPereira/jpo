@@ -24,6 +24,16 @@
                     {{ form_widget(pageForm.title, {'attr': {'class': 'form-control'}}) }}
                 </div>
 
+                <div class="form-group col-1">
+                    {{ form_label(pageForm.rank) }}
+                    {{ form_widget(pageForm.rank) }}
+                </div>
+
+                <div class="form-group col-6">
+                    {{ form_label(pageForm.colorPicker) }}
+                    {{ form_widget(pageForm.colorPicker) }}
+                </div>
+
                 <div class="form-group col-12">
                     {{ form_label(pageForm.candidate) }}
                     {{ form_widget(pageForm.candidate) }}
@@ -106,5 +116,8 @@
 
         {{ form_end(pageForm) }}
     </div>
+
+
+
 
 {% endblock %}
