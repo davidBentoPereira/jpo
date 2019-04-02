@@ -3,11 +3,11 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\FiliereRepository;
 use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
+use App\Repository\QuestionRepository;
 
 class FrontController extends AbstractController
 {
@@ -44,9 +44,15 @@ class FrontController extends AbstractController
         ]);
     }
 
-    public function sondage(SurveyRepository $surveyRepo, $id = 25): Response
+    public function sondage(SurveyRepository $surveyRepo, QuestionRepository $questionRep, $id): Response
     {
-        return $this->render('front/sondage.html.twig',['survey' => $surveyRepo->findSurveyById($id)]);
+        $questions = $surveyRepo->findSurveyById($id)->getQuestions()->getValues();
+        $questions2 = $questionRep->findAll();
+        return $this->render('front/sondage.html.twig',[
+            'survey' => $surveyRepo->findSurveyById($id),
+            'questions' => $questions,
+            'questions2' => $questions2,
+        ]);
     }
 
     public function histoire(): Response
