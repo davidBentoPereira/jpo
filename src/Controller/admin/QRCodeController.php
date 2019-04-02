@@ -49,7 +49,7 @@ class QRCodeController extends AbstractController
 
         return $this->render('admin/qrcodes/rendering.html.twig', [
             'pageUrl' => $pageUrl,
-            'fileUrl' => $filePath
+            'fileUrl' => $host.$filePath
         ]);
     }
 }
