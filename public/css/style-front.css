@@ -8,6 +8,7 @@ a:hover { color: white;}
 nav { box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 .navbar-light .navbar-nav .nav-link  { color: white; font-family: 'Montserrat-bold', sans-serif;}
 .navbar-light .navbar-nav .nav-link:hover  { color: white;}
+#navbrand { font-family: 'Montserrat', sans-serif; color: #ffffff; }
 
 /* FOOTER */
 footer { background-color: #1F65A1; }
