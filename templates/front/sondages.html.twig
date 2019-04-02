@@ -3,6 +3,7 @@
 {% block title %}Sondages{% endblock %}
 
 {% block body %}
+    {{ dump() }}
     <div class="container-fluid" id="questionnaires">
 
         <div class="row mt-4 mb-4">
@@ -12,68 +13,35 @@
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <table class="table">
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Journée portes ouvertes 19 Avril 2019</th>
-                        <th scope="col">Début : 10/04/2019 - 09h00</th>
-                        <th scope="col">Fin : 10/04/2019 - 09h00</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
-                    </tr>
-                    </tbody>
+        {% for event in events %}
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <table class="table">
+                        <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">{{ event.title }}</th>
+                            <th scope="col">Début le {{ event.dateOfOpening|date("m/d/Y") }}</th>
+                            <th scope="col">Fin le {{ event.dateOfClosure|date("m/d/Y") }}</th>
+                        </tr>
 
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Journée Portes ouvertes 12 Janvier 2020</th>
-                        <th scope="col">Début : 10/04/2019 - 09h00</th>
-                        <th scope="col">Fin : 10/04/2019 - 09h00</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage Accueil Relation Clientèle Usager</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage ASSP (Option Structure)</a></td>
-                    </tr>
-                    </tbody>
-
-                    <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Journée Portes ouvertes 14 Juin 2021</th>
-                        <th scope="col">Début : 14/06/2021 à 09h00</th>
-                        <th scope="col">Fin : 14/06/2021 à 09h00</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage Métiers de la mode</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td colspan="3"><a href="{{ path('sondage') }}">Sondage 3ème prépa Métiers</a></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <br />
+                        </thead>
+                        <tbody>
+                        {% set i = 1 %}
+                        {% for survey in surveys %}
+                            {% if event.id == survey.event.id %}
+                                <tr>
+                                    <th scope="row">{{ i }} {% set i = i + 1 %}</th>
+                                    <td colspan="3"><a href="{{ path('sondage', {'event': event.title,'title': survey.title|url_encode, 'id': survey.id }) }}">{{ survey.title }}</a></td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <br />
+                </div>
             </div>
-        </div>
+        {% endfor %}
+
     </div>
 {% endblock %}

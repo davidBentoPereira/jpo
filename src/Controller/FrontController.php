@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\FiliereRepository;
+use App\Repository\EventRepository;
+use App\Repository\SurveyRepository;
 
 class FrontController extends AbstractController
 {
@@ -34,14 +36,17 @@ class FrontController extends AbstractController
         return $this->render('front/mlds.html.twig');
     }
 
-    public function sondages(): Response
+    public function sondages(EventRepository $eventRepo, SurveyRepository $surveyRepo): Response
     {
-        return $this->render('front/sondages.html.twig');
+        return $this->render('front/sondages.html.twig', [
+            'events' => $eventRepo->findAll(),
+            'surveys' => $surveyRepo->findAll()
+        ]);
     }
 
-    public function sondage(): Response
+    public function sondage(SurveyRepository $surveyRepo, $id = 25): Response
     {
-        return $this->render('front/sondage.html.twig');
+        return $this->render('front/sondage.html.twig',['surveys' => $surveyRepo->findSurveyById($id)]);
     }
 
     public function histoire(): Response

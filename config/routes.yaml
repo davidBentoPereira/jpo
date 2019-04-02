@@ -16,7 +16,7 @@ sondages:
     controller: App\Controller\FrontController::sondages
 
 sondage:
-    path: /sondages/sondage
+    path: /sondage/{event}/{title}/{id}
     controller: App\Controller\FrontController::sondage
 
 ulis:
