@@ -46,7 +46,7 @@ class FrontController extends AbstractController
 
     public function sondage(SurveyRepository $surveyRepo, $id = 25): Response
     {
-        return $this->render('front/sondage.html.twig',['surveys' => $surveyRepo->findSurveyById($id)]);
+        return $this->render('front/sondage.html.twig',['survey' => $surveyRepo->findSurveyById($id)]);
     }
 
     public function histoire(): Response

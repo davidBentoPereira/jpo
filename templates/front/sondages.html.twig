@@ -32,7 +32,7 @@
                             {% if event.id == survey.event.id %}
                                 <tr>
                                     <th scope="row">{{ i }} {% set i = i + 1 %}</th>
-                                    <td colspan="3"><a href="{{ path('sondage', {'event': event.title,'title': survey.title|url_encode, 'id': survey.id }) }}">{{ survey.title }}</a></td>
+                                    <td colspan="3"><a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}">{{ survey.title }}</a></td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
