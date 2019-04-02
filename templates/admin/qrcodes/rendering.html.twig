@@ -3,10 +3,13 @@
 {% block title %}QR Code généré{% endblock %}
 
 {% block body %}
+
     <a class="btn btn-primary" href="{{ path('qrcodelist') }}">Retour</a>
     <p>Url associée : <a href="{{ pageUrl }}">{{ pageUrl }}</a></p>
     <div>
-        <img src="{{ fileUrl }}"/>
+        <img src="{{ asset('') }}{{ fileUrl }}"/>
+        {% set imgLink = asset('') ~ fileUrl %}
     </div>
-    <a class="btn btn-primary" href="{{ fileUrl }}">Afficher l'image</a>
+    <a class="btn btn-primary" href="{{ imgLink }}">Afficher l'image</a>
+
 {% endblock %}
