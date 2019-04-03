@@ -3,13 +3,14 @@
 {% block title %}Résultat Sondage{% endblock %}
 
 {% block body %}
-    <h1>Résultat du sondage {{ survey.title }}</h1>
+    <h1>Résultat du sondage : {{ survey.title }}</h1>
     {% set i = 1 %}
     <div class="row">
         {% for question in survey.questions %}
             <div class="card-result">
                 <div class="row result-title">
                     <h5>Question n°{{ i }} : {{ question.title }}</h5>
+                    <small>{{ question.questionType.resume }}</small>
                 </div>
                 <div class="row result-body">
                     {% if(question.questionType.label == 'Textarea' or question.questionType.label == 'Simple Text') %}
@@ -37,7 +38,6 @@
                     {% else %}
                         {% if question.responses[0] is defined %}
                             <div id="result-chart-{{ question.id }}">
-
                             </div>
                         {% else %}
                             <strong>Aucune réponse</strong>
@@ -58,7 +58,7 @@
 
     <script>
         {% for question in survey.questions %}
-        {% if(question.questionType.label == 'Simple choice' or question.questionType.label == 'Multiple Choice') %}
+        {% if(question.questionType.label == 'Simple Choice' or question.questionType.label == 'Multiple Choice') %}
         {% set options = question.questionOptions %}
         {% if question.responses[0] is defined %}
         Highcharts.chart('result-chart-{{ question.id }}', {

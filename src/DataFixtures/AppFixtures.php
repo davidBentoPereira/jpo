@@ -112,60 +112,111 @@ class AppFixtures extends Fixture
         {
             $dateOfOpening = new \DateTimeImmutable();
             $dateOfClosure = $dateOfOpening->add(new \DateInterval("P7M3D"));
-            $event = new Event("Event ".$i, $dateOfOpening, $dateOfClosure);
-            for($j = 0; $j < 2; ++$j)
+            $event = new Event("Evenement ".$i, $dateOfOpening, $dateOfClosure);
+            for($j = 1; $j < 3; ++$j)
             {
-
                 /**
                  * Génération des fixtures des sondages
                  */
                 $survey = new Survey("Sondage ".$j);
 
-                
                 /**
                  * Génération des fixtures des questions
                  */
-                $question = new Question("Question 1");
+                /** --- Question n°1 --- */
+                $question = new Question("Où avez-vous connu le lycée ?");
                 $question->setQuestionType($simpleTextQuestionType);
                 /**
                  * Génération des fixtures des réponses pour la question précédente
                  */
                 $reponse = new Response();
-                $responseValue = new ResponseValue("Valeur renseignée");
-                $reponse->addResponseValue($responseValue);
+                $reponse->setValue("J'ai reçu une publicité dans ma boîte mail.");
+                $reponse->setQuestion($question);
                 $question->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setValue("J'ai pu lire la brochure de votre lycée que j'ai reçu dans ma boîte aux lettres.");
+                $reponse->setQuestion($question);
+                $question->addResponse($reponse);
+                $manager->persist($reponse);
                 $survey->addQuestion($question);
 
-
-                $question = new Question("Question 2");
+                /** --- Question n°2 --- */
+                $question = new Question("Quelle remarque pouvez-vous faire ?");
                 $question->setQuestionType($textareaTextQuestionType);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $reponse->setValue("Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. ");
+                $question->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $reponse->setValue("Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. ");
+                $question->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $reponse->setValue("Je suis une remarque. Je suis une remarque. Je suis une remarque. ");
+                $question->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $reponse->setValue("Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. Je suis une remarque. ");
+                $question->addResponse($reponse);
+                $manager->persist($reponse);
                 $survey->addQuestion($question);
 
+                /** --- Question n°3 --- */
                 /**
                  * Dans les cas de questions à choix,
                  * On génère les fixtures pour les options à ces questions 
                  */
-                $question = new Question("Question 3");
+                $question = new Question("Est-ce que le salon vous a plu ?");
                 $question->setQuestionType($simpleChoiceQuestionType);
                 
-                $questionOption = new QuestionOption("Option 1");
+                $questionOption = new QuestionOption("Oui");
                 $question->addQuestionOption($questionOption);
-                
-                $questionOption = new QuestionOption("Option 2");
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
+                $questionOption = new QuestionOption("Non");
                 $question->addQuestionOption($questionOption);
-                
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
                 $survey->addQuestion($question);
-                
 
-                $question = new Question("Question 4");
+                /** --- Question n°4 --- */
+                $question = new Question("Quelle filière préferez vous ?");
                 $question->setQuestionType($multipleChoiceQuestionType);
-                
-                $questionOption = new QuestionOption("Option 1");
+                $questionOption = new QuestionOption("ASSP");
                 $question->addQuestionOption($questionOption);
-                
-                $questionOption = new QuestionOption("Option 2");
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
+                $questionOption = new QuestionOption("Gestion Administration");
                 $question->addQuestionOption($questionOption);
-                
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
+                $questionOption = new QuestionOption("Métiers de la Mode");
+                $question->addQuestionOption($questionOption);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
+                $reponse = new Response();
+                $reponse->setQuestion($question);
+                $questionOption->addResponse($reponse);
+                $manager->persist($reponse);
                 $survey->addQuestion($question);
 
                 $event->addSurvey($survey);
