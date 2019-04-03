@@ -31,13 +31,19 @@ class Response
     private $question;
 
     /**
-     * @ORM\OneToMany(targetEntity="ResponseValue", mappedBy="response", cascade={"persist"})
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $responseValue;
+    private $value;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="QuestionOption")
+     */
+    private $options;
 
     public function __construct()
     {
         $this->responseValue = new ArrayCollection();
+        $this->options = new ArrayCollection();
     }
 
     /**
@@ -103,6 +109,44 @@ class Response
             if ($responseValue->getResponse() === $this) {
                 $responseValue->setResponse(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getValue(): ?string
+    {
+        return $this->value;
+    }
+
+    public function setValue(?string $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|QuestionOption[]
+     */
+    public function getOptions(): Collection
+    {
+        return $this->options;
+    }
+
+    public function addOption(QuestionOption $option): self
+    {
+        if (!$this->options->contains($option)) {
+            $this->options[] = $option;
+        }
+
+        return $this;
+    }
+
+    public function removeOption(QuestionOption $option): self
+    {
+        if ($this->options->contains($option)) {
+            $this->options->removeElement($option);
         }
 
         return $this;
