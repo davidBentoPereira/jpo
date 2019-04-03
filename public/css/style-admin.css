@@ -148,10 +148,11 @@
 /* ----- Cards ----- */
 
 .card {
-    height: 250px;
-    width: 16%;
+    height: 265px;
+    width: 17%;
     display: flex;
-    margin: 15px;
+    margin: 1%;
+    padding: 1%;
     color: white;
 }
 
@@ -227,6 +228,7 @@
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    text-align: center;
     height: 30%;
 }
 
