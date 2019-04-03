@@ -93,4 +93,11 @@ class QuestionOption
 
         return $this;
     }
+
+    public function getPourcentage()
+    {
+        $nbResponseTotal = sizeof($this->question->getResponses());
+        $nbResponseOption = sizeof($this->response);
+        return (100 * $nbResponseOption) / $nbResponseTotal;
+    }
 }
