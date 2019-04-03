@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container-fluid">
     <div id="nav">
-        <img src="{{ asset('img/img_lycee.jpg') }}" class="img-fluid mt-3" id="header-img" alt="Responsive image">
+        <img src="{{ asset('img/img_lycee.jpg') }}" class="img-fluid" id="header-img" alt="Responsive image" width="100%">
 
-        <nav class="navbar navbar-expand-lg navbar-light container" style="background-color: #1F65A1;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1F65A1;">
+
+            <h1 class="navbar-brand d-md-none" id="navbrand">Lycée Marcelle Pardé</h1>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -12,34 +14,24 @@
                 <ul class="navbar-nav mr-auto nav-fill w-100">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('index') }}">{{ 'Accueil'|upper }}</a>
+                        <a class="nav-link hvr-underline-from-center" href="{{ path('index') }}">{{ 'Accueil'|upper }}</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ 'Formations'|upper }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('formations') }}">Tableau des formations</a>
                             <div class="dropdown-divider"></div>
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Accueil Relations Clientèle Usager</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">ASSP  (Option Structure)</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Commerce</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Esthétique – Cosmétique - Parfumerie</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Gestion - Administration</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Métiers de la Mode</a>#}
-                            {#<div class="dropdown-divider"></div>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">3ème Prépa Métiers</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">C.A.P Vente (Option B produits d’équipement courant)</a>#}
-                            {#<a class="dropdown-item" href="{{ path('filiere') }}">Formation Aide Soignante</a>#}
-                            {% for listFiliere in listFilieres %}
-                                <a class="dropdown-item" href="{{ path('filiere', {'id': listFiliere.id, 'title': listFiliere.title}) }}">{{ listFiliere.title }}</a>
+                            {% for filiere in listFilieres %}
+                                <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': filiere.urlSlug}) }}">{{ filiere.title }}</a>
                             {% endfor %}
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ 'Dispositifs Spéciaux'|upper }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,11 +42,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('sondages') }}">{{ 'Sondages'|upper }}</a>
+                        <a class="nav-link hvr-underline-from-center" href="{{ path('sondages') }}">{{ 'Sondages'|upper }}</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('histoire') }}">{{ 'Histoire du lycée'|upper }}</a>
+                        <a class="nav-link hvr-underline-from-center" href="{{ path('histoire') }}">{{ 'Histoire du lycée'|upper }}</a>
                     </li>
 
                 </ul>

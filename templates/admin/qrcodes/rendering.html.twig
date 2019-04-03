@@ -1,0 +1,12 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}QR Code généré{% endblock %}
+
+{% block body %}
+    <a class="btn btn-primary" href="{{ path('qrcodelist') }}">Retour</a>
+    <p>Url associée : <a href="{{ pageUrl }}">{{ pageUrl }}</a></p>
+    <div>
+        <img src="{{ fileUrl }}"/>
+    </div>
+    <a class="btn btn-primary" href="{{ fileUrl }}">Afficher l'image</a>
+{% endblock %}

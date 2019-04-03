@@ -3,20 +3,10 @@
 {% block title %}Histoire du lycée{% endblock %}
 
 {% block body %}
-    <div class="container" id="main-content">
-        <div class="row mt-4 mb-4 text-justify justify-content-around" >
+    <div class="container-fluid" id="main-content">
 
-            <div class="col-9">
-                <br />
-                <img src="{{ asset('img/img_lycee6.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
-            </div>
-
-            <div class="col-3">
-                <br />
-                <img src="{{ asset('img/img_lycee3.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
-            </div>
-
-            <div class="col-12">
+        <div class="row mt-4 mb-4 text-justify justify-content-around  align-items-center" >
+            <div class="col-10">
                 <h1>Un peu d'histoire...</h1>
                 <p>En 1883, Jules FERRY, Président du conseil, ministre de l’instruction publique et des beaux arts, et Vincent TRIQUET,
                     maire de BOURG EN BRESSE, signent un traité au sujet de la fondation à BOURG d’un lycée de jeunes femmes, recevant
@@ -29,15 +19,27 @@
                 <p>L’architecte Tony FERRET est recruté pour élaborer les plans d’un nouveau bâtiment.</p>
             </div>
 
-            <div class="col-6">
-                <img src="{{ asset('img/img_lycee5.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
+            <div class="col-2">
+                <img src="{{ asset('img/img_lycee3.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
+            </div>
+        </div>
+
+        <div class="row mt-4 mb-4 text-justify justify-content-around  align-items-center">
+            <div class="col-8">
+                <img src="{{ asset('img/img_lycee6.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
             </div>
 
             <div class="col-3">
                 <img src="{{ asset('img/img_lycee4.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
             </div>
+        </div>
 
-            <div class="col-12">
+
+        <div class="row mt-4 mb-4 text-justify justify-content-around align-items-center">
+            <div class="col-4">
+                <img src="{{ asset('img/img_lycee5.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
+            </div>
+            <div class="col-8">
                 <p>Le 7 septembre 1888, le maire et l’Inspecteur d’Académie peuvent annoncer à la presse l’ouverture, pour le
                     1er octobre 1888, du lycée national de jeunes filles de BOURG. La première rentrée compte 79 élèves,
                     toutes externes. Les effectifs ne cessant d’augmenter, il faut construire un internat, ce qui est fait en 1896.
@@ -46,7 +48,9 @@
                     naissance du philosophe et écrivain.
                 </p>
             </div>
+        </div>
 
+        <div class="row mt-4 mb-4 text-justify justify-content-around  align-items-center">
             <div class="col-7">
                 <p>La bâtiment est réquisitionné pendant la 1ère guerre mondiale : il devient hôpital militaire.
                     Ne pouvant plus accueillir d’internes, le lycée perd plus de 50 élèves.<p>
@@ -63,9 +67,8 @@
             <div class="col-5">
                 <img src="{{ asset('img/img_lycee2.jpg') }}" class="img-fluid hvr-box-shadow-outset" alt="">
             </div>
-
         </div>
-    </div>
 
+    </div>
 
 {% endblock %}

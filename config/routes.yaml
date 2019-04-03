@@ -4,11 +4,11 @@ index:
     controller: App\Controller\FrontController::index
 
 formations:
-    path: /formations
+    path: /tableau-des-formations
     controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere/{id}/{title}
+    path: /filiere-{id}/{title}
     controller: App\Controller\FrontController::filiere
 
 sondages:
@@ -116,3 +116,11 @@ page_edit:
 page_delete:
     path: /admin/suppression-filiere/{id}
     controller: App\Controller\admin\PageController::pageDelete
+
+#--- QR Code
+qrcodelist:
+    path: "admin/qr-codes"
+    controller: App\Controller\admin\QRCodeController::index
+qrcoderendering:
+    path: "admin/qr-codes/rendu"
+    controller: App\Controller\admin\QRCodeController::rendering

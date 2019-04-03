@@ -19,3 +19,7 @@
 ###< symfony/web-server-bundle ###
 
 /.idea/
+
+### Docker tools ###
+docker-compose.yml
+Dockerfile

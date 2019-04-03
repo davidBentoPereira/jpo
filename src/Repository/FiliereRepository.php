@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Filiere;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -27,5 +28,14 @@ class FiliereRepository extends ServiceEntityRepository
             ->createQuery('DELETE App\Entity\Filiere v WHERE v.id = :id')
             ->setParameter('id', $id)
             ->execute();
+    }
+
+    public function findAllFilieresSortedByRank()
+    {
+        $qb = $this->createQueryBuilder('f')
+            ->orderBy('f.rank', 'ASC')
+            ->getQuery();
+
+        return $qb->execute();
     }
 }

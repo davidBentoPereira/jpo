@@ -3,68 +3,60 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <div class="container mt-4 mb-4" id="mlds">
+    <div class="card-deck">
 
-        <div class="card mt-3 mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ asset('img/girl-reading-book.jpg') }}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8 hvr-underline-from-left">
-                    <div class="card-body">
-                        <h5 class="card-title">Nos formations</h5>
-                        <p class="card-text">Découvrez les formations dispensés au Lycée Marcelle Pardé</p>
-                        <a href="{{ path('formations') }}" class="btn btn-outline-primary">Voir la page</a>
-                    </div>
-                </div>
+        <div class="card">
+            <img src="{{ asset('img/girl-reading-book.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Nos formations</h5>
+                <p class="card-text text-justify">Consultez en un coup d'oeil l'ensemble des formations dispensés au Lycée Marcelle Pardé.</p>
+            </div>
+            <div class="row align-items-end m-2 mb-4">
+                <div class="col"><a href="{{ path('formations') }}" class="btn btn-outline-primary btn-block">Voir la page</a></div>
             </div>
         </div>
 
-        <div class="card mt-3 mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ asset('img/help.jpg') }}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8 hvr-underline-from-left">
-                    <div class="card-body">
-                        <h5 class="card-title">Nos dispositifs spéciaux</h5>
-                        <p class="card-text">Parce que nous avons tous le droit à un coup de pouce, découvrez nos dispositifs spéciaux</p>
-                        <a href="{{ path('mlds') }}" class="btn btn-outline-primary btn-block">Mission de lutte contre le décrochage scolaire</a>
-                        <a href="{{ path('ulis') }}" class="btn btn-outline-primary btn-block">Uité localisée pour l'inclusion scolaire</a>
-                    </div>
-                </div>
+        <div class="card">
+            <img src="{{ asset('img/help.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Nos dispositifs spéciaux</h5>
+                <p class="card-text text-justify">Parce que nous avons tous le droit à un coup de pouce, nos dispositifs spéciaux sauront vous accompagner efficacement.</p>
+
+            </div>
+            <div class="row align-items-end m-2 mb-4">
+                <a href="{{ path('mlds') }}" class="btn btn-outline-primary btn-block btn-sm">Lutte contre le décrochage scolaire</a>
+                <a href="{{ path('ulis') }}" class="btn btn-outline-primary btn-block btn-sm">Unité localisée pour l'inclusion scolaire</a>
             </div>
         </div>
 
-        <div class="card mt-3 mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ asset('img/survey.jpg') }}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8 hvr-underline-from-left">
-                    <div class="card-body">
-                        <h5 class="card-title">Nos sondages</h5>
-                        <p class="card-text">Répondez à nos sondages !</p>
-                        <a href="{{ path('sondages') }}" class="btn btn-outline-primary">Voir la page</a>
-                    </div>
-                </div>
+        <div class="card">
+            <img src="{{ asset('img/survey.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Nos sondages</h5>
+                <p class="card-text text-justify">Aidez-nous à en savoir plus vos attentes et préférences en répondant à nos sondages !</p>
+
+            </div>
+            <div class="row align-items-end m-2 mb-4">
+                <a href="{{ path('sondages') }}" class="btn btn-outline-primary btn-block">Voir la page</a>
             </div>
         </div>
 
-        <div class="card mt-3 mb-3">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="{{ asset('img/history.jpg') }}" class="card-img" alt="...">
-                </div>
-                <div class="col-md-8 hvr-underline-from-left">
-                    <div class="card-body">
-                        <h5 class="card-title">Histoire du lycée</h5>
-                        <p class="card-text">Retracez l'histoire de notre lycée, de sa construction en 1888 jusqu'à sa restructuration en 2002 en passant par les deux grandes guerres !</p>
-                        <a href="{{ path('histoire') }}" class="btn btn-outline-primary">Voir la page</a>
-                    </div>
-                </div>
+        <div class="card">
+            <img src="{{ asset('img/history.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">Histoire du lycée</h5>
+                <p class="card-text text-justify">Retracez l'histoire de notre lycée, de sa construction en 1888 jusqu'à sa restructuration en 2002 en passant par les deux grandes guerres !</p>
+            </div>
+            <div class="row align-items-end m-2 mb-4">
+                <a href="{{ path('histoire') }}" class="btn btn-outline-primary btn-block">Voir la page</a>
             </div>
         </div>
-
     </div>
+
+    <div class="text-center my-4">
+        <div class="card-body">
+            <iframe width="100%" height="400px" id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.45616675769!2d5.218390815474044!3d46.20137977911657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f353d271349057%3A0x440e12e76c81119!2sLyc%C3%A9e+Marcelle+Pard%C3%A9!5e0!3m2!1sfr!2sfr!4v1552316830556" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
 {% endblock %}
