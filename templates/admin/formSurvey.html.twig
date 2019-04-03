@@ -26,15 +26,24 @@
                 {% set inc = 1 %}
                 <div class="row">
                     {% for question in questions %}
-                        <div class="card">
-                            <div class="card-body question">
-                                <h5 class="card-title">Question n°{{ inc }}</h5>
+                        <div class="card question">
+                            <div class="card-header">
+                                <div class="row btn-suppr-flex-row">
+                                    <div class="head-quest-title">
+                                        Question n°{{ inc }}
+                                    </div>
+                                    <div class="head-quest-btn">
+                                        <a href="{{ path('deleteQuestion', {'id':survey.id, 'idQuestion': question.id}) }}" class="btn btn-danger btn-suppr"><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
                                 <div class="body-question">
-                                    <p class="card-text">{{ question.title }}</p>
-                                    <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.label }}</h6>
+                                    <h5 class="card-title">{{ question.title }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.resume }}</h6>
                                 </div>
                                 <div class="end-question">
-                                    <a href="#" class="btn btn-violet">Modification</a>
+                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{#{{ asset('img/icon/edit.png') }}#}" class="icon">Modification</a>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +51,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
+            <a {#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#} class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
@@ -57,9 +66,40 @@
             </div>
             <div class="form-group">
             </div>
-            <button class="btn btn-violet" type="button"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</button>
+            {#<a #}{#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#}{# class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>#}
             <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
         </div>
         {{ form_end(form) }}
     {% endif %}
+
+    {#----- QUESTION MODAL-----#}
+    {#<div class="modal modal-alert fade" id="modalQuestion" aria-labelledby="modalQuestion">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-title">
+
+                </div>
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="icon-cross"></span> Annuler</button>
+                    <button type="button" data-id="" data-type="" id="validModalList" class="btn btn-danger"><span class="icon-checkmark"></span> Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>#}
+
+
+    {# ----- SCRIPT ----- #}
+   {# <script>
+        $(document).ready(function () {
+            $('#btnModalQuestion').click(function () {
+                $('#modalQuestion').modal("show");
+            });
+        });
+    </script>#}
 {% endblock %}

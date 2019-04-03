@@ -21,6 +21,11 @@ class QuestionType
      */
     private $label;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resume;
+
     public function __construct(string $label)
     {
         $this->label = $label;
@@ -42,4 +47,15 @@ class QuestionType
 
         return $this;
     }
+
+    public function getResume()
+    {
+        return $this->resume;
+    }
+    public function setResume($resume): void
+    {
+        $this->resume = $resume;
+    }
+
+
 }

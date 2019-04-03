@@ -100,6 +100,11 @@ class Question
         return $this->questionOptions;
     }
 
+    public function getNbQuestionOptions(): int
+    {
+       return $this->questionOptions->count();
+    }
+
     public function addQuestionOption(QuestionOption $questionOption): self
     {
         if (!$this->questionOptions->contains($questionOption)) {
