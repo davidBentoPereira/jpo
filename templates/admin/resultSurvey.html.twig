@@ -24,11 +24,9 @@
                                 <tbody>
 
                                 {% for reponse in question.responses %}
-                                    {% for resp in  reponse.responseValue %}
-                                        <tr>
-                                            <td>{{ resp.value }}</td>
-                                        </tr>
-                                    {% endfor %}
+                                    <tr>
+                                        <td>{{ reponse.value }}</td>
+                                    </tr>
                                 {% endfor %}
 
                                 </tbody>
@@ -37,9 +35,13 @@
                             <strong>Aucune réponse</strong>
                         {% endif %}
                     {% else %}
-                        <div id="result-chart">
+                        {% if question.responses[0] is defined %}
+                            <div id="result-chart-{{ question.id }}">
 
-                        </div>
+                            </div>
+                        {% else %}
+                            <strong>Aucune réponse</strong>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
@@ -55,7 +57,11 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <script>
-        Highcharts.chart('result-chart', {
+        {% for question in survey.questions %}
+        {% if(question.questionType.label == 'Simple choice' or question.questionType.label == 'Multiple Choice') %}
+        {% set options = question.questionOptions %}
+        {% if question.responses[0] is defined %}
+        Highcharts.chart('result-chart-{{ question.id }}', {
             chart: {
                 plotBackgroundColor: null,
                 plotBorderWidth: null,
@@ -81,27 +87,19 @@
             series: [{
                 name: 'Réponse',
                 colorByPoint: true,
-                data: [{
-                    name: 'Chrome',
-                    y: 61.41
-                }, {
-                    name: 'Internet Explorer',
-                    y: 11.84
-                }, {
-                    name: 'Firefox',
-                    y: 10.85
-                }, {
-                    name: 'Edge',
-                    y: 4.67
-                }, {
-                    name: 'Safari',
-                    y: 4.18
-                }, {
-                    name: 'Other',
-                    y: 7.05
-                }]
+                data: [
+                    {% for option in options %}
+                    {
+                        name: '{{ option.value }}',
+                        y: {{ option.pourcentage }}
+                    },
+                    {% endfor %}
+                ]
             }]
         });
+        {% endif %}
+        {% endif %}
+        {% endfor %}
     </script>
 
 {% endblock %}

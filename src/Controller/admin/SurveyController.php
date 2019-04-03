@@ -93,6 +93,7 @@ class SurveyController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $survey = $surveyRepository->findOneBy(['id' => $id]);
 
+
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
     }
