@@ -19,27 +19,4 @@ class SurveyRepository extends ServiceEntityRepository
         parent::__construct($registry, Survey::class);
     }
 
-    public function findSurveyById($id): ?Survey
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.id = :id')
-            ->setParameter('id', $id)
-            ->getQuery()
-            ->getOneOrNullResult()
-            ;
-    }
-
-    public function findOneByIdJoinedToCategory($id)
-    {
-        return $this->createQueryBuilder('p')
-            // p.category refers to the "category" property on product
-            ->innerJoin('p.category', 'c')
-            // selects all the category data to avoid the query
-            ->addSelect('c')
-            ->andWhere('p.id = :id')
-            ->setParameter('id', $productId)
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
-
 }

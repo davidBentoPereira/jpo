@@ -29,7 +29,7 @@ class Survey
     private $event;
 
     /**
-     * @ORM\OneToMany(targetEntity="Question", mappedBy="survey", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="survey", cascade={"persist", "remove"}, fetch="EAGER")
      */
     private $questions;
 

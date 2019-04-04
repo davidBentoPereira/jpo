@@ -3,87 +3,58 @@
 {% block title %}Sondage{% endblock %}
 
 {% block body %}
-    {{ dump() }}
+    {#{{ dump(questions) }}#}
     <div class="container-fluid" id="questionnaires">
 
         <div class="row mt-4 mb-4">
             <div class="col-12 text-center">
-                <h1><img src="{{ asset('img/icon/survey.svg') }}" alt="" width="30px">{{ survey.title }}</h1>
+                <h1><img src="{{ asset('img/icon/survey.svg') }}" alt="" width="30px">test</h1>
             </div>
         </div>
 
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <form>
+                    {% for question in questions %}
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="exampleFormControlInput1">{{ question.title }}</label>
 
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="exampleFormControlInput1">1/ Qu'avez-vous pensé de ... ?</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Saisissez votre réponse...">
-                        </div>
-                    </div>
+                                {% if question.questionType.label == 'Simple Text' %}
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Saisissez votre réponse...">
 
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="exampleFormControlSelect1">2/ Parmis les réponses proposez ci-dessous laquelle vous... ?</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
+                                {% elseif question.questionType.label == 'Textarea' %}
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Saisissez votre réponse..."></textarea>
 
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="exampleFormControlSelect1">3/ Parmis les réponses proposez ci-dessous choisissez... ?</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Default radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Second default radio
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Third default radio
-                                </label>
+                                {% elseif question.questionType.label == 'Simple Choice' %}
+
+                                    {% set options = question.questionOptions.toArray() %}
+
+                                    {% for option in options %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="{{ option.value }}" checked>
+                                            <label class="form-check-label" for="exampleRadios1">{{ option.value }}</label>
+                                        </div>
+                                    {% endfor %}
+
+                                {% elseif question.questionType.label == 'Multiple Choice' %}
+
+                                    {% set options = question.questionOptions.toArray() %}
+
+                                    {% for option in options %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{ option.value }}" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">{{ option.value }}</label>
+                                        </div>
+                                    {% endfor %}
+
+                                {% endif %}
+
+
+
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="exampleFormControlTextarea1">4/ Sélectionnez les réponses qui ... ?</label><br />
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Réponse numéro 1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">Réponse numéro 2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">Réponse numéro 3</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col">
-                            <label for="exampleFormControlTextarea1">5/ Si vous pouviez..., est-ce que vous ... ?</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                        </div>
-                    </div>
+                    {% endfor %}
 
                     <div class="form-row">
                         <div class="form-group text-center col">
@@ -91,10 +62,10 @@
                         </div>
                     </div>
 
-
                 </form>
             </div>
         </div>
 
     </div>
+
 {% endblock %}

@@ -29,12 +29,12 @@ class Question
     private $survey;
 
     /**
-     * @ORM\ManyToOne(targetEntity="QuestionType", inversedBy="question_type")
+     * @ORM\ManyToOne(targetEntity="QuestionType")
      */
     private $questionType;
 
     /**
-     * @ORM\OneToMany(targetEntity="QuestionOption", mappedBy="question", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="QuestionOption", mappedBy="question", fetch="EAGER", cascade={"persist", "remove"})i
      */
     private $questionOptions;
 
@@ -46,9 +46,6 @@ class Question
     public function __construct(string $title)
     {
         $this->title = $title;
-        $this->questionOptions = new ArrayCollection();
-        $this->reponses = new ArrayCollection();
-        $this->responses = new ArrayCollection();
     }
 
     public function getId(): ?int

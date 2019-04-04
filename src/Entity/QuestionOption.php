@@ -24,7 +24,7 @@ class QuestionOption
     private $value;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Question", inversedBy="question_options")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="questionOptions")
      */
     private $question;
 

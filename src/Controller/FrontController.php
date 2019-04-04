@@ -8,6 +8,7 @@ use App\Repository\FiliereRepository;
 use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
+use App\Repository\QuestionOptionRepository;
 
 class FrontController extends AbstractController
 {
@@ -44,15 +45,9 @@ class FrontController extends AbstractController
         ]);
     }
 
-    public function sondage(SurveyRepository $surveyRepo, QuestionRepository $questionRep, $id): Response
+    public function sondage(QuestionRepository $questionRep, $id): Response
     {
-        $questions = $surveyRepo->findSurveyById($id)->getQuestions()->getValues();
-        $questions2 = $questionRep->findAll();
-        return $this->render('front/sondage.html.twig',[
-            'survey' => $surveyRepo->findSurveyById($id),
-            'questions' => $questions,
-            'questions2' => $questions2,
-        ]);
+        return $this->render('front/sondage.html.twig',['questions' => $questionRep->findQuestionsById($id)]);
     }
 
     public function histoire(): Response
