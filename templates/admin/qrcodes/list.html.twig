@@ -8,10 +8,28 @@
     <h2>Filières</h2>
     <ul class="list-group">
         {% for filiere in filieres %}
-            <a href="{{ path('qrcoderendering') }}?url={{ path('filiere', { 'id': filiere.getId, 'title': filiere.getUrlSlug }) }}&slug={{ filiere.getUrlSlug }}">
+            {% set url = path('filiere', { 'id': filiere.getId, 'title': filiere.getUrlSlug }) %}
+            <a href="{{ path('qrcoderendering') }}?url={{ url }}&slug={{ filiere.getUrlSlug }}">
                 <li class="list-group-item">{{ filiere.getTitle }}</li>
             </a>
         {% endfor %}
     </ul>
-    {# <img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2Fwww.makestuff.in&choe=UTF-8&chld=M|6" alt="QR Code" /> #}
+    <br/>
+    <h2>Sondages</h2>
+        {% for event in events %}
+            <p>{{ event.title }}</p>
+            <ul class="list-group">
+            {% for survey in surveys %}
+                {% if event.id == survey.event.id %}
+                    {% set url = path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) %}
+                    {# <a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}"> #}
+                    <a href="{{ path('qrcoderendering') }}?url={{ url }}&slug={{ event.getTitle }}-{{ survey.getTitle }}">
+                        <li class="list-group-item">{{ survey.title }}</li>
+                    </a>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+    {# {{ dump(surveys) }} #}
 {% endblock %}
