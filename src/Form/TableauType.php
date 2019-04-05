@@ -4,8 +4,8 @@ namespace App\Form;
 
 use App\Entity\Tableau;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,7 +23,7 @@ class TableauType extends AbstractType
             ->add('poursuiteEtudes',        TextareaType::class, ['label' => 'Poursuite d\'Etudes:'])
             ->add('formationEtConcours',    TextareaType::class, ['label' => 'Formation et concours :'])
             ->add('vieActive',              TextareaType::class, ['label' => 'Vie Active :'])
-            ->add('couleur',                TextType::class,     ['label' => 'Couleur :'])
+            ->add('couleur',                ColorType::class,    ['label' => 'Couleur :'])
         ;
     }
 

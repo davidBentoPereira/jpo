@@ -8,7 +8,8 @@ use App\Repository\FiliereRepository;
 use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
-use App\Repository\QuestionOptionRepository;
+use App\Repository\TableauRepository;
+
 
 class FrontController extends AbstractController
 {
@@ -17,9 +18,9 @@ class FrontController extends AbstractController
         return $this->render('front/index.html.twig');
     }
 
-    public function formations(): Response
+    public function formations(TableauRepository $tableauRepo): Response
     {
-        return $this->render('front/formations.html.twig');
+        return $this->render('front/formations.html.twig', ['tableau' => $tableauRepo->findAll()]);
     }
 
     public function filiere($id, $title, FiliereRepository $repo): Response
