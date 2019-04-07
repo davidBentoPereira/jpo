@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                 {% for ligne in tableau %}
-                <tr class="table-success">
+                <tr class="" style="background-color: {{ ligne.couleur }};">
                     <th>{{ ligne.diplome }}</th>
                     <td>{{ ligne.nbPlaces }}</td>
                     <td>{{ ligne.firstYear }}</td>
@@ -54,159 +54,152 @@
 
 
 
-
-
-
-
-
-
-    {#<div class="row mb-3">#}
-        {#<div class="col-12">#}
-            {#<table class="table table-bordered table-responsive-md shadow">#}
-                {#<thead class="thead-light text-center">#}
-                {#<tr>#}
-                    {#<th scope="col" colspan="2"></th>#}
-                    {#<th scope="col" colspan="4">En 3 ans Préparation du  diplôme du Baccalauréat Professionnel ; <br />En 2 ans pour préparer un CAP</th>#}
-                    {#<th scope="col" colspan="3">Après le Baccalauréat Professionnel ;<br />MC = Mention Complémentaire ; <br />BTS = Brevet de Technicien Supérieur ;<br />FCIL = Formation Complémentaire d'Initiative Locale</th>#}
-                {#</tr>#}
-                {#</thead>#}
-                {#<thead class="thead-light">#}
-                {#<tr>#}
-                    {#<th scope="row">Diplôme</th>#}
-                    {#<th scope="row">Nombre de places</th>#}
-                    {#<th scope="row">1ère année : Seconde Bac Professionnel</th>#}
-                    {#<th scope="row">2ème année : 1ère Bac Professionnel</th>#}
-                    {#<th scope="row">Diplôme intermédiaire</th>#}
-                    {#<th scope="row">3ème année : Terminale Bac Professionnel</th>#}
-                    {#<th scope="row">Poursuite d’étude</th>#}
-                    {#<th scope="row">Formations et Concours</th>#}
-                    {#<th scope="row">Vie active</th>#}
-                {#</tr>#}
-                {#</thead>#}
-                {#<tbody>#}
-                {#<tr class="table-success">#}
-                    {#<th>Bac Pro ASSP <br /> Accompagnement Soins et Services à la Personne</th>#}
-                    {#<td>30</td>#}
-                    {#<td>2nde Pro ASSP</td>#}
-                    {#<td>1ère Pro ASSP</td>#}
-                    {#<td>BEP</td>#}
-                    {#<td>Tale Pro ASSP</td>#}
-                    {#<td>BTS Economie Sociale et Familiale (ESF) BTS Services et Prestations des  Secteurs Sanitaire et Social (SP3S)</td>#}
-                    {#<td>Aide-soignant, Auxiliaire de puériculture, Accompagnant Educatif et Social,   Moniteur Educateur, Infirmier, Educateur Spécialisé, CAP Accompagnant Éducatif Petite Enfance</td>#}
-                    {#<td>Intervenant ou assistant en soin dans des structures pour personnes âgées ou handicapées ou dans le cadre de services d’aide à domicile, Travail auprès d’enfants, en centre de loisirs...</td>#}
-                {#</tr>#}
-                {#<tr class="table-warning">#}
-                    {#<th>Bac Pro GA <br /> Gestion Administration</th>#}
-                    {#<td>Gestion Administration</td>#}
-                    {#<td>32</td>#}
-                    {#<td>1ère Pro GA</td>#}
-                    {#<td>BEP</td>#}
-                    {#<td>Tale Pro GA</td>#}
-                    {#<td>BTS Gestion de la PME, BTS Tourisme, BTS Support à l'Action Managériale, BTS Banque, BTS Comptabilité Gestion, autres BTS</td>#}
-                    {#<td>FCIL, MC, Secrétaire médicale / Assistant comptable / Gestionnaire de paie..., Concours fonction publique</td>#}
-                    {#<td>Employé administratif, gestionnaire du personnel, gestionnaire commercial…</td>#}
-                {#</tr>#}
-                {#<tr class="table-danger">#}
-                    {#<th>Bac Pro MM <br /> Métiers de la Mode</th>#}
-                    {#<td>15</td>#}
-                    {#<td>2nde Pro MM</td>#}
-                    {#<td>1ère Pro MM</td>#}
-                    {#<td>BEP</td>#}
-                    {#<td>Tale Pro MM</td>#}
-                    {#<td>BTS Métiers de la Mode, BTS  mode chaussures maroquinerie, BTS innovation textiles, DN MADE( Diplôme National des Métiers d'Art et du DEsign), DTMS (Diplôme de technicien des Métiers du Spectacle option techniques de l'habillage), CAP en 1 an après le bac : vêtement flou / chapellerie / maroquinerie, Autres BTS</td>#}
-                    {#<td>Titre technicien lingerie, corsetterie, balnéaire#}
-                        {#FCIL techniques spécifiques couture et luxe#}
-                        {#MC vente, essayage, retouche.#}
-                    {#</td>#}
-                    {#<td>#}
-                        {#Assistant modéliste, assistant prototypiste, assistant agent technique de bureau d'étude ou des méthodes dans les entreprises de prêt à porter, de luxe et ultra luxe...#}
-                    {#</td>#}
-                {#</tr>#}
-                {#<tr class="table-primary">#}
-                    {#<th>Bac Pro ARCU <br /> Accueil Relation aux Clients et Usagers</th>#}
-                    {#<td>16</td>#}
-                    {#<td>2nde Pro MRCU</td>#}
-                    {#<td>1ère Pro ARCU</td>#}
-                    {#<td>BEP</td>#}
-                    {#<td>Tale Pro ARCU</td>#}
-                    {#<td>BTS assistant de gestion#}
-                        {#PME/PMI#}
-                        {#BTS tourisme#}
-                        {#MC accueil dans les transports, agent d’escale en aéroport#}
-                        {#MC accueil réception#}
-                        {#autres BTS#}
-                    {#</td>#}
-                    {#<td></td>#}
-                    {#<td>Hôte/hôtesse d’accueil, de caisse, en agence#}
-                        {#évènementielle,  standardiste,#}
-                        {#chargé de l’accueil…#}
-                    {#</td>#}
-                {#</tr>#}
-                {#<tr class="table-info">#}
-                    {#<th>Bac Pro COM <br /> Commerce</th>#}
-                    {#<td>16</td>#}
-                    {#<td>2nde Pro MRCU</td>#}
-                    {#<td>1ère Pro COM</td>#}
-                    {#<td>BEP</td>#}
-                    {#<td>Tale Pro COM</td>#}
-                    {#<td>BTS Management des#}
-                        {#Unités Commerciales#}
-                        {#(MUC)#}
-                        {#BTS Négociation et#}
-                        {#Relation Client (NRC)#}
-                        {#MC vendeur spécialisé en#}
-                        {#alimentation.#}
-                        {#MC assistance, conseil, vente à distance.#}
-                        {#autres BTS#}
-                    {#</td>#}
-                    {#<td></td>#}
-                    {#<td>Vendeur en magasin, télévendeur,#}
-                        {#adjoint d’un responsable#}
-                        {#de magasin ou d’un chef#}
-                        {#de rayon,#}
-                        {#vendeur spécialisé, vendeur conseil…#}
-                    {#</td>#}
-                {#</tr>#}
-                {#<tr style="background-color: #FFADEF;">#}
-                    {#<th>Bac Pro ECP <br /> Esthétique Cosmétique Parfumerie</th>#}
-                    {#<td>32</td>#}
-                    {#<td>2nde Pro ECP</td>#}
-                    {#<td>1 ère Pro ECP</td>#}
-                    {#<td>CAP</td>#}
-                    {#<td>Tale Pro ECP</td>#}
-                    {#<td>BTS Esthétique (ECP)#}
-                        {#BTS Management des Unités Commerciales#}
-                        {#(MUC)#}
-                        {#BTS Technico-commercial#}
-                        {#DUT techniques de commercialisation#}
-                        {#autres BTS#}
-                    {#</td>#}
-                    {#<td>Ecoles privées spécialisations</td>#}
-                    {#<td>Conseillère beauté, esthéticienne,#}
-                        {#ambassadrice de marque,#}
-                        {#animatrice...#}
-                    {#</td>#}
-                {#</tr>#}
-                {#<tr style="background-color: #EE9C1A;">#}
-                    {#<th>CAP EVS <br /> Employé de Vente Spécialisé</th>#}
-                    {#<td>12</td>#}
-                    {#<td>1ère CAP EVS</td>#}
-                    {#<td>Tale CAP EVS</td>#}
-                    {#<td colspan="2"></td>#}
-                    {#<td>1ère Bac pro (passerelle)#}
-                        {#MRCU#}
-                        {#Vente#}
-                        {#Accueil#}
-                        {#ou autres CAP en un an#}
-                    {#</td>#}
-                    {#<td></td>#}
-                    {#<td></td>#}
-                {#</tr>#}
-                {#</tbody>#}
-            {#</table>#}
-        {#</div>#}
-    {#</div>#}
-
+    {#<div class="row mb-3">
+        <div class="col-12">
+            <table class="table table-bordered table-responsive-md shadow">
+                <thead class="thead-light text-center">
+                <tr>
+                    <th scope="col" colspan="2"></th>
+                    <th scope="col" colspan="4">En 3 ans Préparation du  diplôme du Baccalauréat Professionnel ; <br />En 2 ans pour préparer un CAP</th>
+                    <th scope="col" colspan="3">Après le Baccalauréat Professionnel ;<br />MC = Mention Complémentaire ; <br />BTS = Brevet de Technicien Supérieur ;<br />FCIL = Formation Complémentaire d'Initiative Locale</th>
+                </tr>
+                </thead>
+                <thead class="thead-light">
+                <tr>
+                    <th scope="row">Diplôme</th>
+                    <th scope="row">Nombre de places</th>
+                    <th scope="row">1ère année : Seconde Bac Professionnel</th>
+                    <th scope="row">2ème année : 1ère Bac Professionnel</th>
+                    <th scope="row">Diplôme intermédiaire</th>
+                    <th scope="row">3ème année : Terminale Bac Professionnel</th>
+                    <th scope="row">Poursuite d’étude</th>
+                    <th scope="row">Formations et Concours</th>
+                    <th scope="row">Vie active</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-success">
+                    <th>Bac Pro ASSP <br /> Accompagnement Soins et Services à la Personne</th>
+                    <td>30</td>
+                    <td>2nde Pro ASSP</td>
+                    <td>1ère Pro ASSP</td>
+                    <td>BEP</td>
+                    <td>Tale Pro ASSP</td>
+                    <td>BTS Economie Sociale et Familiale (ESF) BTS Services et Prestations des  Secteurs Sanitaire et Social (SP3S)</td>
+                    <td>Aide-soignant, Auxiliaire de puériculture, Accompagnant Educatif et Social,   Moniteur Educateur, Infirmier, Educateur Spécialisé, CAP Accompagnant Éducatif Petite Enfance</td>
+                    <td>Intervenant ou assistant en soin dans des structures pour personnes âgées ou handicapées ou dans le cadre de services d’aide à domicile, Travail auprès d’enfants, en centre de loisirs...</td>
+                </tr>
+                <tr class="table-warning">
+                    <th>Bac Pro GA <br /> Gestion Administration</th>
+                    <td>Gestion Administration</td>
+                    <td>32</td>
+                    <td>1ère Pro GA</td>
+                    <td>BEP</td>
+                    <td>Tale Pro GA</td>
+                    <td>BTS Gestion de la PME, BTS Tourisme, BTS Support à l'Action Managériale, BTS Banque, BTS Comptabilité Gestion, autres BTS</td>
+                    <td>FCIL, MC, Secrétaire médicale / Assistant comptable / Gestionnaire de paie..., Concours fonction publique</td>
+                    <td>Employé administratif, gestionnaire du personnel, gestionnaire commercial…</td>
+                </tr>
+                <tr class="table-danger">
+                    <th>Bac Pro MM <br /> Métiers de la Mode</th>
+                    <td>15</td>
+                    <td>2nde Pro MM</td>
+                    <td>1ère Pro MM</td>
+                    <td>BEP</td>
+                    <td>Tale Pro MM</td>
+                    <td>BTS Métiers de la Mode, BTS  mode chaussures maroquinerie, BTS innovation textiles, DN MADE( Diplôme National des Métiers d'Art et du DEsign), DTMS (Diplôme de technicien des Métiers du Spectacle option techniques de l'habillage), CAP en 1 an après le bac : vêtement flou / chapellerie / maroquinerie, Autres BTS</td>
+                    <td>Titre technicien lingerie, corsetterie, balnéaire
+                        FCIL techniques spécifiques couture et luxe
+                        MC vente, essayage, retouche.
+                    </td>
+                    <td>
+                        Assistant modéliste, assistant prototypiste, assistant agent technique de bureau d'étude ou des méthodes dans les entreprises de prêt à porter, de luxe et ultra luxe...
+                    </td>
+                </tr>
+                <tr class="table-primary">
+                    <th>Bac Pro ARCU <br /> Accueil Relation aux Clients et Usagers</th>
+                    <td>16</td>
+                    <td>2nde Pro MRCU</td>
+                    <td>1ère Pro ARCU</td>
+                    <td>BEP</td>
+                    <td>Tale Pro ARCU</td>
+                    <td>BTS assistant de gestion
+                        PME/PMI
+                        BTS tourisme
+                        MC accueil dans les transports, agent d’escale en aéroport
+                        MC accueil réception
+                        autres BTS
+                    </td>
+                    <td></td>
+                    <td>Hôte/hôtesse d’accueil, de caisse, en agence
+                        évènementielle,  standardiste,
+                        chargé de l’accueil…
+                    </td>
+                </tr>
+                <tr class="table-info">
+                    <th>Bac Pro COM <br /> Commerce</th>
+                    <td>16</td>
+                    <td>2nde Pro MRCU</td>
+                    <td>1ère Pro COM</td>
+                    <td>BEP</td>
+                    <td>Tale Pro COM</td>
+                    <td>BTS Management des
+                        Unités Commerciales
+                        (MUC)
+                        BTS Négociation et
+                        Relation Client (NRC)
+                        MC vendeur spécialisé en
+                        alimentation.
+                        MC assistance, conseil, vente à distance.
+                        autres BTS
+                    </td>
+                    <td></td>
+                    <td>Vendeur en magasin, télévendeur,
+                        adjoint d’un responsable
+                        de magasin ou d’un chef
+                        de rayon,
+                        vendeur spécialisé, vendeur conseil…
+                    </td>
+                </tr>
+                <tr style="background-color: #FFADEF;">
+                    <th>Bac Pro ECP <br /> Esthétique Cosmétique Parfumerie</th>
+                    <td>32</td>
+                    <td>2nde Pro ECP</td>
+                    <td>1 ère Pro ECP</td>
+                    <td>CAP</td>
+                    <td>Tale Pro ECP</td>
+                    <td>BTS Esthétique (ECP)
+                        BTS Management des Unités Commerciales
+                        (MUC)
+                        BTS Technico-commercial
+                        DUT techniques de commercialisation
+                        autres BTS
+                    </td>
+                    <td>Ecoles privées spécialisations</td>
+                    <td>Conseillère beauté, esthéticienne,
+                        ambassadrice de marque,
+                        animatrice...
+                    </td>
+                </tr>
+                <tr style="background-color: #EE9C1A;">
+                    <th>CAP EVS <br /> Employé de Vente Spécialisé</th>
+                    <td>12</td>
+                    <td>1ère CAP EVS</td>
+                    <td>Tale CAP EVS</td>
+                    <td colspan="2"></td>
+                    <td>1ère Bac pro (passerelle)
+                        MRCU
+                        Vente
+                        Accueil
+                        ou autres CAP en un an
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>#}
 
 
     <div class="container">
