@@ -14,16 +14,16 @@ class TableauType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('diplome',                TextareaType::class, ['label' => 'Diplôme :'])
-            ->add('nbPlaces',               TextareaType::class, ['label' => 'Nombre de Places :'])
-            ->add('firstYear',              TextareaType::class, ['label' => 'Première année :'])
-            ->add('secondYear',             TextareaType::class, ['label' => 'Seconde année :'])
-            ->add('diplomeIntermediaire',   TextareaType::class, ['label' => 'Diplôme Intermédiaire:'])
-            ->add('thirdYear',              TextareaType::class, ['label' => 'Troisième année :'])
-            ->add('poursuiteEtudes',        TextareaType::class, ['label' => 'Poursuite d\'Etudes:'])
-            ->add('formationEtConcours',    TextareaType::class, ['label' => 'Formation et concours :'])
-            ->add('vieActive',              TextareaType::class, ['label' => 'Vie Active :'])
-            ->add('couleur',                ColorType::class,    ['label' => 'Couleur :'])
+            ->add('diplome',                TextareaType::class, ['label' => 'Diplôme :', 'required' => false])
+            ->add('nbPlaces',               TextareaType::class, ['label' => 'Nombre de Places :', 'required' => false])
+            ->add('firstYear',              TextareaType::class, ['label' => 'Première année :', 'required' => false])
+            ->add('secondYear',             TextareaType::class, ['label' => 'Seconde année :', 'required' => false])
+            ->add('diplomeIntermediaire',   TextareaType::class, ['label' => 'Diplôme Intermédiaire:', 'required' => false])
+            ->add('thirdYear',              TextareaType::class, ['label' => 'Troisième année :', 'required' => false])
+            ->add('poursuiteEtudes',        TextareaType::class, ['label' => 'Poursuite d\'Etudes:', 'required' => false])
+            ->add('formationEtConcours',    TextareaType::class, ['label' => 'Formation et concours :', 'required' => false])
+            ->add('vieActive',              TextareaType::class, ['label' => 'Vie Active :', 'required' => false])
+            ->add('couleur',                ColorType::class,    ['label' => 'Couleur :', 'required' => false])
         ;
     }
 
