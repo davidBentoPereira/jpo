@@ -164,7 +164,7 @@
 /* ----- Cards ----- */
 
 .card {
-    height: 265px;
+    height: 295px;
     width: 17%;
     display: flex;
     margin: 1%;
@@ -178,24 +178,38 @@
 
 .card-add {
     background-color: #8bc34a;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
 }
 
 .card-basic {
      background-color: #2a3181;
  }
 
+.card-add-a {
+    display: flex;
+    justify-content: center;
+}
+
 .card-add-img {
     display: flex;
     height: auto;
     width: 65%;
     margin: auto;
-    margin-top: 14%;
 }
 
 .card-basic a {
     width: auto;
     margin-top: -10px;
     align-content: flex-end;
+}
+
+.card-table-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .card-chart {
@@ -214,7 +228,7 @@
 
 .tag-event {
     margin: auto;
-    background-color: #e564ff;
+    background-color: #bcbfff;
     border-radius: 5px;
     height: 25px;
     width: auto;

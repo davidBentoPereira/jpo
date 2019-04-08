@@ -6,13 +6,16 @@
     <h1>Evenement</h1>
     <div class="row">
         <div class="card card-add">
-            <a href="{{ path('addEvent') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
+            <a href="{{ path('addEvent') }}" class="card-add-a"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
         </div>
         {% for event in events %}
             <div class="card card-basic">
-                <h2>{{ event.title }}</h2>
-                <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
-                <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+                <h2 class="card-table-title">{{ event.title }}</h2>
+                <hr>
+                <div class="flex-end">
+                    <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                    <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+                </div>
             </div>
         {% endfor %}
     </div>

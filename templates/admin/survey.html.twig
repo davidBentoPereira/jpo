@@ -6,16 +6,18 @@
     <h1>Sondage</h1>
     <div class="row">
         <div class="card card-add">
-            <a href="{{ path('addSurvey') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
+            <a href="{{ path('addSurvey') }}" class="card-add-a"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
         </div>
         {% for survey in surveys %}
             <div class="card card-basic card-survey">
                 <div class="row tag-event-div">
                     <div class="tag-event">{{ survey.event.title }}  </div>
                 </div>
+                <hr>
                 <div class="row title">
-                    <h2>{{ survey.title }}</h2>
+                    <h2 class="card-table-title">{{ survey.title }}</h2>
                 </div>
+                <hr>
                 <div class="flex-end">
                     <a href="{{ path('deleteSurvey', {'id':survey.id}) }}" id="delete-survey" class="btn btn-danger btn-survey"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
                     <a href="{{ path('editSurvey', {'id':survey.id}) }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
