@@ -26,3 +26,4 @@ Dockerfile
 
 ## All generated QR Codes
 /public/img/qrcode/*
+!/public/img/qrcode/.gitkeep
