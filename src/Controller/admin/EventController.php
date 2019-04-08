@@ -30,7 +30,7 @@ class EventController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $data = $form->getData();
                 $title = $data['title'];
-                $dateOfOpening = new \DateTimeImmutable('now');
+                $dateOfOpening = $data['dateOfOpening'];
                 $dateOfClosure = $data['dateOfClosure'];
                 $event = new Event($title, $dateOfOpening, $dateOfClosure);
                 $event->setDescription($data['description']);
@@ -58,6 +58,7 @@ class EventController extends AbstractController
                 $data = $form->getData();
                 $event->setTitle( $data['title']);
                 $event->setDateOfClosure($data['dateOfClosure']);
+                $event->setDateOfOpening($data['dateOfOpening']);
                 $event->setDescription($data['description']);
                 $entityManager->persist($event);
                 $entityManager->flush();
