@@ -12,6 +12,7 @@ use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\TableauRepository;
+use App\Repository\QuestionOptionRepository;
 
 
 class FrontController extends AbstractController

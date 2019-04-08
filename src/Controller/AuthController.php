@@ -25,7 +25,7 @@ class AuthController extends AbstractController
     )
     {
         if ($authChecker->isGranted('ROLE_ADMIN')) {
-            return $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('page');
         }
 
         $error = $authenticationUtils->getLastAuthenticationError();

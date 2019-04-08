@@ -41,9 +41,6 @@ login:
 logout:
     path: /logout
     # - - - - - ADMIN - - - - -
-dashboard:
-    path: /admin
-    controller: App\Controller\admin\AdminController::index
 
 #--- Survey
 survey:
@@ -100,7 +97,7 @@ editEvent:
     path: /admin/edit-event/{id}
     controller: App\Controller\admin\EventController::editEvent
 
-#--- Page
+#--- Filieres
 page:
     path: /admin/liste-des-pages
     controller: App\Controller\admin\PageController::page
