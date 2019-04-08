@@ -46,6 +46,8 @@ class Question
     public function __construct(string $title)
     {
         $this->title = $title;
+        $this->questionOptions = new ArrayCollection();
+        $this->responses = new ArrayCollection();
     }
 
     public function getId(): ?int

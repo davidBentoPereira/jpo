@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,9 +20,14 @@ class AuthController extends AbstractController
         Request $request,
         ObjectManager $manager,
         UserPasswordEncoderInterface $encoder,
-        AuthenticationUtils $authenticationUtils
+        AuthenticationUtils $authenticationUtils,
+        AuthorizationCheckerInterface $authChecker
     )
     {
+        if ($authChecker->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('dashboard');
+        }
+
         $error = $authenticationUtils->getLastAuthenticationError();
 
         $lastUsername = $authenticationUtils->getLastUsername();

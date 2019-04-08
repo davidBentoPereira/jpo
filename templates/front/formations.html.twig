@@ -3,6 +3,7 @@
 {% block title %}Résumé des Formations{% endblock %}
 
 {% block body %}
+
     <div class="row mb-3">
         <div class="col-12 text-center d-flex row justify-content-center">
             <h1>Résumé des formations</h1>
@@ -10,6 +11,50 @@
     </div>
 
     <div class="row mb-3">
+        <div class="col-12">
+            <table class="table table-bordered table-responsive-md shadow">
+                <thead class="thead-light text-center">
+                <tr>
+                    <th scope="col" colspan="2"></th>
+                    <th scope="col" colspan="4">En 3 ans Préparation du  diplôme du Baccalauréat Professionnel ; <br />En 2 ans pour préparer un CAP</th>
+                    <th scope="col" colspan="3">Après le Baccalauréat Professionnel ;<br />MC = Mention Complémentaire ; <br />BTS = Brevet de Technicien Supérieur ;<br />FCIL = Formation Complémentaire d'Initiative Locale</th>
+                </tr>
+                </thead>
+                <thead class="thead-light">
+                <tr>
+                    <th scope="row">Diplôme</th>
+                    <th scope="row">Nombre de places</th>
+                    <th scope="row">1ère année : Seconde Bac Professionnel</th>
+                    <th scope="row">2ème année : 1ère Bac Professionnel</th>
+                    <th scope="row">Diplôme intermédiaire</th>
+                    <th scope="row">3ème année : Terminale Bac Professionnel</th>
+                    <th scope="row">Poursuite d’étude</th>
+                    <th scope="row">Formations et Concours</th>
+                    <th scope="row">Vie active</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ligne in tableau %}
+                <tr class="" style="background-color: {{ ligne.couleur }};">
+                    <th>{{ ligne.diplome }}</th>
+                    <td>{{ ligne.nbPlaces }}</td>
+                    <td>{{ ligne.firstYear }}</td>
+                    <td>{{ ligne.secondYear }}</td>
+                    <td>{{ ligne.diplomeIntermediaire }}</td>
+                    <td>{{ ligne.thirdYear }}</td>
+                    <td>{{ ligne.poursuiteEtudes }}</td>
+                    <td>{{ ligne.formationEtConcours }}</td>
+                    <td>{{ ligne.vieActive }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    {#<div class="row mb-3">
         <div class="col-12">
             <table class="table table-bordered table-responsive-md shadow">
                 <thead class="thead-light text-center">
@@ -154,24 +199,25 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>#}
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="card hvr-underline-reveal">
-                <div class="card-body">
-                    <h5 class="card-title">Autres classes / dispositifs proposés au Lycée des Métiers Marcelle PARDÉ :</h5>
-                    <ul>
-                        <li>3ème Prépa-métiers : 24 élèves Découverte des métiers et formations - Poursuite de la scolarité en enseignement professionnel.</li>
-                        <li>IFAS : 17 étudiants	Institut de Formation d’Aide Soignant - Accès sur dossier et entretien.</li>
-                        <li>ULIS : + de 10 élèves	Unité Localisée pour l’Inclusion Scolaire - Dispositif d'aide à l'inclusion scolaire pour les élèves porteurs d'un handicap</li>
-                        <li>MLDS : + de 60 élèves	Mission de Lutte contre le Décrochage Scolaire - Pour tous les jeunes sans solution d'orientation</li>
-                    </ul>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card hvr-underline-reveal">
+                    <div class="card-body">
+                        <h5 class="card-title">Autres classes / dispositifs proposés au Lycée des Métiers Marcelle PARDÉ :</h5>
+                        <ul>
+                            <li>3ème Prépa-métiers : 24 élèves Découverte des métiers et formations - Poursuite de la scolarité en enseignement professionnel.</li>
+                            <li>IFAS : 17 étudiants	Institut de Formation d’Aide Soignant - Accès sur dossier et entretien.</li>
+                            <li>ULIS : + de 10 élèves	Unité Localisée pour l’Inclusion Scolaire - Dispositif d'aide à l'inclusion scolaire pour les élèves porteurs d'un handicap</li>
+                            <li>MLDS : + de 60 élèves	Mission de Lutte contre le Décrochage Scolaire - Pour tous les jeunes sans solution d'orientation</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

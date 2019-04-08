@@ -4,6 +4,8 @@ namespace App\Controller\admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FiliereRepository;
+use App\Repository\SurveyRepository;
+use App\Repository\EventRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Endroid\QrCode\ErrorCorrectionLevel;
@@ -16,9 +18,17 @@ use App\Service\SlugGeneratorService;
 
 class QRCodeController extends AbstractController
 {
-    public function index(FiliereRepository $repo)
+    public function index(
+        FiliereRepository $filiereRepo,
+        EventRepository $eventRepo,
+        SurveyRepository $surveyRepo
+    )
     {
-        return $this->render('admin/qrcodes/list.html.twig', ['filieres' => $repo->findAll()]);
+        return $this->render('admin/qrcodes/list.html.twig', [
+            'filieres' => $filiereRepo->findAll(),
+            'events' => $eventRepo->findAll(),
+            'surveys' => $surveyRepo->findAll()
+        ]);
     }
 
     public function rendering(Request $request)
@@ -37,7 +47,7 @@ class QRCodeController extends AbstractController
 
         $qrCode->setSize(300);
 
-        $qrCode->setMargin(10); 
+        $qrCode->setMargin(10);
 
         $qrCode->setEncoding('UTF-8');
 

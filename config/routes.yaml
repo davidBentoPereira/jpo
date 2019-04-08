@@ -117,6 +117,23 @@ page_delete:
     path: /admin/suppression-filiere/{id}
     controller: App\Controller\admin\PageController::pageDelete
 
+#--- Tableau
+tableau_list:
+  path: /admin/tableau-des-formations
+  controller: App\Controller\admin\TableauController::tableauList
+
+tableau_add:
+  path: /admin/ajouter-une-ligne-du-tableau
+  controller: App\Controller\admin\TableauController::tableauAdd
+
+tableau_edit:
+  path: /admin/editer-une-ligne-du-tableau/{id}
+  controller: App\Controller\admin\TableauController::tableauEdit
+
+tableau_delete:
+  path: /admin/suppression-ligne-tableau/{id}
+  controller: App\Controller\admin\TableauController::tableauDelete
+
 #--- QR Code
 qrcodelist:
     path: "admin/qr-codes"

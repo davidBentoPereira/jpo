@@ -23,3 +23,6 @@
 ### Docker tools ###
 docker-compose.yml
 Dockerfile
+
+## All generated QR Codes
+/public/img/qrcode/*

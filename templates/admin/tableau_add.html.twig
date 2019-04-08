@@ -1,0 +1,89 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}AdminController{% endblock %}
+
+{% block body %}
+    <h1 class="display-4 text-center">Ajouter une  nouvelle Filière</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {{ form_start(tableauForm) }}
+
+            <div class="form-row mb-5">
+                <div class="form-group col-1">
+                    {{ form_label(tableauForm.rank) }}
+                    {{ form_widget(tableauForm.rank, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-1">
+                    {{ form_label(tableauForm.couleur) }}
+                    {{ form_widget(tableauForm.couleur, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.diplome) }}
+                    {{ form_widget(tableauForm.diplome, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.nbPlaces) }}
+                    {{ form_widget(tableauForm.nbPlaces, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.firstYear) }}
+                    {{ form_widget(tableauForm.firstYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.secondYear) }}
+                    {{ form_widget(tableauForm.secondYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.diplomeIntermediaire) }}
+                    {{ form_widget(tableauForm.diplomeIntermediaire, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.thirdYear) }}
+                    {{ form_widget(tableauForm.thirdYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.poursuiteEtudes) }}
+                    {{ form_widget(tableauForm.poursuiteEtudes, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.formationEtConcours) }}
+                    {{ form_widget(tableauForm.formationEtConcours, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.vieActive) }}
+                    {{ form_widget(tableauForm.vieActive, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+            <div class="form-group col-12">
+                <button type="submit" class="btn-lg btn-primary">Ajouter la ligne au tableau</button>
+            </div>
+
+            {{ form_end(tableauForm) }}
+    </div>
+
+
+
+
+{% endblock %}
