@@ -1,49 +1,38 @@
 {% extends 'front/base.html.twig' %}
 
-{% block title %}Connexion à l'espace administrateur!{% endblock %}
+{% block title %}Connexion à l'espace admin{% endblock %}
 
 {% block body %}
-    <style>
-        .container{
-            text-align: center;
-            padding: 15px 0;
-        }
-        form{
-            text-align: left;
-            margin: auto;
-        }
-        input{
-            margin-left: 15px;
-        }
-        button{
-            padding: 10px;
-            border: none;
-            background-color: #28a745;
-            border-radius: 3px;
-            color: #fff;
-        }
-    </style>
-    <div class="container" id="main-content">
-        <h1 class="modal-title" id="exampleModalLabel">Connexion à l'espace d'administration</h1>
-        <div class="col-8"  style="margin: auto">
-            {# <form action="{{ path('login') }}" method="POST">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                    </div>
-                    <input type="email" class="form-control" name="email" placeholder="Mail" required="required">
+
+    <div class="row justify-content-center">
+        <h1 class="h2">Connexion à l'espace d'administration</h1>
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-md-3">
+            {{ form_start(loginForm) }}
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                    </div>
-                    <input type="password" class="form-control" name="password" placeholder="Mot de passe" required="required">
+                {{ form_widget(loginForm._username, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <div class="form-group text-center">
-                    <button type="submit" class="btn btn-outline-secondary btn-block"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
-                </div>
-            </form> #}
-            {{ form(loginForm) }}
+                {{ form_widget(loginForm._password, {'attr': {'class': 'form-control', 'placeholder': 'Mot de passe'}}) }}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn-lg btn-primary btn-block">Se connecter</button>
+            </div>
+
+            {{ form_end(loginForm) }}
         </div>
     </div>
+
 {% endblock %}

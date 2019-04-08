@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\QuestionOption;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\FiliereRepository;
 use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\TableauRepository;
+use App\Repository\QuestionOptionRepository;
 
 
 class FrontController extends AbstractController
@@ -46,9 +49,49 @@ class FrontController extends AbstractController
         ]);
     }
 
-    public function sondage(QuestionRepository $questionRep, $id): Response
+    public function sondage(Request $request, QuestionRepository $questionRep, QuestionOptionRepository $questionOptionRepository, SurveyRepository $surveyRepository, $id): Response
     {
-        return $this->render('front/sondage.html.twig',['questions' => $questionRep->findQuestionsById($id)]);
+        $survey =  $surveyRepository->findOneBy(['id' => $id]);
+        $questions = $survey->getQuestions();
+
+        if($request->getMethod() == 'POST')
+        {
+            $entityManager = $this->getDoctrine()->getManager();
+            foreach($questions as $question)
+            {
+                if(isset($_POST['question-'.$question->getId()]))
+                {
+                    $response = $_POST['question-'.$question->getId()];
+                    $realResponse = new \App\Entity\Response();
+                    if(gettype($response) == 'string')
+                    {
+                        if(isset($response) && !empty($response))
+                        {
+                            $realResponse->setValue($response);
+                            $realResponse->setQuestion($question);
+                        }
+                    } else  {
+                        foreach($response as $option)
+                        {
+                            $realResponse->setQuestion($question);
+                            $questionOption = $questionOptionRepository->findOneBy(['id' => $option]);
+                            $questionOption->addResponse($realResponse);
+                        }
+                    }
+                    $entityManager->persist($realResponse);
+                    $entityManager->flush();
+                }
+            }
+
+            return $this->render('front/sondage.html.twig',[
+                'survey' => $survey,
+                'submitted' => 'OK'
+            ]);
+        }
+
+        return $this->render('front/sondage.html.twig',[
+            'survey' => $survey
+        ]);
     }
 
     public function histoire(): Response
