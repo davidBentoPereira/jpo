@@ -22,6 +22,14 @@ class EventType extends AbstractType
                         "class" => "form-control",
                         "placeholder" => "Entrez votre titre"
                     ]])
+            ->add('dateOfOpening', DateTimeType::class,
+                ["label" => "Date de début",
+                    'widget' => 'text',
+                    'input' => "datetime_immutable",
+                    'placeholder' => [
+                        'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                        'hour' => 'Heure', 'minute' => 'Minute', 'second' => 'Seconde'
+                    ]])
             ->add('dateOfClosure', DateTimeType::class,
                 ["label" => "Date de fin",
                     'widget' => 'text',

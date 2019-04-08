@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\QuestionOption;
+use App\Repository\QuestionOptionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
