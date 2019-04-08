@@ -26,11 +26,6 @@ class QuestionType
      */
     private $resume;
 
-    public function __construct(string $label)
-    {
-        $this->label = $label;
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -52,10 +47,9 @@ class QuestionType
     {
         return $this->resume;
     }
+
     public function setResume($resume): void
     {
         $this->resume = $resume;
     }
-
-
 }
