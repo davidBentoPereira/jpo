@@ -6,6 +6,7 @@ use App\Entity\Tableau;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,6 +15,7 @@ class TableauType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('rank',                   IntegerType::class,  ['label' => 'Position :'])
             ->add('diplome',                TextareaType::class, ['label' => 'Diplôme :', 'required' => false])
             ->add('nbPlaces',               TextareaType::class, ['label' => 'Nombre de Places :', 'required' => false])
             ->add('firstYear',              TextareaType::class, ['label' => 'Première année :', 'required' => false])

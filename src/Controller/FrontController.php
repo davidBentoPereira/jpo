@@ -20,7 +20,7 @@ class FrontController extends AbstractController
 
     public function formations(TableauRepository $tableauRepo): Response
     {
-        return $this->render('front/formations.html.twig', ['tableau' => $tableauRepo->findAll()]);
+        return $this->render('front/formations.html.twig', ['tableau' => $tableauRepo->findAllLinesInTableauSortedByRank()]);
     }
 
     public function filiere($id, $title, FiliereRepository $repo): Response

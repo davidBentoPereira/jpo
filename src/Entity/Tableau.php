@@ -66,6 +66,11 @@ class Tableau
      */
     private $couleur;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $rank;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -187,6 +192,18 @@ class Tableau
     public function setCouleur(?string $couleur): self
     {
         $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getRank(): ?int
+    {
+        return $this->rank;
+    }
+
+    public function setRank(?int $rank): self
+    {
+        $this->rank = $rank;
 
         return $this;
     }

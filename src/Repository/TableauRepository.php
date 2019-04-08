@@ -19,6 +19,14 @@ class TableauRepository extends ServiceEntityRepository
         parent::__construct($registry, Tableau::class);
     }
 
+    public function findAllLinesInTableauSortedByRank()
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->orderBy('t.rank', 'ASC')
+            ->getQuery();
+        return $qb->execute();
+    }
+
     public function deleteLigneTableau($id)
     {
         $entityManager = $this->getEntityManager();
