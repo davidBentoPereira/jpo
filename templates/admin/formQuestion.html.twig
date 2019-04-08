@@ -4,9 +4,9 @@
 
 {% block body %}
     {% if type == 'add' %}
-        <h1>Nouvelle question pour le sondage {{ survey.title }}</h1>
+        <h1>Nouvelle question <br><small>pour le sondage {{ survey.title }}</small></h1>
     {% else %}
-        <h1>Modification de la question {{ question.title }} <small>pour le sondage {{ survey.title }}</small></h1>
+        <h1>Modification de la question : {{ question.title }} <br><small>pour le sondage {{ survey.title }}</small></h1>
     {% endif %}
 
     {% if question is defined %}

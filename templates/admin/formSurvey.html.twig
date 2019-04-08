@@ -6,7 +6,7 @@
     {% if type == 'add' %}
         <h1>Nouveau sondage</h1>
     {% else %}
-        <h1>Modifier le sondage</h1>
+        <h1>Modifier le sondage : {{ survey.title }}</h1>
     {% endif %}
 
     {% if survey is defined %}
