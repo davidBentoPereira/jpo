@@ -21,7 +21,7 @@ security:
         main:
             anonymous: ~
             form_login:
-                default_target_path: dashboard
+                default_target_path: page
                 check_path: login
                 failure_path: /
             logout:
