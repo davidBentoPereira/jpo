@@ -13,6 +13,7 @@ use App\Entity\QuestionType;
 use App\Entity\QuestionOption;
 use App\Entity\Response;
 use App\Entity\ResponseValue;
+use App\Entity\Tableau;
 use App\Service\EncryptingService;
 use App\Service\SlugGeneratorService;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -47,7 +48,7 @@ class AppFixtures extends Fixture
         $manager->persist($admin);
 
         /**
-         * Génération des fixtures des pages filière
+         * Génération des fixtures des filières
          */
         
         // 1. 3ème PREPA MÉTIERS
@@ -206,6 +207,104 @@ class AppFixtures extends Fixture
         $filiere9->setTitleBlock4("Vie active");
         $filiere9->setTitleBlock5("Inscription");
         $manager->persist($filiere9);
+
+
+        /**
+         * Génération des fixtures des filières
+         */
+
+        // 1. Bac Pro ASSP Accompagnement Soins et Services à la Personne
+        $tableau1 = new Tableau();
+        $tableau1->setCouleur("#c3e6cb");
+        $tableau1->setDiplome("Bac Pro ASSP\r\nAccompagnement Soins et Services à la Personne");
+        $tableau1->setDiplomeIntermediaire("BEP");
+        $tableau1->setFirstYear("2nde Pro ASSP");
+        $tableau1->setFormationEtConcours("Aide-soignant, Auxiliaire de puériculture, Accompagnant Educatif et Social, Moniteur Educateur, Infirmier, Educateur Spécialisé, CAP Accompagnant Éducatif Petite Enfance");
+        $tableau1->setNbPlaces("32");
+        $tableau1->setPoursuiteEtudes("BTS Economie Sociale et Familiale (ESF) BTS Services et Prestations des Secteurs Sanitaire et Social (SP3S)");
+        $tableau1->setSecondYear("1ère Pro ASSP");
+        $tableau1->setThirdYear("Tale Pro ASSP");
+        $tableau1->setVieActive("Intervenant ou assistant en soin dans des structures pour personnes âgées ou handicapées ou dans le cadre de services d’aide à domicile, Travail auprès d’enfants, en centre de loisirs...");
+        $manager->persist($tableau1);
+
+        // 2. Bac Pro GA\r\nGestion Administration
+        $tableau2 = new Tableau();
+        $tableau2->setCouleur("#ffeeba");
+        $tableau2->setDiplome("Bac Pro GA\r\nGestion Administration");
+        $tableau2->setDiplomeIntermediaire("BEP");
+        $tableau2->setFirstYear("Gestion Administration");
+        $tableau2->setFormationEtConcours("FCIL, MC, Secrétaire médicale / Assistant comptable / Gestionnaire de paie..., Concours fonction publique");
+        $tableau2->setNbPlaces("32");
+        $tableau2->setPoursuiteEtudes("BTS Gestion de la PME, BTS Tourisme, BTS Support à l'Action Managériale, BTS Banque, BTS Comptabilité Gestion, autres BTS");
+        $tableau2->setSecondYear("1ère Pro GA");
+        $tableau2->setThirdYear("Tale Pro GA");
+        $tableau2->setVieActive("Employé administratif, gestionnaire du personnel, gestionnaire commercial...");
+        $manager->persist($tableau2);
+
+        // 3. Bac Pro MM Métiers de la Mode
+        $tableau3 = new Tableau();
+        $tableau3->setCouleur("#f5c6cb");
+        $tableau3->setDiplome("Bac Pro MM Métiers de la Mode");
+        $tableau3->setDiplomeIntermediaire("BEP");
+        $tableau3->setFirstYear("2nde Pro MM");
+        $tableau3->setFormationEtConcours("Titre technicien lingerie, corsetterie, balnéaire FCIL techniques spécifiques couture et luxe MC vente, essayage, retouche.");
+        $tableau3->setNbPlaces("15");
+        $tableau3->setPoursuiteEtudes("BTS Métiers de la Mode, BTS mode chaussures maroquinerie, BTS innovation textiles, DN MADE( Diplôme National des Métiers d'Art et du DEsign), DTMS (Diplôme de technicien des Métiers du Spectacle option techniques de l'habillage), CAP en 1 an après le bac : vêtement flou / chapellerie / maroquinerie, Autres BTS");
+        $tableau3->setSecondYear("1ère Pro MM");
+        $tableau3->setThirdYear("Tale Pro MM");
+        $tableau3->setVieActive("Assistant modéliste, assistant prototypiste, assistant agent technique de bureau d'étude ou des méthodes dans les entreprises de prêt à porter, de luxe et ultra luxe...");
+        $manager->persist($tableau3);
+
+        // 4. Bac Pro ARCU\r\nAccueil Relation aux Clients et Usagers
+        $tableau4 = new Tableau();
+        $tableau4->setCouleur("#b8daff");
+        $tableau4->setDiplome("Bac Pro ARCU\r\nAccueil Relation aux Clients et Usagers");
+        $tableau4->setDiplomeIntermediaire("BEP");
+        $tableau4->setFirstYear("2nde Pro MRCU");
+        $tableau4->setNbPlaces("16");
+        $tableau4->setPoursuiteEtudes("BTS assistant de gestion PME/PMI BTS tourisme MC accueil dans les transports, agent d’escale en aéroport MC accueil réception autres BTS");
+        $tableau4->setSecondYear("1ère Pro ARCU");
+        $tableau4->setThirdYear("Tale Pro ARCU");
+        $tableau4->setVieActive("Hôte/hôtesse d’accueil, de caisse, en agence évènementielle, standardiste, chargé de l’accueil...");
+        $manager->persist($tableau4);
+
+        // 5. Bac Pro COM\r\nCommerce
+        $tableau5 = new Tableau();
+        $tableau5->setCouleur("#bee5eb");
+        $tableau5->setDiplome("Bac Pro COM\r\nCommerce");
+        $tableau5->setDiplomeIntermediaire("BEP");
+        $tableau5->setFirstYear("2nde Pro MRCU");
+        $tableau5->setNbPlaces("16");
+        $tableau5->setPoursuiteEtudes("BTS Management des Unités Commerciales (MUC) BTS Négociation et Relation Client (NRC) MC vendeur spécialisé en alimentation. MC assistance, conseil, vente à distance. autres BTS");
+        $tableau5->setSecondYear("1ère Pro COM");
+        $tableau5->setThirdYear("Tale Pro COM");
+        $tableau5->setVieActive("Vendeur en magasin, télévendeur, adjoint d’un responsable de magasin ou d’un chef de rayon, vendeur spécialisé, vendeur conseil...");
+        $manager->persist($tableau5);
+
+        // 6. Bac Pro ECP\r\nEsthétique Cosmétique Parfumerie
+        $tableau6 = new Tableau();
+        $tableau6->setCouleur("#ffadef");
+        $tableau6->setDiplome("Bac Pro ECP\r\nEsthétique Cosmétique Parfumerie");
+        $tableau6->setDiplomeIntermediaire("CAP");
+        $tableau6->setFirstYear("2nde Pro ECP");
+        $tableau6->setFormationEtConcours("Ecoles privées spécialisations");
+        $tableau6->setNbPlaces("32");
+        $tableau6->setPoursuiteEtudes("BTS Esthétique (ECP) BTS Management des Unités Commerciales (MUC) BTS Technico-commercial DUT techniques de commercialisation autres BTS");
+        $tableau6->setSecondYear("1ère Pro ECP");
+        $tableau6->setThirdYear("Tale Pro ECP");
+        $tableau6->setVieActive("Conseillère beauté, esthéticienne, ambassadrice de marque, animatrice...");
+        $manager->persist($tableau6);
+
+
+        // 7. CAP EVS\r\nEmployé de Vente Spécialisé
+        $tableau7 = new Tableau();
+        $tableau7->setCouleur("#ee9c1a");
+        $tableau7->setDiplome("CAP EVS\r\nEmployé de Vente Spécialisé");
+        $tableau7->setFirstYear("1ère CAP EVS");
+        $tableau7->setNbPlaces("12");
+        $tableau7->setPoursuiteEtudes("1ère Bac pro (passerelle) MRCU Vente Accueil ou autres CAP en un an");
+        $tableau7->setSecondYear("1ère Pro EVS");
+        $manager->persist($tableau7);
 
         /**
          * Génération des fixtures des types de question
