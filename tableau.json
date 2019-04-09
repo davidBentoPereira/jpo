@@ -1,0 +1,93 @@
+[
+    {
+        "couleur": "#c3e6cb",
+        "diplome": "Bac Pro ASSP\r\nAccompagnement Soins et Services à la Personne",
+        "diplome_intermediaire": "BEP",
+        "first_year": "2nde Pro ASSP",
+        "formation_et_concours": "Aide-soignant, Auxiliaire de puériculture, Accompagnant Educatif et Social, Moniteur Educateur, Infirmier, Educateur Spécialisé, CAP Accompagnant Éducatif Petite Enfance",
+        "id": 2,
+        "nb_places": "32",
+        "poursuite_etudes": "BTS Economie Sociale et Familiale (ESF) BTS Services et Prestations des Secteurs Sanitaire et Social (SP3S)",
+        "second_year": "1ère Pro ASSP",
+        "third_year": "Tale Pro ASSP",
+        "vie_active": "Intervenant ou assistant en soin dans des structures pour personnes âgées ou handicapées ou dans le cadre de services d’aide à domicile, Travail auprès d’enfants, en centre de loisirs..."
+    },
+    {
+        "couleur": "#ffeeba",
+        "diplome": "Bac Pro GA\r\nGestion Administration",
+        "diplome_intermediaire": "BEP",
+        "first_year": "Gestion Administration",
+        "formation_et_concours": "FCIL, MC, Secrétaire médicale / Assistant comptable / Gestionnaire de paie..., Concours fonction publique",
+        "id": 3,
+        "nb_places": "32",
+        "poursuite_etudes": "BTS Gestion de la PME, BTS Tourisme, BTS Support à l'Action Managériale, BTS Banque, BTS Comptabilité Gestion, autres BTS",
+        "second_year": "1ère Pro GA",
+        "third_year": "Tale Pro GA",
+        "vie_active": "Employé administratif, gestionnaire du personnel, gestionnaire commercial…"
+    },
+    {
+        "couleur": "#f5c6cb",
+        "diplome": "Bac Pro MM Métiers de la Mode",
+        "diplome_intermediaire": "BEP",
+        "first_year": "2nde Pro MM",
+        "formation_et_concours": "Titre technicien lingerie, corsetterie, balnéaire FCIL techniques spécifiques couture et luxe MC vente, essayage, retouche.",
+        "id": 4,
+        "nb_places": "15",
+        "poursuite_etudes": "BTS Métiers de la Mode, BTS mode chaussures maroquinerie, BTS innovation textiles, DN MADE( Diplôme National des Métiers d'Art et du DEsign), DTMS (Diplôme de technicien des Métiers du Spectacle option techniques de l'habillage), CAP en 1 an après le bac : vêtement flou / chapellerie / maroquinerie, Autres BTS",
+        "second_year": "1ère Pro MM",
+        "third_year": "Tale Pro MM",
+        "vie_active": "Assistant modéliste, assistant prototypiste, assistant agent technique de bureau d'étude ou des méthodes dans les entreprises de prêt à porter, de luxe et ultra luxe..."
+    },
+    {
+        "couleur": "#b8daff",
+        "diplome": "Bac Pro ARCU\r\nAccueil Relation aux Clients et Usagers",
+        "diplome_intermediaire": "BEP",
+        "first_year": "2nde Pro MRCU",
+        "formation_et_concours": null,
+        "id": 5,
+        "nb_places": "16",
+        "poursuite_etudes": "BTS assistant de gestion PME/PMI BTS tourisme MC accueil dans les transports, agent d’escale en aéroport MC accueil réception autres BTS",
+        "second_year": "1ère Pro ARCU",
+        "third_year": "Tale Pro ARCU",
+        "vie_active": "Hôte/hôtesse d’accueil, de caisse, en agence évènementielle, standardiste, chargé de l’accueil…"
+    },
+    {
+        "couleur": "#bee5eb",
+        "diplome": "Bac Pro COM\r\nCommerce",
+        "diplome_intermediaire": "BEP",
+        "first_year": "2nde Pro MRCU",
+        "formation_et_concours": null,
+        "id": 6,
+        "nb_places": "16",
+        "poursuite_etudes": "BTS Management des Unités Commerciales (MUC) BTS Négociation et Relation Client (NRC) MC vendeur spécialisé en alimentation. MC assistance, conseil, vente à distance. autres BTS",
+        "second_year": "1ère Pro COM",
+        "third_year": "Tale Pro COM",
+        "vie_active": "Vendeur en magasin, télévendeur, adjoint d’un responsable de magasin ou d’un chef de rayon, vendeur spécialisé, vendeur conseil…"
+    },
+    {
+        "couleur": "#ffadef",
+        "diplome": "Bac Pro ECP\r\nEsthétique Cosmétique Parfumerie",
+        "diplome_intermediaire": "CAP",
+        "first_year": "2nde Pro ECP",
+        "formation_et_concours": "Ecoles privées spécialisations",
+        "id": 7,
+        "nb_places": "32",
+        "poursuite_etudes": "BTS Esthétique (ECP) BTS Management des Unités Commerciales (MUC) BTS Technico-commercial DUT techniques de commercialisation autres BTS",
+        "second_year": "1 ère Pro ECP",
+        "third_year": "Tale Pro ECP",
+        "vie_active": "Conseillère beauté, esthéticienne, ambassadrice de marque, animatrice..."
+    },
+    {
+        "couleur": "#ee9c1a",
+        "diplome": "CAP EVS\r\nEmployé de Vente Spécialisé",
+        "diplome_intermediaire": null,
+        "first_year": "1ère CAP EVS",
+        "formation_et_concours": null,
+        "id": 8,
+        "nb_places": "12",
+        "poursuite_etudes": "1ère Bac pro (passerelle) MRCU Vente Accueil ou autres CAP en un an",
+        "second_year": "Tale CAP EVS",
+        "third_year": null,
+        "vie_active": null
+    }
+]
