@@ -4,9 +4,9 @@
 
 {% block body %}
     {% if type == 'add' %}
-        <h1>Nouvelle question pour le sondage {{ survey.title }}</h1>
+        <h1 class="display-4">Nouvelle question <br><small>pour le sondage {{ survey.title }}</small></h1>
     {% else %}
-        <h1>Modification de la question {{ question.title }} <small>pour le sondage {{ survey.title }}</small></h1>
+        <h1 class="display-4">Modification de la question : {{ question.title }} <br><small>pour le sondage {{ survey.title }}</small></h1>
     {% endif %}
 
     {% if question is defined %}
@@ -60,7 +60,7 @@
             </div>
             <div class="form-group" id="choices">
             </div>
-            <div id="btn">
+            <div class="row" id="btn">
                 <a href="{{ path('editSurvey', {'id':survey.id}) }}"><button class="btn btn-info" type="button"><img src="{{ asset('img/icon/return.png') }}" class="icon"/>Retour</button></a>
                 <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
                 <button class="btn btn-violet display-none" type="button" id="btnAddChoice" ><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
@@ -95,7 +95,7 @@
         });
 
         //Input des choix
-        let i = 0;
+        let i = 1;
         {% if question is defined %}
             if ({{ question.nbQuestionOptions }})
             {
@@ -106,7 +106,9 @@
         {% endif %}
         $('#btnAddChoice').click(function () {
             if(i == 0){
-                $('#choices').append('<h6>Choix</h6>');
+                if ($('#title-choice') == 'undefined') {
+                    $('#choices').append('<h6 id="title-choice">Choix</h6>');
+                }
             }
             i++;
             $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
