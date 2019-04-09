@@ -6,7 +6,9 @@
     {% if type == 'add' %}
         <h1>Nouveau sondage</h1>
     {% else %}
-        <h1>Modifier le sondage : {{ survey.title }}</h1>
+        <h1 class="display-4">Modifier le sondage :
+            <small>{{ survey.title }}</small>
+        </h1>
     {% endif %}
 
     {% if survey is defined %}
@@ -43,7 +45,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.resume }}</h6>
                                 </div>
                                 <div class="end-question">
-                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{#{{ asset('img/icon/edit.png') }}#}" class="icon">Modification</a>
+                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{{ asset('img/icon/edit.svg') }}" class="icon">Modification</a>
                                 </div>
                             </div>
                         </div>
