@@ -164,12 +164,13 @@
 /* ----- Cards ----- */
 
 .card {
-    height: 265px;
+    height: 295px;
     width: 17%;
     display: flex;
     margin: 1%;
     padding: 1%;
     color: white;
+    transition: 0.4s;
 }
 
 .card h2 {
@@ -177,25 +178,50 @@
 }
 
 .card-add {
-    background-color: #8bc34a;
+    background-color: rgba(158, 218, 78, 0.89);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    box-shadow: 5px 5px 15px 7px rgba(0,0,0,0.17), -5px -5px 15px 7px rgba(0,0,0,0.14);
 }
 
 .card-basic {
-     background-color: #2a3181;
+     background-color: rgba(42, 49, 129, 0.88);
+     box-shadow: 5px 5px 15px 7px rgba(0,0,0,0.17), -5px -5px 15px 7px rgba(0,0,0,0.14);
  }
+
+.card-basic:hover, .card-add:hover {
+    box-shadow: 5px 5px 20px 12px rgba(0,0,0,0.25),
+    -5px -5px 20px 12px rgba(0,0,0,0.22);
+}
+
+.card-add:hover {
+    transform: scale(0.98, 0.98);
+}
+
+.card-add-a {
+    display: flex;
+    justify-content: center;
+}
 
 .card-add-img {
     display: flex;
     height: auto;
     width: 65%;
     margin: auto;
-    margin-top: 14%;
 }
 
 .card-basic a {
     width: auto;
     margin-top: -10px;
     align-content: flex-end;
+}
+
+.card-table-title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 
 .card-chart {
@@ -213,14 +239,19 @@
 }
 
 .tag-event {
+    display: flex;
     margin: auto;
-    background-color: #e564ff;
+    background-color: #bcbfff;
     border-radius: 5px;
     height: 25px;
+    padding: 4%;
     width: auto;
-    padding: 1%;
     color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
 
 .btn-survey {
     padding: .2rem;
@@ -330,4 +361,8 @@
     width: 100%;
     overflow: scroll;
     overflow-x: hidden;
+}
+
+.display-4 {
+    font-size: 275%;
 }

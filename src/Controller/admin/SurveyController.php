@@ -112,12 +112,25 @@ class SurveyController extends AbstractController
                 $entityManager = $this->getDoctrine()->getManager();
                 $data = $form->getData();
                 $title = $data['title'];
-                $idQuestionType = $data['questionType'];
+                $questionType = $data['questionType'];
                 $question = new Question($title);
-                $question->setQuestionType($idQuestionType);
+                $question->setQuestionType($questionType);
                 $question->setSurvey($survey);
                 $entityManager->persist($question);
                 $entityManager->flush();
+
+                if(isset($_POST['options']))
+                {
+                    foreach ($_POST['options'] as $option) {
+                        if(!is_null($option) && isset($option) && $option != '')
+                        {
+                            $newOption = new QuestionOption($option);
+                            $newOption->setQuestion($question);
+                            $entityManager->persist($newOption);
+                            $entityManager->flush();
+                        }
+                    }
+                }
             }
             return $this->redirectToRoute('editSurvey', ['id'=>$id]);
         }

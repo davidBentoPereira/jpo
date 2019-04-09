@@ -4,10 +4,12 @@
 
 {% block body %}
     {% if type == 'add' %}
-        <h1>Nouvel événement</h1>
+        <h1 class="display-4">Nouvel événement</h1>
     {% else %}
         {% if event is defined %}
-            <h1>Modifier l'événement {{ event.title }}</h1>
+            <h1 class="display-4">Modifier l'événement :
+            <small>{{ event.title }}</small>
+            </h1>
         {% endif %}
     {% endif %}
 
