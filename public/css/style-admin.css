@@ -170,7 +170,7 @@
 
 .card {
     height: 295px;
-    width: 17%;
+    width: 300px;
     display: flex;
     margin: 1%;
     padding: 1%;
@@ -227,6 +227,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    font-size: 135%;
 }
 
 .card-chart {
@@ -370,37 +371,26 @@
 /* ---- MEDIAS ----  */
 
 /* -- Taille des Cards-- */
-@media screen and (max-width: 1099px) {
-    .tag-event {
-        height: 40px;
-    }
-
+@media screen and (max-width: 2000px) {
     .card {
-        width: 42%;
-        height: 370px;
-    }
-}
-
-@media screen and (min-width: 1100px) and (max-width: 1599px) {
-    .tag-event {
-        height: 40px;
-    }
-
-    .card {
-        width: 25%;
-        height: 362px;
-    }
-}
-
-@media screen and (min-width: 1600px) and (max-width: 1750px) {
-    .card {
-        height: 360px;
-        width: 20%;
-        padding: 2%;
+        width: 330px;
+        height: 320px;
     }
 
     .tag-event {
         height: 37px;
     }
+
+    .btn.btn-danger.btn-survey, .btn.btn-info.btn-survey, .btn.btn-success.btn-survey {
+        margin : 1.6%;
+    }
 }
+
+@media screen and (max-width: 1599px) {
+    .tag-event {
+        height: 40px;
+    }
+}
+
+
 /* -- END Taille des Cards-- */
