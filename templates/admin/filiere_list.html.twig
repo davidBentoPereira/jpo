@@ -19,7 +19,7 @@
                 <h2 class="card-table-title">{{ filiere.rank }} : {{ filiere.title|slice(0, 30) }} ...</h2>
                 <hr>
                 <div class="flex-end">
-                    <a href="{{ path('filiere_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                    <a href="{{ path('filiere_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
                     <a href="{{ path('filiere_edit', {'id': filiere.id }) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
                 </div>
             </div>

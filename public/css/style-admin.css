@@ -27,11 +27,13 @@
     border-color: #AF49D7;
 }
 
-.btn {
-    font-size: 16px;
-    margin: 17px;
-    color: white;
-}
+/*.btn {*/
+/*    font-size: 16px;*/
+/*    !*margin: 17px;*!*/
+/*    margin-top: 17px;*/
+/*    margin-bottom: 17px;*/
+/*    color: white;*/
+/*}*/
 
 #signout {
     margin: 0;
@@ -169,7 +171,7 @@
 /* ----- Cards ----- */
 
 .card {
-    width: 33vh;
+    width: 40vh;
     height: 35vh;
     display: flex;
     margin: 1%;
