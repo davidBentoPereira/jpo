@@ -3,7 +3,13 @@
 {% block title %}Evenements{% endblock %}
 
 {% block body %}
-    <h1 class="display-4">Evenement</h1>
+    <h1 class="display-4">Evenements</h1>
+
+    <p>
+        Retrouvez sur cette page la liste des événements regroupant les sondages proposés par le Lycée Marcelle Pardé.
+        Vous pouvez en ajouter de nouveaux, editer ceux qui existent ou bien les supprimer.
+    </p>
+
     <div class="row">
         <div class="card card-add">
             <a href="{{ path('addEvent') }}" class="card-add-a"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
