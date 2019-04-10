@@ -14,7 +14,7 @@ class FiliereController extends AbstractController
 {
     public function filiereList(FiliereRepository $repo): Response
     {
-        return $this->render('admin/filiere.html.twig', ['filieres' => $repo->findAllFilieresSortedByRank()]);
+        return $this->render('admin/filiere_list.html.twig', ['filieres' => $repo->findAllFilieresSortedByRank()]);
     }
 
     public function filiereAdd(Request $request, EntityManagerInterface $em): Response
