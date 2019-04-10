@@ -21,7 +21,7 @@ security:
         main:
             anonymous: ~
             form_login:
-                default_target_path: page
+                default_target_path: filiere_list
                 check_path: login
                 failure_path: /
             logout:
