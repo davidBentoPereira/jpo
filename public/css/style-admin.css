@@ -1,4 +1,4 @@
-
+/* ---- Scrollbar ---- */
 ::-webkit-scrollbar {
     width: 16px;
     overflow-x: hidden;
@@ -13,12 +13,9 @@
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
+/* ---- END Scrollbar ---- */
 
-.row{
-    margin-left:0px;
-    margin-right:0px;
-}
-
+/* ---- Buttons ---- */
 .btn-violet {
     background-color: #D260FF;
     color: white;
@@ -30,20 +27,42 @@
     border-color: #AF49D7;
 }
 
-#wrapper {
-    padding-left: 70px;
-    transition: all .4s ease 0s;
-    height: 100%
+.btn {
+    font-size: 16px;
+    margin: 17px;
+    color: white;
 }
 
+#signout {
+    margin: 0;
+    padding: 3px;
+}
+
+.btn-survey {
+    padding: .2rem;
+    margin: 0;
+}
+
+.btn.btn-danger.btn-survey, .btn.btn-info.btn-survey, .btn.btn-success.btn-survey{
+    width: auto;
+    margin: 2px;
+    height: 3rem;
+}
+
+.btn-suppr {
+    padding: 0;
+    margin: 0;
+}
+/* ---- END Buttons ---- */
+
+
+/* ---- SideBar ---- */
 #sidebar-wrapper {
     margin-left: -150px;
-    left: 70px;
     width: 170px;
     background: #222;
     position: fixed;
     height: 100%;
-    z-index: 10000;
     transition: all .4s ease 0s;
     font-size: 18px;
 }
@@ -56,15 +75,7 @@
     margin: 0;
     padding: 0;
 }
-#page-content-wrapper {
-    padding-left: 0;
-    margin-left: 0;
-    width: 100%;
-    height: auto;
-}
-#wrapper.active {
-    padding-left: 150px;
-}
+
 #wrapper.active #sidebar-wrapper {
     left: 150px;
 }
@@ -82,7 +93,7 @@
     background: #252525;
     border-top: 1px solid #373737;
     border-bottom: 1px solid #1A1A1A;
-    -webkit-transition: background .5s;
+    -webkit-transition: background .8s;
     -moz-transition: background .5s;
     -o-transition: background .5s;
     -ms-transition: background .5s;
@@ -130,35 +141,29 @@
 #sidebar_menu {
     height: 200px;
 }
-#logo-img {
-    width: 88px;
-    margin: 10px;
-}
 
 .navbar {
     color: white;
+}
+/* ---- END SideBar ---- */
+
+/* ---- Images ---- */
+
+#logo-img {
+    width: 88px;
+    margin: 10px;
 }
 
 .icon {
     width: 22px;
     margin: 5px 5px 5px 5px;
 }
+/* ---- END Images ---- */
+
 
 #content {
     margin-top: 53px;
     margin-left: 188px;
-}
-
-
-.btn {
-    font-size: 16px;
-    margin: 17px;
-    color: white;
-}
-
-#signout {
-    margin: 0;
-    padding: 3px;
 }
 
 /* ----- Cards ----- */
@@ -250,12 +255,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-
-.btn-survey {
-    padding: .2rem;
-    margin: 0;
+    font-size: 90%;
 }
 
 .flex-end {
@@ -264,77 +264,6 @@
     align-content: flex-end;
     justify-content: center;
     height: 50%;
-}
-.btn.btn-danger.btn-survey, .btn.btn-info.btn-survey, .btn.btn-success.btn-survey{
-    width: auto;
-    margin: 2px;
-    height: 3rem;
-}
-
-.title {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    text-align: center;
-    height: 30%;
-}
-
-.tag-event-div {
-    height: 20%;
-}
-
-.question {
-    color: black;
-    width: 30%;
-    height: 20%;
-    padding: 0;
-}
-
-.body-question {
-    height: 68%;
-}
-
-.end-question {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    justify-content: flex-end;
-    height: 40%;
-}
-
-.btn-suppr {
-    padding: 0;
-    margin: 0;
-}
-
-
-.head-quest-title {
-    width: 50%;
-    flex-wrap: wrap;
-    display: flex;
-}
-
-.head-quest-btn {
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
-
-#admin-text {
-    font-size: 20px;
-}
-
-.choices {
-    margin-bottom: 2%;
-}
-
-.display-none {
-    display: none;
-}
-
-.display-on {
-    display: block;
 }
 
 .card-result {
@@ -363,6 +292,115 @@
     overflow-x: hidden;
 }
 
+/* ----- END Cards ----- */
+
+/* ---- Question ----- */
+
+.head-quest-title {
+    width: 50%;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.head-quest-btn {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.question {
+    color: black;
+    width: 30%;
+    height: 20%;
+    padding: 0;
+}
+
+.body-question {
+    height: 68%;
+}
+
+.end-question {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: flex-end;
+    height: 40%;
+}
+/* ---- END Question ----- */
+
+.title {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: center;
+    height: 30%;
+}
+
+.tag-event-div {
+    height: 20%;
+}
+
+#admin-text {
+    font-size: 20px;
+}
+
+.choices {
+    margin-bottom: 2%;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-on {
+    display: block;
+}
+
 .display-4 {
     font-size: 275%;
 }
+
+.row{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+
+/* ---- MEDIAS ----  */
+
+/* -- Taille des Cards-- */
+@media screen and (max-width: 1099px) {
+    .tag-event {
+        height: 40px;
+    }
+
+    .card {
+        width: 42%;
+        height: 370px;
+    }
+}
+
+@media screen and (min-width: 1100px) and (max-width: 1599px) {
+    .tag-event {
+        height: 40px;
+    }
+
+    .card {
+        width: 25%;
+        height: 362px;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1750px) {
+    .card {
+        height: 360px;
+        width: 20%;
+        padding: 2%;
+    }
+
+    .tag-event {
+        height: 37px;
+    }
+}
+/* -- END Taille des Cards-- */
