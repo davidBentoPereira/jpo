@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FiliereRepository;
 use App\Entity\Filiere;
-use App\Form\PageType;
+use App\Form\FiliereType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class FiliereController extends AbstractController
     public function filiereAdd(Request $request, EntityManagerInterface $em): Response
     {
         $filiere = new Filiere;
-        $filiereForm = $this->createForm(PageType::class, $filiere);
+        $filiereForm = $this->createForm(FiliereType::class, $filiere);
 
         $filiereForm->handleRequest($request);
 
@@ -40,7 +40,7 @@ class FiliereController extends AbstractController
     public function filiereEdit(Request $request, EntityManagerInterface $em, FiliereRepository $repo, $id): Response
     {
         $filiere = $repo->find($id);
-        $filiereForm = $this->createForm(PageType::class, $filiere);
+        $filiereForm = $this->createForm(FiliereType::class, $filiere);
         $filiereForm->handleRequest($request);
 
         if ($filiereForm->isSubmitted() && $filiereForm->isValid())
