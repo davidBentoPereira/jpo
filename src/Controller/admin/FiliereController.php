@@ -34,7 +34,10 @@ class FiliereController extends AbstractController
             return $this->redirectToRoute('filiere_add');
         }
 
-        return $this->render('admin/filiere_add.html.twig', ['pageForm' => $filiereForm->createView()]);
+        return $this->render('admin/filiere_add_or_edit.html.twig', [
+            'pageForm' => $filiereForm->createView(),
+            'type' => 'add',
+            ]);
     }
 
     public function filiereEdit(Request $request, EntityManagerInterface $em, FiliereRepository $repo, $id): Response
@@ -52,7 +55,10 @@ class FiliereController extends AbstractController
             return $this->redirectToRoute('filiere_edit', ['id' => $id]);
         }
 
-        return $this->render('admin/filiere_edit.html.twig', ['pageForm' => $filiereForm->createView()]);
+        return $this->render('admin/filiere_add_or_edit.html.twig', [
+            'pageForm' => $filiereForm->createView(),
+            'type' => 'edit'
+        ]);
     }
 
     public function filiereDelete($id, FiliereRepository $repo)

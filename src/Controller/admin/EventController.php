@@ -40,9 +40,10 @@ class EventController extends AbstractController
             return $this->redirectToRoute('event');
         }
 
-        return $this->render('admin/formEvent.html.twig',
-            ['form' => $form->createView(),
-                'type' => 'add']);
+        return $this->render('admin/formEvent.html.twig', [
+            'form' => $form->createView(),
+             'type' => 'add'
+        ]);
     }
 
     public function editEvent($id, Request $request, EventRepository $repository)
@@ -66,10 +67,11 @@ class EventController extends AbstractController
             return $this->redirectToRoute('event');
         }
 
-        return $this->render('admin/formEvent.html.twig',
-            ['form' => $form->createView(),
-                'type' => 'edit',
-                'event' => $event]);
+        return $this->render('admin/formEvent.html.twig', [
+            'form' => $form->createView(),
+            'type' => 'edit',
+            'event' => $event
+        ]);
     }
 
     public function deleteEvent($id,  EventRepository $eventRepository)
