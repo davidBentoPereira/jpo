@@ -6,4 +6,4 @@ services:
       - .:/usr/src/app
     ports:
       - 8000:8000
-    command: ["bin/console", "server:run", "0.0.0.0:8000"]
+    command: bin/console server:run 0.0.0.0:8000
