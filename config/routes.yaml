@@ -97,22 +97,22 @@ editEvent:
     path: /admin/edit-event/{id}
     controller: App\Controller\admin\EventController::editEvent
 
-#--- Filieres
-page:
-    path: /admin/liste-des-pages
-    controller: App\Controller\admin\PageController::page
+#--- Filiere
+filiere_list:
+    path: /admin/liste-des-filieres
+    controller: App\Controller\admin\FiliereController::filiereList
 
-page_add:
-    path: /admin/ajouter-une-page
-    controller: App\Controller\admin\PageController::pageAdd
+filiere_add:
+    path: /admin/ajouter-une-filiere
+    controller: App\Controller\admin\FiliereController::filiereAdd
 
-page_edit:
-    path: /admin/editer-une-page/{id}
-    controller: App\Controller\admin\PageController::pageEdit
+filiere_edit:
+    path: /admin/editer-une-filiere/{id}
+    controller: App\Controller\admin\FiliereController::filiereEdit
 
-page_delete:
+filiere_delete:
     path: /admin/suppression-filiere/{id}
-    controller: App\Controller\admin\PageController::pageDelete
+    controller: App\Controller\admin\FiliereController::filiereDelete
 
 #--- Tableau
 tableau_list:
