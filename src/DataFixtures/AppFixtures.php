@@ -53,6 +53,7 @@ class AppFixtures extends Fixture
         
         // 1. 3ème PREPA MÉTIERS
         $filiere1 = new Filiere();
+        $filiere1->setRank(1);
         $filiere1->setTitle("3ème PREPA MÉTIERS");
         $filiere1->setCandidate("Admission après la classe de 4ème -   La candidature doit être déposée auprès du collège.");
         $filiere1->setDescription("<p>La classe 3PREPA-PRO concerne un public de coll&eacute;giens pr&ecirc;t &agrave; se mobiliser autour d&rsquo;un projet de formation dans la voie professionnelle.</p><p>L&rsquo;&eacute;l&egrave;ve est dans une classe unique de 3&egrave;me &agrave; dispositif particulier, int&eacute;gr&eacute;e au lyc&eacute;e et pr&eacute;sente le dipl&ocirc;me national du &nbsp;brevet des coll&egrave;ges &lsquo;&rsquo;s&eacute;rie professionnelle&rsquo;&rsquo;.</p>");
@@ -74,6 +75,7 @@ class AppFixtures extends Fixture
 
         // 2. Accueil Relations Clientèle Usager
         $filiere2 = new Filiere();
+        $filiere2->setRank(2);
         $filiere2->setTitle("Accueil Relations Clientèle Usager");
         $filiere2->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine.");
         $filiere2->setDescription("<p>Le titulaire du Bac pro ARCU accueille les clients ou les usagers en face &agrave; face ou par t&eacute;l&eacute;phone et assure la prise en charge de leurs demandes ou r&eacute;clamations&nbsp;; conseille, informe et assiste le client ou l&rsquo;usager&nbsp;; propose et r&eacute;alise des ventes de services&nbsp;; exerce ses activit&eacute;s dans les entreprises de services aux particuliers ou aux entreprises (agences de tourisme, soci&eacute;t&eacute; de location, compagnies a&eacute;rienne, maritime et ferroviaire, organismes de cr&eacute;dit et assurances, centres de loisirs&hellip;), dans les services d&rsquo;information et de production, les administrations, les SAV d&rsquo;entreprises, mairies, h&ocirc;tels de r&eacute;gion, h&ocirc;pitaux&hellip;.</p>");
@@ -91,6 +93,7 @@ class AppFixtures extends Fixture
 
         // 3. Accompagnement, Soins, Services à la Personne (ASSP)  OPTION STRUCTURE
         $filiere3 = new Filiere();
+        $filiere3->setRank(3);
         $filiere3->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine.");
         $filiere3->setDescription("<p style=\"margin-right:12px\">Le titulaire du Bac pro ASSP peut exercer ses fonctions aupr&egrave;s de personnes en situation temporaire ou permanente de d&eacute;pendance (enfants, personnes en situation de handicap, personnes &acirc;g&eacute;es,...). Il exerce des activit&eacute;s de soins d&rsquo;hygi&egrave;ne et de confort, d&rsquo;aide aux actes de la vie quotidienne, de maintien de la vie sociale, en structures collectives.</p>\r\n\r\n<p>Le titulaire du Bac pro ASSP est <strong>surtout amen&eacute; &agrave; poursuivre des &eacute;tudes</strong> dans le secteur</p>");
         $filiere3->setTextBlock1("<ul>\r\n\t<li>Respect d&rsquo;autrui</li>\r\n\t<li>Ponctualit&eacute;, assiduit&eacute;</li>\r\n\t<li>Patience, &eacute;coute, bienveillance</li>\r\n\t<li>Sens du travail en &eacute;quipe</li>\r\n\t<li>R&eacute;sistance physique et nerveuse</li>\r\n\t<li>Discr&eacute;tion</li>\r\n</ul>");
@@ -108,6 +111,7 @@ class AppFixtures extends Fixture
 
         // 4. Commerce
         $filiere4 = new Filiere();
+        $filiere4->setRank(4);
         $filiere4->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine.");
         $filiere4->setDescription("<p>Le titulaire du Bac pro Commerce intervient dans des unit&eacute;s commerciales afin de proposer aux clients les produits qu&rsquo;ils recherchent. Il peut &ecirc;tre employ&eacute; commercial, assistant de vente, conseiller de vente, vendeur technique, manager.</p>");
         $filiere4->setTextBlock1("<ul>\r\n\t<li>Organis&eacute;</li>\r\n\t<li>Rigoureux</li>\r\n\t<li>Dynamique</li>\r\n\t<li>Sens du relationnel</li>\r\n\t<li>Pr&eacute;sentation soign&eacute;e</li>\r\n</ul>");
@@ -125,6 +129,7 @@ class AppFixtures extends Fixture
         
         // 5. Esthétique - Cosmétique - Parfumerie
         $filiere5 = new Filiere();
+        $filiere5->setRank(5);
         $filiere5->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine");
         $filiere5->setDescription("<p>Le titulaire du Bac pro Esth&eacute;tique Cosm&eacute;tique Parfumerie r&eacute;alise des&nbsp; soins esth&eacute;tiques (soins du visage et du corps, maquillage, &eacute;pilation,) et vend des services et des produits de parfumerie.</p>\r\n\r\n<p>Il intervient en Institut de beaut&eacute;, parfumerie, salon de coiffure, Spa, centre de Thalasso, Centre de vacances, loisirs, Onglerie, Solarium, milieux hospitalier et carc&eacute;ral, dans les entreprises de fabrication de produits et mat&eacute;riels</p>");
         $filiere5->setTextBlock1("<p><em>Avoir :</em></p>\r\n\r\n<ul>\r\n\t<li>. une grande r&eacute;sistance physique,</li>\r\n\t<li>une tenue et un maintien appropri&eacute; aux secteurs d&rsquo;activit&eacute;s,</li>\r\n\t<li>. une grande habilet&eacute; manuelle</li>\r\n\t<li>. le sens de la communication orale, le go&ucirc;t du management et le sens de l&rsquo;organisation</li>\r\n</ul>\r\n\r\n<p><em>Etre :</em></p>\r\n\r\n<ul>\r\n\t<li>.souriante</li>\r\n\t<li>.disponible et aimer le contact avec la client&egrave;le</li>\r\n</ul>");
@@ -142,6 +147,7 @@ class AppFixtures extends Fixture
 
         // 6. Gestion - Administration
         $filiere6 = new Filiere();
+        $filiere6->setRank(6);
         $filiere6->setCandidate("Admission après la classe de 3ème - La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine");
         $filiere6->setDescription("<p>Le titulaire du Bac Pro Gestion Administration est appel&eacute; &agrave; travailler dans des entreprises, des collectivit&eacute;s territoriales, des administrations ou des associations.</p>\r\n\r\n<p>Il prend en charge des activit&eacute;s de communication, de gestion du personnel, de gestion commerciale, ainsi que la gestion administrative de projets.</p>");
         $filiere6->setTextBlock1("<ul>\r\n\t<li>Sens de l&rsquo;organisation</li>\r\n\t<li>Rigueur et discr&eacute;tion</li>\r\n\t<li>Esprit d&rsquo;initiatives et d&rsquo;autonomie</li>\r\n\t<li>Capacit&eacute;s r&eacute;dactionnelles</li>\r\n\t<li>Aptitudes relationnelles</li>\r\n\t<li>Int&eacute;r&ecirc;t pour les technologies de l&rsquo;information et de la communication</li>\r\n</ul>");
@@ -159,6 +165,7 @@ class AppFixtures extends Fixture
 
         // 7. Métiers de la Mode - vêtements
         $filiere7 = new Filiere();
+        $filiere7->setRank(7);
         $filiere7->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine");
         $filiere7->setDescription("<p>Le titulaire du Bac pro Mode intervient dans le cadre de fabrications en petites s&eacute;ries et dans le suivi de leurs productions. Il&nbsp;exerce dans l&rsquo;industrie&nbsp;: en atelier, en bureau d&#39;&eacute;tudes, ou en bureau des m&eacute;thodes, en qualit&eacute; d&rsquo;assistant mod&eacute;liste, assistant prototypiste.</p>");
         $filiere7->setTextBlock1("<ul>\r\n\t<li>Motivation</li>\r\n\t<li>Sensibilit&eacute;</li>\r\n\t<li>Passion pour l&rsquo;univers de la mode</li>\r\n\t<li>Sens de la m&eacute;thode et de l&rsquo;analyse</li>\r\n\t<li>Aptitude au travail en &eacute;quipe</li>\r\n\t<li>Int&eacute;r&ecirc;t pour l&rsquo;&eacute;volution des technologies e des mat&eacute;riaux et des mat&eacute;riels</li>\r\n</ul>");
@@ -176,6 +183,7 @@ class AppFixtures extends Fixture
 
         // 8. Vente Option B produits d’équipement courant
         $filiere8 = new Filiere();
+        $filiere8->setRank(8);
         $filiere8->setCandidate("Admission après la classe de 3ème -  La candidature s’effectue par la procédure AFFELNET dans l’établissement d’origine");
         $filiere8->setDescription("<p>Le titulaire de ce dipl&ocirc;me accueille et informe le client, pr&eacute;sente les produits, conseille, r&eacute;alise la vente. Sous la responsabilit&eacute; d&rsquo;un responsable, il r&eacute;ceptionne les produits, les contr&ocirc;le, les &eacute;tiquette, les enregistre pour suivre le stock, fait l&rsquo;inventaire, aide &agrave; la pr&eacute;sentation de la vitrine&hellip;</p>\r\n\r\n<p>Il est employ&eacute; dans les commerces de d&eacute;tail non alimentaires ou chez les grossistes.</p>");
         $filiere8->setTextBlock1("<ul>\r\n\t<li>Sens de la relation</li>\r\n\t<li>Assurance</li>\r\n\t<li>Politesse, discr&eacute;tion, patience, capacit&eacute; d&rsquo;&eacute;coute</li>\r\n\t<li>Dynamisme, autonomie,</li>\r\n\t<li>Rigueur</li>\r\n\t<li>Pr&eacute;sentation soign&eacute;e et adapt&eacute;e &agrave; l&rsquo;image du magasin</li>\r\n\t<li>Disponibilit&eacute; (samedis, veilles de f&ecirc;tes,&hellip;</li>\r\n</ul>");
@@ -193,6 +201,7 @@ class AppFixtures extends Fixture
 
         // 9. Formation Aide Soignant(e)
         $filiere9 = new Filiere();
+        $filiere8->setRank(9);
         $filiere8->setCandidate("Réservée aux titulaires des Bacs Pro ASSP ou SAPAT Après réussite au concours d’entrée");
         $filiere9->setDescription("<p>Le titulaire du Dipl&ocirc;me d&rsquo;Etat Aide Soignant assure, au sein de l&rsquo;&eacute;quipe m&eacute;dicale, l&rsquo;hygi&egrave;ne et le confort des patients (toilette, repas, habillage...) et les t&acirc;ches d&rsquo;entretien (changement de literie, rangement et nettoyage de la chambre).<br />\r\nSa mission s&rsquo;effectue en collaboration et sous la responsabilit&eacute; de l&rsquo;infirmier. L&rsquo;aide-soignant(e) travaille principalement dans des &eacute;tablissements hospitaliers. Il travaille aussi dans les maisons de retraite, les centres de soins et, parfois, &agrave; domicile.</p>\r\n\r\n<p>La formation est propos&eacute;e aux titulaires des BACS PRO ASSP ou SAPAT&nbsp;, ou actuellement en terminale (l&rsquo;inscription d&eacute;finitive est subordonn&eacute;e &agrave; l&rsquo;admission au bac).</p>");
         $filiere9->setTextBlock1("<ul>\r\n\t<li>Rigueur</li>\r\n\t<li>Disponibilit&eacute;</li>\r\n\t<li>Qualit&eacute; humaine</li>\r\n\t<li>Patience</li>\r\n\t<li>Capacit&eacute; d&rsquo;initiative et esprit d&rsquo;&eacute;quipe</li>\r\n\t<li>R&eacute;sistance physique</li>\r\n\t<li>Bon &eacute;quilibre personnel</li>\r\n</ul>");
