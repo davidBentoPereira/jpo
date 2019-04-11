@@ -6,7 +6,7 @@
     <h1 class="display-4">QR Codes</h1>
     <p>Cliquez sur les liens pour obtenir le QR Code de chaque page.</p>
     <h2>Filières</h2>
-    <ul class="list-group">
+    <ul class="list-group qrcode-list">
         {% for filiere in filieres %}
             {% set url = path('filiere', { 'id': filiere.getId, 'title': filiere.getUrlSlug }) %}
             <a href="{{ path('qrcoderendering') }}?url={{ url }}&slug={{ filiere.getUrlSlug }}">
@@ -16,20 +16,18 @@
     </ul>
     <br/>
     <h2>Sondages</h2>
-        {% for event in events %}
-            <p>{{ event.title }}</p>
-            <ul class="list-group">
-            {% for survey in surveys %}
-                {% if event.id == survey.event.id %}
-                    {% set url = path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) %}
-                    {# <a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}"> #}
-                    <a href="{{ path('qrcoderendering') }}?url={{ url }}&slug={{ event.getTitle }}-{{ survey.getTitle }}">
-                        <li class="list-group-item">{{ survey.title }}</li>
-                    </a>
-                {% endif %}
-            {% endfor %}
-            </ul>
+    {% for event in events %}
+        <p>{{ event.title }}</p>
+        <ul class="list-group qrcode-list">
+        {% for survey in surveys %}
+            {% if event.id == survey.event.id %}
+                {% set url = path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) %}
+                {# <a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}"> #}
+                <a href="{{ path('qrcoderendering') }}?url={{ url }}&slug={{ event.getTitle }}-{{ survey.getTitle }}">
+                    <li class="list-group-item">{{ survey.title }}</li>
+                </a>
+            {% endif %}
         {% endfor %}
-    </ul>
-    {# {{ dump(surveys) }} #}
+        </ul>
+    {% endfor %}
 {% endblock %}
