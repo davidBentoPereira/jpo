@@ -1,0 +1,22 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Edition de vos identifiants{% endblock %}
+
+{% block body %}
+    <h1>Edition de votre compte administrateur</h1>
+    <p>Editez ici votre compte administrateur.</p>
+    
+    <a href="{{ path('listAdmins') }}" type="button" class="btn btn-primary">Retour à la liste des administrateurs</a>
+
+    <form method="POST" style="margin-right: 20px">
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Adresse mail" value="{{ connectedUser.email }}" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Nouveau mot de passe" required>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success">Valider</button>
+        </div>
+    </form>
+{% endblock %}

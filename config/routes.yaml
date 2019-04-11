@@ -44,9 +44,14 @@ logout:
 
 #--- Survey
 
-admins:
+listAdmins:
   path: /admin/administrateurs
   controller: App\Controller\admin\AdminController::index
+
+editionAdmin:
+  path: /admin/administrateurs/edition
+  controller: App\Controller\admin\AdminController::edition
+
 removeAdmin:
   path: /admin/administrateurs/supprimer/{id}
   controller: App\Controller\admin\AdminController::remove

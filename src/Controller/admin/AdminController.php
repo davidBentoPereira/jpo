@@ -26,14 +26,14 @@ class AdminController extends AbstractController
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
-            if(empty($email)) return $this->redirectToRoute('admins');
-            if(empty($password)) return $this->redirectToRoute('admins');
+            if(empty($email)) return $this->redirectToRoute('listAdmins');
+            if(empty($password)) return $this->redirectToRoute('listAdmins');
 
             $adminWithTheSameMailAdress = $adminRepo->findOneBy([
                 'email' => $email
             ]);
             
-            if($adminWithTheSameMailAdress !== null) return $this->redirectToRoute('admins');
+            if($adminWithTheSameMailAdress !== null) return $this->redirectToRoute('listAdmins');
             
             $newAdmin = new Admin();
             
@@ -47,10 +47,46 @@ class AdminController extends AbstractController
         }
 
         $admins = $adminRepo->findAll();
-        return $this->render('admin/admins.html.twig', [
+        return $this->render('admin/admins/list.html.twig', [
             'admins' => $admins,
             'authChecker' => $authChecker,
             'connectedUser' => $this->getUser()
+        ]);
+    }
+
+    public function edition(
+        UserPasswordEncoderInterface $passwordEncoder,
+        AuthorizationCheckerInterface $authChecker,
+        AdminRepository $adminRepo,
+        ObjectManager $manager,
+        Request $request
+    ): Response {
+        $connectedUser = $this->getUser();
+        
+        if ($request->isMethod('POST')) {
+            $email = $request->request->get('email');
+            $password = $request->request->get('password');
+
+            if(empty($email)) exit;
+            if(empty($password)) exit;
+
+            $adminWithTheSameMailAdress = $adminRepo->findOneBy([
+                'email' => $email
+            ]);
+            
+            if($adminWithTheSameMailAdress !== null) exit;
+            
+            $adminUpdated = new Admin();
+            
+            $adminUpdated->setEmail($email);
+            $adminUpdated->setPassword($passwordEncoder->encodePassword(
+                $adminUpdated, $password
+            ));
+            $manager->persist($adminUpdated);            
+            $manager->flush();
+        }
+        return $this->render('admin/admins/edition.html.twig', [
+            'connectedUser' => $connectedUser
         ]);
     }
 
@@ -60,13 +96,13 @@ class AdminController extends AbstractController
         string $id
     ): Response {
         $allAdmins = $adminRepo->findAll();
-        if(count($allAdmins) === 1) return $this->redirectToRoute('admins');
+        if(count($allAdmins) === 1) return $this->redirectToRoute('listAdmins');
         $admin = $adminRepo->find($id);
         if($admin){
-            if($admin->getId() === $this->getUser()->getId()) return $this->redirectToRoute('admins');
+            if($admin->getId() === $this->getUser()->getId()) return $this->redirectToRoute('listAdmins');
             $manager->remove($admin);
             $manager->flush();
         }
-        return $this->redirectToRoute('admins');
+        return $this->redirectToRoute('listAdmins');
     }
 }
