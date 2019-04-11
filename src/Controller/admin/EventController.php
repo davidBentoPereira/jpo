@@ -73,7 +73,7 @@ class EventController extends AbstractController
                     /*echo $errorMessage;die();*/
                     return $this->render('admin/formEvent.html.twig', [
                         'form' => $form->createView(),
-                        'type' => 'add',
+                        'type' => 'edit',
                         'error' => $errorMessage
                     ]);
                 }
