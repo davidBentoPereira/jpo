@@ -17,12 +17,15 @@
                         <a class="nav-link hvr-underline-from-center" href="{{ path('index') }}">{{ 'Accueil'|upper }}</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link hvr-underline-from-center" href="{{ path('formations') }}">{{ 'Résumé des Formations'|upper }}</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ 'Formations'|upper }}
+                            {{ 'Formations & Dispositifs'|upper }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('formations') }}">Tableau des formations</a>
                             <div class="dropdown-divider"></div>
                             {% for filiere in listFilieres %}
                                 <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
@@ -30,16 +33,15 @@
                         </div>
                     </li>
 
-                    <li class="nav-item dropdown">
+{#                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ 'Dispositifs Spéciaux'|upper }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ path('mlds') }}">Mission de Lutte contre le Décrochage Scolaire</a>
                             <a class="dropdown-item" href="{{ path('ulis') }}">Unité localisée pour l’inclusion scolaire</a>
-
                         </div>
-                    </li>
+                    </li>#}
 
                     <li class="nav-item">
                         <a class="nav-link hvr-underline-from-center" href="{{ path('sondages') }}">{{ 'Sondages'|upper }}</a>
