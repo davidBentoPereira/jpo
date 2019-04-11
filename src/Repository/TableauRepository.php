@@ -19,10 +19,10 @@ class TableauRepository extends ServiceEntityRepository
         parent::__construct($registry, Tableau::class);
     }
 
-    public function findAllLinesInTableauSortedByRank()
+    public function findAllLinesInTableSortedByAlphabetOrder()
     {
         $qb = $this->createQueryBuilder('t')
-            ->orderBy('t.rank', 'ASC')
+            ->orderBy('t.diplome', 'ASC')
             ->getQuery();
         return $qb->execute();
     }

@@ -23,7 +23,7 @@ class FrontController extends AbstractController
 
     public function formations(TableauRepository $tableauRepo): Response
     {
-        return $this->render('front/formations.html.twig', ['tableau' => $tableauRepo->findAllLinesInTableauSortedByRank()]);
+        return $this->render('front/formations.html.twig', ['tableau' => $tableauRepo->findAllLinesInTableSortedByAlphabetOrder()]);
     }
 
     public function filiere($id, $title, FiliereRepository $repo): Response
@@ -101,7 +101,7 @@ class FrontController extends AbstractController
 
     public function navbarListFiliere(FiliereRepository $repo): Response
     {
-        return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAllFilieresSortedByRank()]);
+        return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAllFilieresSortedByAlphabetOrder()]);
     }
 
 }

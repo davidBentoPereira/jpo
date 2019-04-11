@@ -30,10 +30,10 @@ class FiliereRepository extends ServiceEntityRepository
             ->execute();
     }
 
-    public function findAllFilieresSortedByRank()
+    public function findAllFilieresSortedByAlphabetOrder()
     {
         $qb = $this->createQueryBuilder('f')
-            ->orderBy('f.rank', 'ASC')
+            ->orderBy('f.title', 'ASC')
             ->getQuery();
 
         return $qb->execute();

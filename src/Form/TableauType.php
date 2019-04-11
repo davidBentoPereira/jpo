@@ -16,7 +16,6 @@ class TableauType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rank',                   IntegerType::class,  ['label' => 'Position :'])
             ->add('link',                   TextType::class,     ['label' => 'Lien URL :'])
             ->add('diplome',                TextareaType::class, ['label' => 'Diplôme :', 'required' => false])
             ->add('nbPlaces',               TextareaType::class, ['label' => 'Nombre de Places :', 'required' => false])

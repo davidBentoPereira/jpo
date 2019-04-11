@@ -17,7 +17,6 @@ class FiliereType extends AbstractType
     {
         $builder
             ->add('title',          TextType::class,        ['label' => 'Titre :'])
-            ->add('rank',           IntegerType::class,     ['label' => 'Rang :'])
             ->add('colorPicker',    ColorType::class,       ['label' => 'Couleur de l\'interface :'])
             ->add('candidate',      TextType::class,        ['label' => 'Prérequis pour candidater :'])
             ->add('description',    CKEditorType::class,    ['label' => 'Description :', 'config' => ['toolbar' => 'basic']])

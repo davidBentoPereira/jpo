@@ -14,7 +14,7 @@ class TableauController extends AbstractController
 {
     public function tableauList(TableauRepository $repo): Response
     {
-        return $this->render('admin/tableau_list.html.twig', ['tableau' => $repo->findAllLinesInTableauSortedByRank()]);
+        return $this->render('admin/tableau_list.html.twig', ['tableau' => $repo->findAllLinesInTableSortedByAlphabetOrder()]);
     }
 
     public function tableauAdd(Request $request, EntityManagerInterface $em): Response
