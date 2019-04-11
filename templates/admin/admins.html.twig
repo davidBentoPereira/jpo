@@ -1,0 +1,77 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Gestion des administrateurs{% endblock %}
+
+{% block body %}
+    <h1>Gestion des administrateurs</h1>
+
+    <p>
+        Vous pouvez gérer ici les comptes administrateurs à l'espace administrateur.
+    </p>
+    <button type="button" class="btn btn-primary" id="open-add-admin-btn">Ajouter un administrateur</button>
+
+    <form id="add-admin-form" class="card" method="POST" style="display: none; height: auto; width: auto;">
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Adresse mail" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Mot de passe" required>
+        </div>
+        <div>
+            <button type="button" id="close-add-admin-btn" class="btn btn-danger" style="width: auto">Annuler</button>
+            <button type="submit" class="btn btn-primary" style="width: auto">Valider</button>
+        </div>
+    </form>
+
+    <div class="admins" style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start;">
+    {% for admin in admins %}
+        <div class="card"  style="height: auto">
+            <div class="card-body">
+                <h5 class="card-title" style="color: rgba(0,0,0,0.8);">{{ admin.email }}</h5>
+                {% if connectedUser.id == admin.id %}
+                    <button type="button" class="btn btn-info">Modifier mes identifiants</button>
+                {% elseif connectedUser.id != admin.id %}
+                <button class="btn btn-danger" data-toggle="modal" data-target="#removeAdminPopUp{{ admin.id }}">Supprimer</button>
+                {% endif %}
+            </div>
+        </div>
+        {% if connectedUser.id != admin.id %}
+        <div class="modal fade" id="removeAdminPopUp{{ admin.id }}" tabindex="-1" role="dialog" aria-labelledby="removeAdminPopUpLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="removeAdminPopUpLabel">Supprimer définitivement cet administrateur ?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Cette action est irréversible.
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ path('removeAdmin', {'id': admin.id}) }}" class="btn btn-danger">Oui</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+
+    <script>
+        const openAddAdminBtn = document.getElementById("open-add-admin-btn");
+        const closeAddAdminBtn = document.getElementById("close-add-admin-btn");
+        const addAdminForm = document.getElementById("add-admin-form");
+        
+        openAddAdminBtn.onclick = () => {
+            addAdminForm.style.display = "block";
+        };
+
+        closeAddAdminBtn.onclick = () => {
+            addAdminForm.style.display = "none";
+        }
+
+    </script>
+{% endblock %}

@@ -62,7 +62,7 @@
 /* ---- SideBar ---- */
 #sidebar-wrapper {
   margin-left: -150px;
-  width: 170px;
+  width: 200px;
   background: #222;
   position: fixed;
   height: 100%;
@@ -73,7 +73,7 @@
 .sidebar-nav {
   display: block;
   float: left;
-  width: 170px;
+  width: 200px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -92,7 +92,7 @@
   display: block;
   float: left;
   text-decoration: none;
-  width: 170px;
+  width: 200px;
   background: #252525;
   border-top: 1px solid #373737;
   border-bottom: 1px solid #1a1a1a;
@@ -165,7 +165,7 @@
 
 #content {
   margin-top: 53px;
-  margin-left: 188px;
+  margin-left: 220px;
 }
 
 /* ----- Cards ----- */

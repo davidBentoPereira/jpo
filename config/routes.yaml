@@ -1,80 +1,88 @@
 # - - - - - FRONT - - - - -
 index:
-    path: /
-    controller: App\Controller\FrontController::index
+  path: /
+  controller: App\Controller\FrontController::index
 
 formations:
-    path: /tableau-des-formations
-    controller: App\Controller\FrontController::formations
+  path: /tableau-des-formations
+  controller: App\Controller\FrontController::formations
 
 filiere:
-    path: /filiere-{id}/{title}
-    controller: App\Controller\FrontController::filiere
+  path: /filiere-{id}/{title}
+  controller: App\Controller\FrontController::filiere
 
 sondages:
-    path: /sondages
-    controller: App\Controller\FrontController::sondages
+  path: /sondages
+  controller: App\Controller\FrontController::sondages
 
 sondage:
-    path: /sondage/{event}/{title}/{id}
-    controller: App\Controller\FrontController::sondage
+  path: /sondage/{event}/{title}/{id}
+  controller: App\Controller\FrontController::sondage
 
 ulis:
-    path: /unite-localise-pour-l-inclusion-scolaire
-    controller: App\Controller\FrontController::ulis
+  path: /unite-localise-pour-l-inclusion-scolaire
+  controller: App\Controller\FrontController::ulis
 
 mlds:
-    path: /mission-de-lutte-contre-le-decrochage-scolaire
-    controller: App\Controller\FrontController::mlds
+  path: /mission-de-lutte-contre-le-decrochage-scolaire
+  controller: App\Controller\FrontController::mlds
 
 histoire:
-    path: /histoire-du-lycee
-    controller: App\Controller\FrontController::histoire
+  path: /histoire-du-lycee
+  controller: App\Controller\FrontController::histoire
 
-    # - - - - - AUTH - - - - -
+  # - - - - - AUTH - - - - -
 
 login:
-    path: /connexion
-    controller: App\Controller\AuthController::login
-    methods: GET|POST
+  path: /connexion
+  controller: App\Controller\AuthController::login
+  methods: GET|POST
 
 logout:
-    path: /logout
-    # - - - - - ADMIN - - - - -
+  path: /logout
+  # - - - - - ADMIN - - - - -
 
 #--- Survey
+
+admins:
+  path: /admin/administrateurs
+  controller: App\Controller\admin\AdminController::index
+removeAdmin:
+  path: /admin/administrateurs/supprimer/{id}
+  controller: App\Controller\admin\AdminController::remove
+
 survey:
-    path: /admin/survey
-    controller: App\Controller\admin\SurveyController::survey
+  path: /admin/survey
+  controller: App\Controller\admin\SurveyController::survey
 
 addSurvey:
-    path: admin/add-survey
-    controller: App\Controller\admin\SurveyController::addSurvey
+  path: admin/add-survey
+  controller: App\Controller\admin\SurveyController::addSurvey
 
 editSurvey:
-    path: admin/edit-survey/{id}
-    controller: App\Controller\admin\SurveyController::editSurvey
+  path: admin/edit-survey/{id}
+  controller: App\Controller\admin\SurveyController::editSurvey
 
 deleteSurvey:
-    path: admin/delete-survey/{id}
-    controller: App\Controller\admin\SurveyController::deleteSurvey
+  path: admin/delete-survey/{id}
+  controller: App\Controller\admin\SurveyController::deleteSurvey
 
 resultSurvey:
-    path: admin/result-survey/{id}
-    controller: App\Controller\admin\SurveyController::resultSurvey
+  path: admin/result-survey/{id}
+  controller: App\Controller\admin\SurveyController::resultSurvey
 
-    #--- Question
+  #--- Question
 addQuestion:
-    path: admin/edit-survey/{id}/add-question
-    controller: App\Controller\admin\SurveyController::addQuestion
+  path: admin/edit-survey/{id}/add-question
+  controller: App\Controller\admin\SurveyController::addQuestion
 
 editQuestion:
-    path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}
-    controller: App\Controller\admin\SurveyController::editQuestion
+  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}
+  controller: App\Controller\admin\SurveyController::editQuestion
 
 deleteQuestion:
-    path: admin/edit-survey/{id}/delete-question/{idQuestion}
-    controller: App\Controller\admin\SurveyController::deleteQuestion
+  path: admin/edit-survey/{id}/delete-question/{idQuestion}
+  controller: App\Controller\admin\SurveyController::deleteQuestion
 
 deleteChoice:
   path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}/delete-choice/{idChoice}
@@ -82,37 +90,37 @@ deleteChoice:
 
 #--- Event
 event:
-    path: /admin/event
-    controller: App\Controller\admin\EventController::event
+  path: /admin/event
+  controller: App\Controller\admin\EventController::event
 
 deleteEvent:
-    path: /admin/delete-event/{id}
-    controller: App\Controller\admin\EventController::deleteEvent
+  path: /admin/delete-event/{id}
+  controller: App\Controller\admin\EventController::deleteEvent
 
 addEvent:
-    path: /admin/add-event
-    controller: App\Controller\admin\EventController::addEvent
+  path: /admin/add-event
+  controller: App\Controller\admin\EventController::addEvent
 
 editEvent:
-    path: /admin/edit-event/{id}
-    controller: App\Controller\admin\EventController::editEvent
+  path: /admin/edit-event/{id}
+  controller: App\Controller\admin\EventController::editEvent
 
 #--- Filiere
 filiere_list:
-    path: /admin/liste-des-filieres
-    controller: App\Controller\admin\FiliereController::filiereList
+  path: /admin/liste-des-filieres
+  controller: App\Controller\admin\FiliereController::filiereList
 
 filiere_add:
-    path: /admin/ajouter-une-filiere
-    controller: App\Controller\admin\FiliereController::filiereAdd
+  path: /admin/ajouter-une-filiere
+  controller: App\Controller\admin\FiliereController::filiereAdd
 
 filiere_edit:
-    path: /admin/editer-une-filiere/{id}
-    controller: App\Controller\admin\FiliereController::filiereEdit
+  path: /admin/editer-une-filiere/{id}
+  controller: App\Controller\admin\FiliereController::filiereEdit
 
 filiere_delete:
-    path: /admin/suppression-filiere/{id}
-    controller: App\Controller\admin\FiliereController::filiereDelete
+  path: /admin/suppression-filiere/{id}
+  controller: App\Controller\admin\FiliereController::filiereDelete
 
 #--- Tableau
 tableau_list:
@@ -133,8 +141,8 @@ tableau_delete:
 
 #--- QR Code
 qrcodelist:
-    path: "admin/qr-codes"
-    controller: App\Controller\admin\QRCodeController::index
+  path: "admin/qr-codes"
+  controller: App\Controller\admin\QRCodeController::index
 qrcoderendering:
-    path: "admin/qr-codes/rendu"
-    controller: App\Controller\admin\QRCodeController::rendering
+  path: "admin/qr-codes/rendu"
+  controller: App\Controller\admin\QRCodeController::rendering
