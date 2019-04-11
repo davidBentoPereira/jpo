@@ -42,7 +42,7 @@ class Response
 
     public function __construct()
     {
-        $this->responseValue = new ArrayCollection();
+//        $this->responseValue = new ArrayCollection();
         $this->options = new ArrayCollection();
     }
 
@@ -83,36 +83,36 @@ class Response
         return $this;
     }
 
-    /**
-     * @return Collection|ResponseValue[]
-     */
-    public function getResponseValue(): Collection
-    {
-        return $this->responseValue;
-    }
+//    /**
+//     * @return Collection|ResponseValue[]
+//     */
+//    public function getResponseValue(): Collection
+//    {
+//        return $this->responseValue;
+//    }
 
-    public function addResponseValue(ResponseValue $responseValue): self
-    {
-        if (!$this->responseValue->contains($responseValue)) {
-            $this->responseValue[] = $responseValue;
-            $responseValue->setResponse($this);
-        }
+//    public function addResponseValue(ResponseValue $responseValue): self
+//    {
+//        if (!$this->responseValue->contains($responseValue)) {
+//            $this->responseValue[] = $responseValue;
+//            $responseValue->setResponse($this);
+//        }
+//
+//        return $this;
+//    }
 
-        return $this;
-    }
-
-    public function removeResponseValue(ResponseValue $responseValue): self
-    {
-        if ($this->responseValue->contains($responseValue)) {
-            $this->responseValue->removeElement($responseValue);
-            // set the owning side to null (unless already changed)
-            if ($responseValue->getResponse() === $this) {
-                $responseValue->setResponse(null);
-            }
-        }
-
-        return $this;
-    }
+//    public function removeResponseValue(ResponseValue $responseValue): self
+//    {
+//        if ($this->responseValue->contains($responseValue)) {
+//            $this->responseValue->removeElement($responseValue);
+//            // set the owning side to null (unless already changed)
+//            if ($responseValue->getResponse() === $this) {
+//                $responseValue->setResponse(null);
+//            }
+//        }
+//
+//        return $this;
+//    }
 
     public function getValue(): ?string
     {

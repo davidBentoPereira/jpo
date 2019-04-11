@@ -11,7 +11,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PageType extends AbstractType
+class FiliereType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

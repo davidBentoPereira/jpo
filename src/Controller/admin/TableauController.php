@@ -34,7 +34,10 @@ class TableauController extends AbstractController
             return $this->redirectToRoute('tableau_add');
         }
 
-        return $this->render('admin/tableau_add.html.twig', ['tableauForm' => $tableauForm->createView()]);
+        return $this->render('admin/tableau_add_or_edit.html.twig', [
+            'tableauForm' => $tableauForm->createView(),
+            'type' => 'add'
+            ]);
     }
 
     public function tableauEdit(Request $request, EntityManagerInterface $em, TableauRepository $repo, $id): Response
@@ -52,7 +55,10 @@ class TableauController extends AbstractController
             return $this->redirectToRoute('tableau_edit', ['id' => $id]);
         }
 
-        return $this->render('admin/tableau_edit.html.twig', ['tableauForm' => $tableauForm->createView()]);
+        return $this->render('admin/tableau_add_or_edit.html.twig', [
+            'tableauForm' => $tableauForm->createView(),
+            'type' => 'edit'
+            ]);
     }
 
     public function tableauDelete($id, TableauRepository $repo)

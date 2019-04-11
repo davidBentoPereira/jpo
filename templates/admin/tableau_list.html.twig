@@ -4,17 +4,21 @@
 
 {% block body %}
     <h1 class="display-4">Tableau des Formations</h1>
-    <div class="row">
 
+    <p>
+        Retrouvez sur cette page l'ensemble des lignes constituant le tableau résumant les formations proposés par le Lycée Marcelle Pardé.
+        Vous pouvez en ajouter de nouvelles, editer celles qui existent déjà ou bien les supprimer
+    </p>
+
+    <div class="row">
         <div class="card card-add">
             <a href="{{ path('tableau_add') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
         </div>
-
         {% for ligne in tableau %}
             <div class="card card-basic d-flex flex-column p-2">
                 <h4 class="text-center mt-3 mb-4">{{ ligne.rank }} - {{ ligne.diplome|slice(0, 30) }} ...</h4>
                 <a href="{{ path('tableau_delete', {'id': ligne.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Supprimer</a>
-                <a href="{{ path('tableau_edit', {'id': ligne.id}) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Editer</a>
+                <a href="{{ path('tableau_edit', {'id': ligne.id}) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Editer</a>
             </div>
         {% endfor %}
     </div>

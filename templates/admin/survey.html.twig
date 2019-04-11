@@ -3,7 +3,13 @@
 {% block title %}Sondage{% endblock %}
 
 {% block body %}
-    <h1 class="display-4">Sondage</h1>
+    <h1 class="display-4">Sondages</h1>
+
+    <p>
+        Retrouvez sur cette page la liste des sondages proposés par le Lycée Marcelle Pardé.
+        Vous pouvez en ajouter de nouveaux, editer ceux qui existent déjà ou bien les supprimer.
+    </p>
+
     <div class="row">
         <div class="card card-add">
             <a href="{{ path('addSurvey') }}" class="card-add-a"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
@@ -22,7 +28,7 @@
                 <hr>
                 <div class="flex-end">
                     <a href="{{ path('deleteSurvey', {'id':survey.id}) }}" id="delete-survey" class="btn btn-danger btn-survey"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
-                    <a href="{{ path('editSurvey', {'id':survey.id}) }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Edition</a>
+                    <a href="{{ path('editSurvey', {'id':survey.id}) }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Edition</a>
                     <a href="{{ path('resultSurvey', {'id':survey.id}) }}" id="result-survey" class="btn btn-success btn-survey"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</a>
                 </div>
             </div>

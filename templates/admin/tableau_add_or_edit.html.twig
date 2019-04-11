@@ -3,7 +3,12 @@
 {% block title %}AdminController{% endblock %}
 
 {% block body %}
-    <h1 class="display-4 text-center">Ajouter une  nouvelle Filière</h1>
+
+    {% if type == 'add' %}
+        <h1 class="display-4 text-center">{{ "Ajouter une nouvelle ligne dans le tableau" }}</h1>
+    {% else %}
+        <h1 class="display-4 text-center">{{ "Editer cette ligne dans le tableau" }}</h1>
+    {% endif %}
 
     <div class="row justify-content-center">
         <div class="col-12">
@@ -77,13 +82,18 @@
             </div>
 
             <div class="form-group col-12">
-                <button type="submit" class="btn-lg btn-primary">Ajouter la ligne au tableau</button>
+                <div class="form-row justify-content-center">
+                    <div>
+                        <button type="submit" class="btn-lg btn-primary">
+                            {% if type == 'add' %} Ajouter la ligne {% else %} Editer la ligne {% endif %}
+                        </button>
+                    </div>
+                </div>
             </div>
 
             {{ form_end(tableauForm) }}
+        </div>
+
     </div>
-
-
-
 
 {% endblock %}

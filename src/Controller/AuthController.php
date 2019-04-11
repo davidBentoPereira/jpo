@@ -7,10 +7,8 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\LoginType;
-use App\Entity\Admin;
 
 class AuthController extends AbstractController
 {
@@ -25,7 +23,7 @@ class AuthController extends AbstractController
     )
     {
         if ($authChecker->isGranted('ROLE_ADMIN')) {
-            return $this->redirectToRoute('page');
+            return $this->redirectToRoute('filiere_list');
         }
 
         $error = $authenticationUtils->getLastAuthenticationError();
