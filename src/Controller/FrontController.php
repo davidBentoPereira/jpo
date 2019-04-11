@@ -44,7 +44,7 @@ class FrontController extends AbstractController
     public function sondages(EventRepository $eventRepo, SurveyRepository $surveyRepo): Response
     {
         return $this->render('front/sondages.html.twig', [
-            'events' => $eventRepo->findAll(),
+            'events' => $eventRepo->findAllEventOnGoing(),
             'surveys' => $surveyRepo->findAll()
         ]);
     }

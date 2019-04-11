@@ -32,6 +32,16 @@ class EventController extends AbstractController
                 $title = $data['title'];
                 $dateOfOpening = $data['dateOfOpening'];
                 $dateOfClosure = $data['dateOfClosure'];
+                if($dateOfClosure <= $dateOfOpening)
+                {
+                    $errorMessage = "La date de fin doit être supérieur à celle du début !";
+                    /*echo $errorMessage;die();*/
+                    return $this->render('admin/formEvent.html.twig', [
+                        'form' => $form->createView(),
+                        'type' => 'add',
+                        'error' => $errorMessage
+                    ]);
+                }
                 $event = new Event($title, $dateOfOpening, $dateOfClosure);
                 $event->setDescription($data['description']);
                 $entityManager->persist($event);
@@ -57,6 +67,16 @@ class EventController extends AbstractController
             if ($request->getMethod() == 'POST') {
                 $entityManager = $this->getDoctrine()->getManager();
                 $data = $form->getData();
+                if($data['dateOfClosure'] <= $data['dateOfOpening'])
+                {
+                    $errorMessage = "La date de fin doit être supérieur à celle du début !";
+                    /*echo $errorMessage;die();*/
+                    return $this->render('admin/formEvent.html.twig', [
+                        'form' => $form->createView(),
+                        'type' => 'add',
+                        'error' => $errorMessage
+                    ]);
+                }
                 $event->setTitle( $data['title']);
                 $event->setDateOfClosure($data['dateOfClosure']);
                 $event->setDateOfOpening($data['dateOfOpening']);

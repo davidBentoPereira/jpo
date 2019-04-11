@@ -8,12 +8,17 @@
     {% else %}
         {% if event is defined %}
             <h1 class="display-4">Modifier l'événement :
-            <small>{{ event.title }}</small>
+                <small>{{ event.title }}</small>
             </h1>
         {% endif %}
     {% endif %}
 
     {% if event is defined %}
+        {% if error is defined %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Attention ! </strong>{{ error }}
+            </div>
+        {% endif %}
         {{ form_start(form) }}
         <div class="col-md-10">
             <div class="form-group">
@@ -68,6 +73,11 @@
         </div>
         {{ form_end(form) }}
     {% else %}
+        {% if error is defined %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Attention ! </strong>{{ error }}
+            </div>
+        {% endif %}
         {{ form_start(form) }}
         <div class="col-md-10">
             <div class="form-group">

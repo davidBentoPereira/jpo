@@ -11,7 +11,6 @@
                 <h1>Sondages</h1>
             </div>
         </div>
-
         {% for event in events %}
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
@@ -27,13 +26,11 @@
                         </thead>
                         <tbody>
                         {% set i = 1 %}
-                        {% for survey in surveys %}
-                            {% if event.id == survey.event.id %}
-                                <tr>
-                                    <th scope="row">{{ i }} {% set i = i + 1 %}</th>
-                                    <td colspan="3"><a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}">{{ survey.title }}</a></td>
-                                </tr>
-                            {% endif %}
+                        {% for survey in event.surveys %}
+                            <tr>
+                                <th scope="row">{{ i }} {% set i = i + 1 %}</th>
+                                <td colspan="3"><a href="{{ path('sondage', {'event': event.title,'title': slugify(survey.title), 'id': survey.id }) }}">{{ survey.title }}</a></td>
+                            </tr>
                         {% endfor %}
                         </tbody>
                     </table>

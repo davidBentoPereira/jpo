@@ -110,8 +110,8 @@
                     $('#choices').append('<h6 id="title-choice">Choix</h6>');
                 }
             }
-            i++;
             $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
+            i++;
         });
     </script>
 {% endblock %}

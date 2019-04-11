@@ -19,6 +19,19 @@ class EventRepository extends ServiceEntityRepository
         parent::__construct($registry, Event::class);
     }
 
+    public function findAllEventOnGoing()
+    {
+        /*echo date('d-m-Y H:i:s'); die();*/
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.dateOfOpening <= :dateToday')
+            ->andWhere('e.dateOfClosure >= :dateToday')
+            ->setParameter('dateToday', date('Y-m-d H:i:s') )
+            ->orderBy('e.dateOfOpening', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Event[] Returns an array of Event objects
     //  */

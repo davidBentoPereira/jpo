@@ -40,9 +40,10 @@ class EventType extends AbstractType
                     ]])
             ->add('description', TextareaType::class,
                 ["label" => "Description",
+                    "required" => false,
                     "attr" => [
                         "class" => "form-control",
-                        "placeholder" => "Entrez votre description"
+                        "placeholder" => "Entrez votre description (optionnel)"
                     ]])
         ;
     }
