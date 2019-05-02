@@ -23,11 +23,34 @@
         </div>
     </form>
 
+
+    {% if messages['errors']|length > 0 %}
+        {% for error in messages['errors'] %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if messages['success']|length > 0 %}
+        {% for success in messages['success'] %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ success }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <div class="admins" style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start;">
     {% for admin in admins %}
         <div class="card"  style="height: auto">
             <div class="card-body">
-                <h5 class="card-title" style="color: rgba(0,0,0,0.8);">{{ admin.email }}</h5>
+                <p class="card-title" style="color: rgba(0,0,0,0.8);">{{ admin.email }}</p>
                 {% if connectedUser.id == admin.id %}
                     <a href="{{ path('editionAdmin') }}" class="btn btn-info">Modifier mes identifiants</a>
                 {% elseif connectedUser.id != admin.id %}

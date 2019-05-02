@@ -23,7 +23,7 @@ security:
             form_login:
                 default_target_path: filiere_list
                 check_path: login
-                failure_path: /
+                failure_path: login
             logout:
                 path: logout
                 target: /connexion

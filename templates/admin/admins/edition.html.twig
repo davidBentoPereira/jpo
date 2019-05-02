@@ -8,6 +8,28 @@
     
     <a href="{{ path('listAdmins') }}" type="button" class="btn btn-primary">Retour à la liste des administrateurs</a>
 
+    {% if messages['errors']|length > 0 %}
+        {% for error in messages['errors'] %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ error }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if messages['success']|length > 0 %}
+        {% for success in messages['success'] %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ success }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <form method="POST" style="margin-right: 20px">
         <div class="form-group">
             <input type="email" class="form-control" name="email" placeholder="Adresse mail" value="{{ connectedUser.email }}" required>

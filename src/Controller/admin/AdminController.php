@@ -22,35 +22,42 @@ class AdminController extends AbstractController
         Request $request
     ): Response
     {
+        $messages['errors'] = [];
+        $messages['success'] = [];
+
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
-            if(empty($email)) return $this->redirectToRoute('listAdmins');
-            if(empty($password)) return $this->redirectToRoute('listAdmins');
+            if(empty($email)) $messages['errors'][] = 'L\'adresse mail renseignée est vide.';
+            if(empty($password)) $messages['errors'][] = 'Le mot de passe renseigné est vide.';
 
             $adminWithTheSameMailAdress = $adminRepo->findOneBy([
                 'email' => $email
             ]);
             
-            if($adminWithTheSameMailAdress !== null) return $this->redirectToRoute('listAdmins');
-            
-            $newAdmin = new Admin();
-            
-            $newAdmin->setEmail($email);
-            $newAdmin->setPassword($passwordEncoder->encodePassword(
-                $newAdmin, $password
-            ));
-            $newAdmin->setRoles(["ROLE_ADMIN"]);
-            $manager->persist($newAdmin);            
-            $manager->flush();
+            if($adminWithTheSameMailAdress !== null) $messages['errors'][] = 'L\'adresse mail renseignée est déjà utilisée par un administrateur.';
+
+            if(count($messages['errors']) == 0) {
+                $newAdmin = new Admin();
+
+                $newAdmin->setEmail($email);
+                $newAdmin->setPassword($passwordEncoder->encodePassword(
+                    $newAdmin, $password
+                ));
+                $newAdmin->setRoles(["ROLE_ADMIN"]);
+                $manager->persist($newAdmin);
+                $manager->flush();
+                $messages['success'][] = 'Vous avez ajouté un nouvel administrateur.';
+            }
         }
 
         $admins = $adminRepo->findAll();
         return $this->render('admin/admins/list.html.twig', [
             'admins' => $admins,
             'authChecker' => $authChecker,
-            'connectedUser' => $this->getUser()
+            'connectedUser' => $this->getUser(),
+            'messages' => $messages
         ]);
     }
 
@@ -62,31 +69,35 @@ class AdminController extends AbstractController
         Request $request
     ): Response {
         $connectedUser = $this->getUser();
+        $messages['errors'] = [];
+        $messages['success'] = [];
         
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
 
-            if(empty($email)) exit;
-            if(empty($password)) exit;
+            if(empty($email)) $messages['errors'][] = 'L\'adresse mail renseignée est vide.';
+            if(empty($password)) $messages['errors'][] = 'Le mot de passe renseigné est vide.';
 
-            $adminWithTheSameMailAdress = $adminRepo->findOneBy([
+            $adminsWithTheSameMailAdress = $adminRepo->findOneBy([
                 'email' => $email
             ]);
             
-            if($adminWithTheSameMailAdress !== null) exit;
-            
-            $adminUpdated = new Admin();
-            
-            $adminUpdated->setEmail($email);
-            $adminUpdated->setPassword($passwordEncoder->encodePassword(
-                $adminUpdated, $password
-            ));
-            $manager->persist($adminUpdated);            
-            $manager->flush();
+            if(count($adminsWithTheSameMailAdress) > 1) $messages['errors'][] = 'L\'adresse mail renseignée est déjà utilisée par un administrateur.';
+
+            if(count($messages['errors']) == 0 ) {
+                $connectedUser->setEmail($email);
+                $connectedUser->setPassword($passwordEncoder->encodePassword(
+                    $connectedUser, $password
+                ));
+                $manager->persist($connectedUser);
+                $manager->flush();
+                $messages['success'][] = 'Vous avez modifié votre compte administrateur.';
+            }
         }
         return $this->render('admin/admins/edition.html.twig', [
-            'connectedUser' => $connectedUser
+            'connectedUser' => $connectedUser,
+            'messages' => $messages
         ]);
     }
 
