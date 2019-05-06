@@ -14,9 +14,9 @@ use App\Repository\TableauRepository;
 
 class FrontController extends AbstractController
 {
-    public function index(): Response
+    public function index(FiliereRepository $repo): Response
     {
-        return $this->render('front/index.html.twig');
+        return $this->render('front/index.html.twig', ['dispositifs' => $repo->findAllLinksDispositifsSpeciaux()]);
     }
 
     public function formations(TableauRepository $tableauRepo): Response
@@ -26,17 +26,7 @@ class FrontController extends AbstractController
 
     public function filiere($id, $title, FiliereRepository $repo): Response
     {
-        return $this->render('front/filiere.html.twig', ['filiere' => $repo->find($id)]);
-    }
-
-    public function ulis(): Response
-    {
-        return $this->render('front/ulis.html.twig');
-    }
-
-    public function mlds(): Response
-    {
-        return $this->render('front/mlds.html.twig');
+        return $this->render('front/filiere-et-dispositifs.html.twig', ['filiere' => $repo->find($id)]);
     }
 
     public function sondages(EventRepository $eventRepo, SurveyRepository $surveyRepo): Response

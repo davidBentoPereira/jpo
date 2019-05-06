@@ -19,14 +19,6 @@ sondage:
   path: /sondage/{event}/{title}/{id}
   controller: App\Controller\FrontController::sondage
 
-ulis:
-  path: /unite-localise-pour-l-inclusion-scolaire
-  controller: App\Controller\FrontController::ulis
-
-mlds:
-  path: /mission-de-lutte-contre-le-decrochage-scolaire
-  controller: App\Controller\FrontController::mlds
-
 histoire:
   path: /histoire-du-lycee
   controller: App\Controller\FrontController::histoire

@@ -38,4 +38,17 @@ class FiliereRepository extends ServiceEntityRepository
 
         return $qb->execute();
     }
+
+    public function findAllLinksDispositifsSpeciaux()
+    {
+        $qb = $this->createQueryBuilder('f')
+            ->select('f.title, f.id')
+            ->where("f.category = 'Dispositifs' ")
+            ->orderBy('f.title', 'ASC')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+
 }
