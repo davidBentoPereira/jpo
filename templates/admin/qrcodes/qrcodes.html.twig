@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>QR Codes</title>
+    <style>
+        html, body{
+            margin: 0;
+            padding: 70px;
+            box-sizing: border-box;
+        }
+        .qrcodes{
+            width: 100%;
+            height: auto;
+            background-color: red;
+            display: table;
+        }
+        .qrcode-container{
+            width: 25%;
+            background-color: green;
+            height: auto;
+        }
+        table {
+             width: 100%;
+        }
+
+        td {
+            width: 25%;
+            background-color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>Filières</h1>
+<table>
+    {% for filiere in filieres %}
+        {% if loop.index % 1 == 0 %}
+            <tr>
+        {% endif %}
+
+            <td>{{ loop.index }} - {{ filiere.title }}</td>
+
+        {% if loop.index % 4 == 0 %}
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+
+
+</body>
+</html>

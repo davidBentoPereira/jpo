@@ -145,9 +145,6 @@ tableau_delete:
   controller: App\Controller\admin\TableauController::tableauDelete
 
 #--- QR Code
-qrcodelist:
-  path: "admin/qr-codes"
-  controller: App\Controller\admin\QRCodeController::index
-qrcoderendering:
-  path: "admin/qr-codes/rendu"
-  controller: App\Controller\admin\QRCodeController::rendering
+singleQrcode:
+  path: "admin/qr-codes/single"
+  controller: App\Controller\admin\QRCodeController::displaySingleQRCode

@@ -21,6 +21,7 @@
                 <div class="flex-end">
                     <a href="{{ path('filiere_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
                     <a href="{{ path('filiere_edit', {'id': filiere.id }) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Edition</a>
+                    <a href="{{ path('singleQrcode', {'item': 'filiere', 'id': filiere.id, 'url': path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }) }}" id="edit-event" class="btn btn-dark"><img src="{{ asset('img/icon/qrcode.png') }}" class="icon"/>QRCode</a>
                 </div>
             </div>
         {% endfor %}
