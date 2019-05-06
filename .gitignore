@@ -7,6 +7,8 @@
 /var/
 /vendor/
 .idea
+docker-compose.yml
+Dockerfile
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -27,3 +29,4 @@ Dockerfile
 ## All generated QR Codes
 /public/img/qrcode/*
 !/public/img/qrcode/.gitkeep
+public/js/

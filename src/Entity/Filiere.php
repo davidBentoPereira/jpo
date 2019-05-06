@@ -107,6 +107,11 @@ class Filiere
      */
     private $colorPicker;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $category;
+
     public function __construct()
     {
 //        $this->initUrlSlug();
@@ -298,6 +303,18 @@ class Filiere
     public function setColorPicker(?string $colorPicker): self
     {
         $this->colorPicker = $colorPicker;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

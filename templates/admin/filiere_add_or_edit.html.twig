@@ -26,6 +26,11 @@
             <div class="form-row mb-5">
 
                 <div class="form-group col-6">
+                    {{ form_label(pageForm.category) }}
+                    {{ form_widget(pageForm.category, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-6">
                     {{ form_label(pageForm.colorPicker) }}
                     {{ form_widget(pageForm.colorPicker, {'attr': {'class': 'form-control'}}) }}
                 </div>

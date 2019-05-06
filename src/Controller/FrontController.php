@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\QuestionOption;
 use App\Repository\QuestionOptionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +11,6 @@ use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\TableauRepository;
-
 
 class FrontController extends AbstractController
 {

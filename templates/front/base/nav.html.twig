@@ -26,22 +26,40 @@
                             {{ 'Formations & Dispositifs'|upper }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">BAC Professionnel</h6>
                             {% for filiere in listFilieres %}
-                                <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
+                                {% if filiere.category == 'BAC Professionnel' %}
+                                    <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
+                                {% endif %}
                             {% endfor %}
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">CAP</h6>
+                            {% for filiere in listFilieres %}
+                                {% if filiere.category == 'CAP' %}
+                                    <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">Dispositifs Spéciaux</h6>
+                            {% for filiere in listFilieres %}
+                                {% if filiere.category == 'Dispositifs' %}
+                                    <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="dropdown-divider"></div>
+
+                            <h6 class="dropdown-header">Autres formations</h6>
+                            {% for filiere in listFilieres %}
+                                {% if filiere.category == 'Autres formations' %}
+                                    <a class="dropdown-item" href="{{ path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }}">{{ filiere.title }}</a>
+                                {% endif %}
+                            {% endfor %}
+
                         </div>
                     </li>
-
-{#                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle hvr-underline-from-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ 'Dispositifs Spéciaux'|upper }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ path('mlds') }}">Mission de Lutte contre le Décrochage Scolaire</a>
-                            <a class="dropdown-item" href="{{ path('ulis') }}">Unité localisée pour l’inclusion scolaire</a>
-                        </div>
-                    </li>#}
 
                     <li class="nav-item">
                         <a class="nav-link hvr-underline-from-center" href="{{ path('sondages') }}">{{ 'Sondages'|upper }}</a>
