@@ -39,6 +39,7 @@ class FiliereType extends AbstractType
             ->add('textBlock4',     CKEditorType::class,    ['label' => 'Texte Bloque #4 :', 'config' => ['toolbar' => 'basic'], 'required' => false])
             ->add('titleBlock5',    TextType::class,        ['label' => 'Titre Bloque #5 :', 'required' => false])
             ->add('textBlock5',     CKEditorType::class,    ['label' => 'Texte Bloque #5 :', 'config' => ['toolbar' => 'basic'], 'required' => false])
+            ->add('video',          TextType::class,        ['label' => 'Vidéo Youtube :'  , 'required' => false])
         ;
     }
 
