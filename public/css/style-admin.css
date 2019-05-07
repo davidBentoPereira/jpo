@@ -1,3 +1,7 @@
+.flex {
+  display: flex;
+}
+
 /* ---- Scrollbar ---- */
 ::-webkit-scrollbar {
   width: 16px;
@@ -16,6 +20,14 @@
 /* ---- END Scrollbar ---- */
 
 /* ---- Buttons ---- */
+.btn {
+  font-size: 16px;
+  /*margin: 17px;*/
+  margin-top: 17px;
+  margin-bottom: 17px;
+  color: white;
+}
+
 .btn-violet {
   background-color: #d260ff;
   color: white;
@@ -27,12 +39,19 @@
   border-color: #af49d7;
 }
 
-.btn {
-  font-size: 16px;
-  /*margin: 17px;*/
-  margin-top: 17px;
-  margin-bottom: 17px;
+.btn-export {
+  background-color: #26cc7e;
   color: white;
+  padding: 0;
+  margin: inherit;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.btn-export:hover {
+  color: #fff;
+  background-color: #3ae882;
+  border-color: #26cc7e;
 }
 
 #signout {
@@ -309,10 +328,14 @@ main{
 }
 
 .result-body {
-  height: 85%;
-  width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+   height: auto;
+   width: auto;
+   overflow: scroll;
+   overflow-x: hidden;
+ }
+
+.result-chart {
+  height: 35vh;
 }
 
 /* ----- END Cards ----- */
@@ -351,6 +374,20 @@ main{
   height: 40%;
 }
 /* ---- END Question ----- */
+
+.head-title {
+  width: 70%;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0.2%;
+}
+
+.head-btn {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+}
 
 .title {
   display: flex;

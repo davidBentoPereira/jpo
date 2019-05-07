@@ -2,6 +2,8 @@
 
 namespace App\Controller\admin;
 
+require '../vendor/autoload.php';
+
 use App\Entity\Question;
 use App\Entity\QuestionOption;
 use App\Entity\Survey;
@@ -15,6 +17,8 @@ use App\Repository\SurveyRepository;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class SurveyController extends AbstractController
 {
@@ -221,5 +225,109 @@ class SurveyController extends AbstractController
         $entityManager->remove($choice);
         $entityManager->flush();
         return $this->redirectToRoute('editQuestion', ['idSurvey'=>$idSurvey, 'idQuestion'=>$idQuestion]);
+    }
+
+    public function resultExport($id, SurveyRepository $surveyRepository, $question, QuestionRepository $questionRepository)
+    {
+        $question = $questionRepository->findOneBy(['id' => $question]);
+        $survey = $surveyRepository->findOneBy(['id' => $id]);
+
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->setActiveSheetIndex(0)
+            ->setCellValue('A1',  'Sondage : ' . $survey->getTitle());
+        $spreadsheet->setActiveSheetIndex(0)
+            ->setCellValue('A2',  'Question : ' . $question->getTitle());
+
+        $i = 3;
+        foreach ($question->getResponses() as $response)
+        {
+            $spreadsheet->setActiveSheetIndex(0)
+                ->setCellValue('A'.$i, $response->getValue());
+
+            $i++;
+        }
+
+        $cell_st =[
+            'font' =>['bold' => true],
+            'borders'=>['bottom' =>['style'=> \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM]]
+        ];
+        $spreadsheet->getActiveSheet()->getStyle('A1:A2')->applyFromArray($cell_st);
+        $spreadsheet->getActiveSheet()->getColumnDimension('A')->setWidth(150);
+        $spreadsheet->getActiveSheet()->setTitle(substr($survey->getTitle(),0,30));
+        $spreadsheet->getActiveSheet()->getStyle('A1:A20000')
+            ->getAlignment()->setWrapText(true);
+
+        $writer = new Xlsx($spreadsheet);
+        $fxls ='excel-file_1.xlsx';
+        $writer->save($fxls);
+
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
+        $writer->save("php://output");
+
+        return $this->render('admin/resultSurvey.html.twig',
+            ['survey' => $survey]);
+    }
+
+    public function resultExportAll($id, SurveyRepository $surveyRepository)
+    {
+        $survey = $surveyRepository->findOneBy(['id' => $id]);
+        $questions = $survey->getQuestions();
+
+        $spreadsheet = new Spreadsheet();
+
+        $alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J','K', 'L', 'M', 'N', 'O','P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'];
+
+        $a = 0;
+        foreach ($questions as $question)
+        {
+            $lettre = $alphabet[$a];
+            $i = 2;
+            $iopt = 2;
+
+            $spreadsheet->setActiveSheetIndex(0)->setCellValue($lettre.'1',  $question->getTitle());
+
+            if(sizeof($question->getResponses()) > 0)
+            {
+                foreach ($question->getResponses() as $response)
+                {
+                    $spreadsheet->setActiveSheetIndex(0)->setCellValue($lettre . $i, $response->getValue());
+                    $spreadsheet->getActiveSheet()->getColumnDimension($lettre)->setWidth(70);
+                    $i++;
+                }
+            }
+            if(sizeof($question->getQuestionOptions()) > 0) {
+                foreach ($question->getQuestionOptions() as $option)
+                {
+                    $spreadsheet->setActiveSheetIndex(0)->setCellValue($lettre . $iopt, $option->getValue() . ' = ' . round($option->getPourcentage(),2) . '%');
+                    $spreadsheet->getActiveSheet()->getColumnDimension($lettre)->setWidth(30);
+                    $iopt++;
+                }
+            }
+            $a++;
+        }
+        $cell_st =[
+            'font' =>['bold' => true],
+            'borders'=>['bottom' =>['style'=> \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_MEDIUM]]
+        ];
+
+        $spreadsheet->getActiveSheet()->getStyle('A1:Z1')->applyFromArray($cell_st);
+        $spreadsheet->getActiveSheet()->setTitle(substr($survey->getTitle(),0,30));
+        $spreadsheet->getActiveSheet()->getStyle('A1:Z50')->getAlignment()->setWrapText(true);
+
+        $writer = new Xlsx($spreadsheet);
+        $fxls ='resultAll.xlsx';
+        $writer->save($fxls);
+
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
+        $writer->save("php://output");
+
+        return $this->render('admin/resultSurvey.html.twig',
+            ['survey' => $survey]);
     }
 }
