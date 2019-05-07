@@ -25,14 +25,14 @@ class QRCodeController extends AbstractController
         $id = $request->query->get('id');
         $url = $request->query->get('url');
 
-        $qrCodeContext = new QRCodeContext();
-
         if(empty($item) || empty($id) || empty($url)) {
             return new Response('Erreur dans la génération du QRCode.');
         }
 
+        $qrCodeContext = new QRCodeContext();
         $basicUrl = $requestStack->getCurrentRequest()->getSchemeAndHttpHost();
         $qrCodeContext->link = $basicUrl.$url;
+
         switch ($item) {
             case 'filiere':
                 $filiere = $filiereRepo->find($id);
@@ -41,6 +41,9 @@ class QRCodeController extends AbstractController
             case 'survey':
                 $survey = $surveyRepo->find($id);
                 $qrCodeContext->title = $survey->getTitle();
+                break;
+            case 'homepage':
+                $qrCodeContext->title = 'Page d\'accueil';
                 break;
             default:
                 return new Response('Erreur dans la génération du QRCode.');

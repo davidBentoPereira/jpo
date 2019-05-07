@@ -15,12 +15,17 @@
             text-align: center;
             font-size: 35px;
         }
+        p{
+            color: #696969;
+            text-align: center;
+        }
         a{
             width: 100%;
             display: block;
             text-align: center;
             font-size: 20px;
-            color: grey;
+            color: #131313;
+            text-decoration: none;
         }
         main{
             width: 100%;
@@ -31,11 +36,15 @@
         img{
             display: block;
             text-align: center;
+            width: 80%;
+            height: auto;
+            margin: 0 10%;
         }
     </style>
 </head>
 <body>
 <h1>{{ qrCodeContext.title }}</h1>
+<p>Accédez à cette page depuis l'URL suivante ou en scannant le QR Code donnés ci-dessous :</p>
 <a href="{{ qrCodeContext.link }}">{{ qrCodeContext.link }}</a>
 <main>
     <img src="{{ qrCodeContext.qrcode }}"/>
