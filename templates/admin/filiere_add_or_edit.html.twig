@@ -98,6 +98,17 @@
                 </div>
             </div>
 
+            <div class="form-row mb-5">
+                <div class="form-group col-12">
+                    {{ form_label(pageForm.video) }}
+                    {{ form_widget(pageForm.video, {'attr': {'class': 'form-control'}}) }}
+                    <p class="small"><em>Pour intégrer une vidéo Youtube, rendez-vous sur www.youtube.com, choisissez une vidéo, cliquer
+                        sur le bouton <strong>partager</strong>, puis sur le bouton <strong>intégrer</strong>.
+                        Un code de type "< iframe width="560" height="315" src="https://www.youtube.com/embed/nMblL-UsIDk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></ iframe>"
+                        va s'afficher. Copiez puis coller-le dans le champ ci-dessus.</em></p>
+                </div>
+            </div>
+
         </div>
 
         <div class="form-row mb-5">

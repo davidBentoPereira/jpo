@@ -112,6 +112,11 @@ class Filiere
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $video;
+
     public function __construct()
     {
 //        $this->initUrlSlug();
@@ -315,6 +320,18 @@ class Filiere
     public function setCategory(string $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }

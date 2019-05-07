@@ -94,8 +94,25 @@
 
             </div>
 
+        </div>
+
+        <div class="row justify-content-around text-justify mt-4">
+
+            <div class="card-deck">
+
+                {% if filiere.video is defined and filiere.video is not empty %}
+                    <div class="card">
+                        <div class="card-body">
+                            {{ filiere.video|raw }}
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
 
         </div>
+
+
 
     </div>
 
