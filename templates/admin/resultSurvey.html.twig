@@ -3,7 +3,14 @@
 {% block title %}Résultat Sondage{% endblock %}
 
 {% block body %}
-    <h1>Résultat du sondage : {{ survey.title }}</h1>
+    <div class="flex">
+        <div class="head-title">
+            <h1>Résultat du sondage : {{ survey.title }}</h1>
+        </div>
+        <div class="head-btn">
+            <a href="{{ path("resultExportAll", {'id': survey.id}) }}" class="btn-export btn">Export Excel <img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
+        </div>
+    </div>
     {% set i = 1 %}
     <div class="row">
         {% for question in survey.questions %}
@@ -24,7 +31,7 @@
                                             Réponses
                                         </div>
                                         <div class="head-quest-btn">
-                                        <a href="{{ path("excelResult", {'id': survey.id, 'question': question.id}) }}" class="btn-export btn"><img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
+                                            <a href="{{ path("excelResult", {'id': survey.id, 'question': question.id}) }}" class="btn-export btn"><img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
                                         </div>
                                     </th>
                                 </tr>
@@ -44,7 +51,7 @@
                         {% endif %}
                     {% else %}
                         {% if question.responses[0] is defined %}
-                            <div id="result-chart-{{ question.id }}">
+                            <div id="result-chart-{{ question.id }}" class="result-chart">
                             </div>
                         {% else %}
                             <strong>Aucune réponse</strong>

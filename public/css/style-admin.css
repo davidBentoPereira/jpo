@@ -308,10 +308,14 @@
 }
 
 .result-body {
-  height: 85%;
-  width: 100%;
-  overflow: scroll;
-  overflow-x: hidden;
+   height: auto;
+   width: auto;
+   overflow: scroll;
+   overflow-x: hidden;
+ }
+
+.result-chart {
+  height: 35vh;
 }
 
 /* ----- END Cards ----- */
@@ -350,6 +354,20 @@
   height: 40%;
 }
 /* ---- END Question ----- */
+
+.head-title {
+  width: 70%;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0.2%;
+}
+
+.head-btn {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+}
 
 .title {
   display: flex;
