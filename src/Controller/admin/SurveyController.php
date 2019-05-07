@@ -2,8 +2,6 @@
 
 namespace App\Controller\admin;
 
-require '../vendor/autoload.php';
-
 use App\Entity\Question;
 use App\Entity\QuestionOption;
 use App\Entity\Survey;
