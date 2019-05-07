@@ -68,6 +68,14 @@ resultSurvey:
   path: admin/result-survey/{id}
   controller: App\Controller\admin\SurveyController::resultSurvey
 
+resultExportAll:
+  path: admin/result-survey/export/{id}
+  controller: App\Controller\admin\SurveyController::resultExportAll
+
+excelResult:
+  path: admin/result-survey/export/{id}/{question}
+  controller: App\Controller\admin\SurveyController::resultExport
+
   #--- Question
 addQuestion:
   path: admin/edit-survey/{id}/add-question
