@@ -21,11 +21,12 @@
 </head>
 <body>
 {% include 'admin/base-admin/nav.html.twig' %}
-{% include 'admin/base-admin/header.html.twig' %}
-<div id="content">
-    {% block body %}{% endblock %}
-</div>
-{% include 'admin/base-admin/footer.html.twig' %}
+<main>
+    {% include 'admin/base-admin/aside.html.twig' %}
+    <div id="content">
+        {% block body %}{% endblock %}
+    </div>
+</main>
 
 <!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

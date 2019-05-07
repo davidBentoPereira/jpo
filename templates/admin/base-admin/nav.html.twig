@@ -2,19 +2,3 @@
     <h6 id="admin-text">Administration</h6>
     <a href="{{ path('logout') }}" id="signout" type="button" class="btn btn-danger text-right">Déconnexion<img src="{{ asset('img/icon/sign-out.png') }}" class="icon"/></a>
 </nav>
-<div id="wrapper" class="active">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul id="sidebar_menu" class="sidebar-nav">
-            <li class="sidebar-brand"><img src="{{ asset('img/logo-admin.png') }}" id="logo-img"/></li>
-        </ul>
-        <ul class="sidebar-nav" id="sidebar">
-            <li><a href="{{ path('listAdmins') }}"><img src="{{ asset('img/icon/admin.svg') }}" class="icon"/>Administrateurs</a></li>
-            <li><a href="{{ path('filiere_list') }}"><img src="{{ asset('img/icon/file.png') }}" class="icon"/>Filières & Dispositifs</a></li>
-            <li><a href="{{ path('event') }}"><img src="{{ asset('img/icon/event.png') }}" class="icon"/>Evenements</a></li>
-            <li><a href="{{ path('survey') }}"><img src="{{ asset('img/icon/poll.png') }}" class="icon"/>Sondages</a></li>
-            <li><a href="{{ path('tableau_list') }}"><img src="{{ asset('img/icon/table.svg') }}" class="icon"/>Tableau</a></li>
-            <li><a href="{{ path('index') }}"><img src="{{ asset('img/icon/home.png') }}" class="icon"/>Retour au site</a></li>
-        </ul>
-    </div>
-</div>
