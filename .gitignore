@@ -21,5 +21,9 @@
 /.idea/
 
 ### Docker tools ###
-docker-compose.yml
-Dockerfile
+/docker-compose.yml
+/Dockerfile
+
+### QR Codes ###
+/public/qrcodes/**
+!/public/qrcodes/.gitkeep

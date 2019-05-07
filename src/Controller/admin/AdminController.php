@@ -28,9 +28,13 @@ class AdminController extends AbstractController
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
+            $confirmedPassword = $request->request->get('confirmed_password');
 
             if(empty($email)) $messages['errors'][] = 'L\'adresse mail renseignée est vide.';
             if(empty($password)) $messages['errors'][] = 'Le mot de passe renseigné est vide.';
+            if(empty($confirmedPassword)) $messages['errors'][] = 'Le mot de passe de confirmation est vide.';
+            if($password != $confirmedPassword) $messages['errors'][] = 'Le mot de passe renseigné et le mot de passe de confirmation doivent être les mêmes.';
+
 
             $adminWithTheSameMailAdress = $adminRepo->findOneBy([
                 'email' => $email
@@ -75,9 +79,13 @@ class AdminController extends AbstractController
         if ($request->isMethod('POST')) {
             $email = $request->request->get('email');
             $password = $request->request->get('password');
+            $confirmedPassword = $request->request->get('confirmed_password');
 
             if(empty($email)) $messages['errors'][] = 'L\'adresse mail renseignée est vide.';
             if(empty($password)) $messages['errors'][] = 'Le mot de passe renseigné est vide.';
+            if(empty($confirmedPassword)) $messages['errors'][] = 'Le mot de passe de confirmation est vide.';
+            if($password != $confirmedPassword) $messages['errors'][] = 'Le mot de passe renseigné et le mot de passe de confirmation doivent être les mêmes.';
+
 
             $adminsWithTheSameMailAdress = $adminRepo->findOneBy([
                 'email' => $email

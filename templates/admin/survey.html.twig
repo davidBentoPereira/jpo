@@ -7,7 +7,7 @@
 
     <p>
         Retrouvez sur cette page la liste des sondages proposés par le Lycée Marcelle Pardé.
-        Vous pouvez en ajouter de nouveaux, editer ceux qui existent déjà ou bien les supprimer.
+        Vous pouvez en ajouter de nouveaux, éditer ceux qui existent déjà ou bien les supprimer.
     </p>
 
     <div class="row">
@@ -29,6 +29,7 @@
                 <div class="flex-end">
                     <a href="{{ path('deleteSurvey', {'id':survey.id}) }}" id="delete-survey" class="btn btn-danger btn-survey"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
                     <a href="{{ path('editSurvey', {'id':survey.id}) }}" id="edit-survey" class="btn btn-info btn-survey"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Edition</a>
+                    <a href="{{ path('singleQrcode', {'item': 'survey', 'id': survey.id, 'url': path('sondage', {'id': survey.id, 'title': slugify(survey.title) })}) }}" id="edit-survey" class="btn btn-dark"><img src="{{ asset('img/icon/qrcode.png') }}" class="icon"/>QR Code</a>
                     <a href="{{ path('resultSurvey', {'id':survey.id}) }}" id="result-survey" class="btn btn-success btn-survey"><img src="{{ asset('img/icon/result.png') }}" class="icon"/>Voir les résultats</a>
                 </div>
             </div>
