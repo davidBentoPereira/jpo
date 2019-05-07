@@ -59,15 +59,19 @@
 }
 /* ---- END Buttons ---- */
 
+body{
+  padding-top: 56px;
+}
+
 /* ---- SideBar ---- */
 #sidebar-wrapper {
-  margin-left: -150px;
-  width: 200px;
   background: #222;
   position: fixed;
   height: 100%;
   transition: all 0.4s ease 0s;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-nav {
@@ -77,10 +81,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-#wrapper.active #sidebar-wrapper {
-  left: 150px;
 }
 
 #page-content-wrapper {
@@ -166,6 +166,7 @@
 #content {
   margin-top: 53px;
   margin-left: 220px;
+  display: none;
 }
 
 /* ----- Cards ----- */
@@ -346,6 +347,7 @@
 
 #admin-text {
   font-size: 20px;
+  margin: 0;
 }
 
 .choices {
