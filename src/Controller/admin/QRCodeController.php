@@ -2,64 +2,80 @@
 
 namespace App\Controller\admin;
 
+use App\Classes\QRCodeContext;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\FiliereRepository;
 use App\Repository\SurveyRepository;
-use App\Repository\EventRepository;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\LabelAlignment;
 use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Response\QrCodeResponse;
-use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use App\Service\SlugGeneratorService;
+use Dompdf\Dompdf;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Response;
 
 class QRCodeController extends AbstractController
 {
-    public function index(
+
+    public function displaySingleQRCode(
         FiliereRepository $filiereRepo,
-        EventRepository $eventRepo,
-        SurveyRepository $surveyRepo
-    )
-    {
-        return $this->render('admin/qrcodes/list.html.twig', [
-            'filieres' => $filiereRepo->findAll(),
-            'events' => $eventRepo->findAll(),
-            'surveys' => $surveyRepo->findAll()
-        ]);
-    }
+        SurveyRepository $surveyRepo,
+        Request $request,
+        RequestStack $requestStack
+    ){
+        $item = $request->query->get('item');
+        $id = $request->query->get('id');
+        $url = $request->query->get('url');
 
-    public function rendering(Request $request)
-    {
-        $protocol = $request->isSecure() ? "https" : "http";
+        $qrCodeContext = new QRCodeContext();
 
-        $host = $protocol.'://'.($_SERVER['HTTP_HOST'] == 'jpo' ? 'jpo/public' : $_SERVER['HTTP_HOST']);
+        if(empty($item) || empty($id) || empty($url)) {
+            return new Response('Erreur dans la génération du QRCode.');
+        }
 
-        $pageUrl = $host.$request->query->get('url');
-
-        $qrCode = new QrCode($pageUrl);
+        $basicUrl = $requestStack->getCurrentRequest()->getSchemeAndHttpHost();
+        $qrCodeContext->link = $basicUrl.$url;
+        switch ($item) {
+            case 'filiere':
+                $filiere = $filiereRepo->find($id);
+                $qrCodeContext->title = $filiere->getTitle();
+                break;
+            case 'survey':
+                $survey = $surveyRepo->find($id);
+                $qrCodeContext->title = $survey->getTitle();
+                break;
+            default:
+                return new Response('Erreur dans la génération du QRCode.');
+        }
 
         $fileType = 'png';
+        $fileName = $item.'-'.$id.'.'.$fileType;
+        $filePath = '/img/qrcodes/'.$fileName;
+        $fullFilePath = __DIR__.'/../../../public/'.$filePath;
+        $qrCodeContext->qrcode = $fullFilePath;
 
+        $qrCode = new QrCode($qrCodeContext->link);
         $qrCode->setWriterByName($fileType);
-
-        $qrCode->setSize(300);
-
-        $qrCode->setMargin(10);
-
+        $qrCode->setSize(655);
+        $qrCode->setMargin(0);
         $qrCode->setEncoding('UTF-8');
+        $qrCode->writeFile($fullFilePath);
 
-        $fileName = new SlugGeneratorService($request->query->get('slug'));
-
-        $filePath = '/img/qrcode/'.$fileName->getSlug().'.'.$fileType;
-
-        $qrCode->writeFile(__DIR__.'/../../../public'.$filePath);
-
-        return $this->render('admin/qrcodes/rendering.html.twig', [
-            'pageUrl' => $pageUrl,
-            'fileUrl' => $host.$filePath
+        $html = $this->renderView('admin/qrcode_rendering.html.twig', [
+            'qrCodeContext' => $qrCodeContext
         ]);
+
+        $dompdf = new Dompdf();
+
+        $dompdf->loadHtml($html);
+
+        $dompdf->setPaper('A4', 'portrait');
+
+        $dompdf->render();
+
+        $qrCodeDocumentTitle = $qrCodeContext->title." - QR Code";
+
+        return new Response($dompdf->stream($qrCodeDocumentTitle, [
+            "Attachment" => false
+        ]));
     }
+
 }

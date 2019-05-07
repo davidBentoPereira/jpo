@@ -23,10 +23,10 @@ Dockerfile
 /.idea/
 
 ### Docker tools ###
-docker-compose.yml
-Dockerfile
+/docker-compose.yml
+/Dockerfile
 
-## All generated QR Codes
-/public/img/qrcode/*
-!/public/img/qrcode/.gitkeep
+### QR Codes ###
+/public/img/qrcodes/**
+!/public/img/qrcodes/.gitkeep
 public/js/

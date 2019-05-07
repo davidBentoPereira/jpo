@@ -16,7 +16,7 @@ sondages:
   controller: App\Controller\FrontController::sondages
 
 sondage:
-  path: /sondage/{event}/{title}/{id}
+  path: /sondage/{id}/{title}
   controller: App\Controller\FrontController::sondage
 
 histoire:
@@ -137,9 +137,6 @@ tableau_delete:
   controller: App\Controller\admin\TableauController::tableauDelete
 
 #--- QR Code
-qrcodelist:
-  path: "admin/qr-codes"
-  controller: App\Controller\admin\QRCodeController::index
-qrcoderendering:
-  path: "admin/qr-codes/rendu"
-  controller: App\Controller\admin\QRCodeController::rendering
+singleQrcode:
+  path: "admin/qr-codes/single"
+  controller: App\Controller\admin\QRCodeController::displaySingleQRCode

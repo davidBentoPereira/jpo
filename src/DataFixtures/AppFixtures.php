@@ -14,9 +14,8 @@ use App\Entity\QuestionOption;
 use App\Entity\Response;
 use App\Entity\ResponseValue;
 use App\Entity\Tableau;
-use App\Service\EncryptingService;
-use App\Service\SlugGeneratorService;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 class AppFixtures extends Fixture
 {
     private $passwordEncoder;
