@@ -25,5 +25,5 @@
 /Dockerfile
 
 ### QR Codes ###
-/public/qrcodes/**
-!/public/qrcodes/.gitkeep
+/public/img/qrcodes/**
+!/public/img/qrcodes/.gitkeep
