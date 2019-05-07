@@ -19,7 +19,14 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>Réponses</th>
+                                    <th class="flex">
+                                        <div class="head-quest-title">
+                                            Réponses
+                                        </div>
+                                        <div class="head-quest-btn">
+                                        <a href="{{ path("excelResult", {'id': survey.id, 'question': question.id}) }}" class="btn-export btn"><img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
+                                        </div>
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody>
