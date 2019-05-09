@@ -87,6 +87,11 @@ class FrontController extends AbstractController
         return $this->render('front/histoire.html.twig');
     }
 
+    public function planDuLycee(): Response
+    {
+        return $this->render('front/plan-du-lycee.html.twig');
+    }
+
     public function navbarListFiliere(FiliereRepository $repo): Response
     {
         return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAllFilieresSortedByAlphabetOrder()]);
