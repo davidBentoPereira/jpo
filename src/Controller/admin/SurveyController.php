@@ -12,6 +12,8 @@ use App\Repository\QuestionOptionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuestionTypeRepository;
 use App\Repository\SurveyRepository;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -257,13 +259,18 @@ class SurveyController extends AbstractController
         $spreadsheet->getActiveSheet()->getStyle('A1:A20000')
             ->getAlignment()->setWrapText(true);
 
-        $writer = new Xlsx($spreadsheet);
-        $fxls ='excel-file_1.xlsx';
+        /*$writer = new Xlsx($spreadsheet);*/
+        $writer = new Csv($spreadsheet);
+        $fxls ='excel-file_1.csv';
+        /*$writer = new Xls($spreadsheet);
+        $fxls ='excel-file_1.xls';*/
         $writer->save($fxls);
 
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Csv");
+       /* header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');*/
+        /*header('Content-Type: application/vnd.ms-excel');*/
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.csv"');
         $writer->save("php://output");
 
         return $this->render('admin/resultSurvey.html.twig',
