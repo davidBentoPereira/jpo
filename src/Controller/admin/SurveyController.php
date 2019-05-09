@@ -329,8 +329,13 @@ class SurveyController extends AbstractController
 
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
-        $writer->save("php://output");
+        header('Content-Disposition: attachment; filename="Resultat_'.$survey->getTitle().'.xlsx"');
+        header('Content-Length: ' . filesize($fxls));
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        readfile( $fxls);
+        /*$writer->save("php://output");*/
 
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
