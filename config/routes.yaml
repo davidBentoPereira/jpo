@@ -23,6 +23,10 @@ histoire:
   path: /histoire-du-lycee
   controller: App\Controller\FrontController::histoire
 
+plan_du_lycee:
+  path: /plan-du-lycee
+  controller: App\Controller\FrontController::planDuLycee
+
   # - - - - - AUTH - - - - -
 
 login:
