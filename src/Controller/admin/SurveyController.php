@@ -259,19 +259,20 @@ class SurveyController extends AbstractController
         $spreadsheet->getActiveSheet()->getStyle('A1:A20000')
             ->getAlignment()->setWrapText(true);
 
-        /*$writer = new Xlsx($spreadsheet);*/
-        $writer = new Csv($spreadsheet);
-        $fxls ='excel-file_1.csv';
-        /*$writer = new Xls($spreadsheet);
-        $fxls ='excel-file_1.xls';*/
+        $writer = new Xlsx($spreadsheet);
+        $fxls ='resultOne.xlsx';
         $writer->save($fxls);
 
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Csv");
-       /* header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');*/
-        /*header('Content-Type: application/vnd.ms-excel');*/
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.csv"');
-        $writer->save("php://output");
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment; filename="Resultat_'.$survey->getTitle().'_'.$question->getTitle().'.xlsx"');
+        header('Content-Length: ' . filesize($fxls));
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        readfile( $fxls);
+
+        /*$writer->save("php://output");*/
 
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
