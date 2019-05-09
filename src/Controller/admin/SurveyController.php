@@ -12,6 +12,8 @@ use App\Repository\QuestionOptionRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\QuestionTypeRepository;
 use App\Repository\SurveyRepository;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -258,13 +260,19 @@ class SurveyController extends AbstractController
             ->getAlignment()->setWrapText(true);
 
         $writer = new Xlsx($spreadsheet);
-        $fxls ='excel-file_1.xlsx';
+        $fxls ='resultOne.xlsx';
         $writer->save($fxls);
 
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
-        $writer->save("php://output");
+        header('Content-Disposition: attachment; filename="Resultat_'.$survey->getTitle().'_'.$question->getTitle().'.xlsx"');
+        header('Content-Length: ' . filesize($fxls));
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        readfile( $fxls);
+
+        /*$writer->save("php://output");*/
 
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
@@ -322,8 +330,13 @@ class SurveyController extends AbstractController
 
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, "Xlsx");
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attachment; filename="Resultat '.$survey->getTitle().'.xlsx"');
-        $writer->save("php://output");
+        header('Content-Disposition: attachment; filename="Resultat_'.$survey->getTitle().'.xlsx"');
+        header('Content-Length: ' . filesize($fxls));
+        header('Content-Transfer-Encoding: binary');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        readfile( $fxls);
+        /*$writer->save("php://output");*/
 
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
