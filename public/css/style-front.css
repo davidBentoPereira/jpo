@@ -19,9 +19,8 @@ footer p { color: white;}
 .legales hr { border: 1px solid #1F65A1}
 
 /* Formations */
-#formations .table .thead-light th { }
-#formations .table td a { font-size: 0.9em; color:#212529;}
-#formations .table tbody tr th a { color:#212529; font-size:0.9em;}
+#formations .table tbody tr th a { color:#495057; font-size:0.9em; }
+#formations .table td a { font-size: 0.9em; color:#212529; font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}
 
 /* Questionnaires */
 #questionnaires table a { color: black; }
