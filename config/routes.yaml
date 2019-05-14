@@ -152,3 +152,8 @@ tableau_delete:
 singleQrcode:
   path: "admin/qr-codes/single"
   controller: App\Controller\admin\QRCodeController::displaySingleQRCode
+
+#--- Contact
+contact_edit:
+  path: /admin/editer-les-informations-de-contact
+  controller: App\Controller\admin\ContactController::contactEdit

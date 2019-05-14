@@ -11,6 +11,7 @@ use App\Repository\EventRepository;
 use App\Repository\SurveyRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\TableauRepository;
+use App\Repository\ContactRepository;
 
 class FrontController extends AbstractController
 {
@@ -95,6 +96,11 @@ class FrontController extends AbstractController
     public function navbarListFiliere(FiliereRepository $repo): Response
     {
         return $this->render('front/base/nav.html.twig', ['listFilieres' => $repo->findAllFilieresSortedByAlphabetOrder()]);
+    }
+
+    public function footerContact(ContactRepository $repo): Response
+    {
+        return $this->render('front/base/footer.html.twig', ['contact' => $repo->find(1)]);
     }
 
 }
