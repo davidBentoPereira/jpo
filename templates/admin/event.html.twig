@@ -19,8 +19,12 @@
                 <h2 class="card-table-title">{{ event.title }}</h2>
                 <hr>
                 <div class="flex-end">
-                    <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
-                    <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Edition</a>
+                    <div class="col-12">
+                        <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon" alt=""/>Suppression</a>
+                    </div>
+                    <div class="col-12">
+                        <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/edit.svg') }}" class="icon" alt=""/>Edition</a>
+                    </div>
                 </div>
             </div>
         {% endfor %}
