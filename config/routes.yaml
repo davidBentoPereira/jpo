@@ -53,65 +53,65 @@ removeAdmin:
   controller: App\Controller\admin\AdminController::remove
 
 survey:
-  path: /admin/survey
+  path: /admin/liste-des-sondages
   controller: App\Controller\admin\SurveyController::survey
 
 addSurvey:
-  path: admin/add-survey
+  path: admin/ajouter-un-sondage
   controller: App\Controller\admin\SurveyController::addSurvey
 
 editSurvey:
-  path: admin/edit-survey/{id}
+  path: admin/editer-un-sondage/{id}
   controller: App\Controller\admin\SurveyController::editSurvey
 
 deleteSurvey:
-  path: admin/delete-survey/{id}
+  path: admin/supprimer-un-sondage/{id}
   controller: App\Controller\admin\SurveyController::deleteSurvey
 
 resultSurvey:
-  path: admin/result-survey/{id}
+  path: admin/resultat-sondage/{id}
   controller: App\Controller\admin\SurveyController::resultSurvey
 
 resultExportAll:
-  path: admin/result-survey/export/{id}
+  path: admin/resultat-du-sondage/export/{id}
   controller: App\Controller\admin\SurveyController::resultExportAll
 
 excelResult:
-  path: admin/result-survey/export/{id}/{question}
+  path: admin/resultat-du-sondage/export/{id}/{question}
   controller: App\Controller\admin\SurveyController::resultExport
 
   #--- Question
 addQuestion:
-  path: admin/edit-survey/{id}/add-question
+  path: admin/edition-sondage/{id}/add-question
   controller: App\Controller\admin\SurveyController::addQuestion
 
 editQuestion:
-  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}
+  path: admin/edition-sondage/{idSurvey}/edit-question/{idQuestion}
   controller: App\Controller\admin\SurveyController::editQuestion
 
 deleteQuestion:
-  path: admin/edit-survey/{id}/delete-question/{idQuestion}
+  path: admin/edition-sondage/{id}/supprimer-question/{idQuestion}
   controller: App\Controller\admin\SurveyController::deleteQuestion
 
 deleteChoice:
-  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}/delete-choice/{idChoice}
+  path: admin/edit-survey/{idSurvey}/editer-question/{idQuestion}/supprimer-choix/{idChoice}
   controller: App\Controller\admin\SurveyController::deleteChoice
 
 #--- Event
 event:
-  path: /admin/event
+  path: /admin/evenement
   controller: App\Controller\admin\EventController::event
 
 deleteEvent:
-  path: /admin/delete-event/{id}
+  path: /admin/supprimer-evenement/{id}
   controller: App\Controller\admin\EventController::deleteEvent
 
 addEvent:
-  path: /admin/add-event
+  path: /admin/ajouter-evenement
   controller: App\Controller\admin\EventController::addEvent
 
 editEvent:
-  path: /admin/edit-event/{id}
+  path: /admin/editer-evenement/{id}
   controller: App\Controller\admin\EventController::editEvent
 
 #--- Filiere
