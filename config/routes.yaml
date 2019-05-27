@@ -1,19 +1,159 @@
+# - - - - - FRONT - - - - -
 index:
-    path: /
-    controller: App\Controller\FrontController::index
+  path: /
+  controller: App\Controller\FrontController::index
 
-dashboard:
-    path: /admin
-    controller: App\Controller\AdminController::index
+formations:
+  path: /tableau-des-formations
+  controller: App\Controller\FrontController::formations
 
-page:
-    path: /admin/page
-    controller: App\Controller\AdminController::page
+filiere:
+  path: /filiere-{id}/{title}
+  controller: App\Controller\FrontController::filiere
 
-event:
-    path: /admin/event
-    controller: App\Controller\AdminController::event
+sondages:
+  path: /sondages
+  controller: App\Controller\FrontController::sondages
+
+sondage:
+  path: /sondage/{id}/{title}
+  controller: App\Controller\FrontController::sondage
+
+histoire:
+  path: /histoire-du-lycee
+  controller: App\Controller\FrontController::histoire
+
+plan_du_lycee:
+  path: /plan-du-lycee
+  controller: App\Controller\FrontController::planDuLycee
+
+  # - - - - - AUTH - - - - -
+
+login:
+  path: /connexion
+  controller: App\Controller\AuthController::login
+  methods: GET|POST
+
+logout:
+  path: /logout
+  # - - - - - ADMIN - - - - -
+
+#--- Survey
+
+listAdmins:
+  path: /admin/administrateurs
+  controller: App\Controller\admin\AdminController::index
+
+editionAdmin:
+  path: /admin/administrateurs/edition
+  controller: App\Controller\admin\AdminController::edition
+
+removeAdmin:
+  path: /admin/administrateurs/supprimer/{id}
+  controller: App\Controller\admin\AdminController::remove
 
 survey:
-    path: /admin/survey
-    controller: App\Controller\AdminController::survey
+  path: /admin/survey
+  controller: App\Controller\admin\SurveyController::survey
+
+addSurvey:
+  path: admin/add-survey
+  controller: App\Controller\admin\SurveyController::addSurvey
+
+editSurvey:
+  path: admin/edit-survey/{id}
+  controller: App\Controller\admin\SurveyController::editSurvey
+
+deleteSurvey:
+  path: admin/delete-survey/{id}
+  controller: App\Controller\admin\SurveyController::deleteSurvey
+
+resultSurvey:
+  path: admin/result-survey/{id}
+  controller: App\Controller\admin\SurveyController::resultSurvey
+
+resultExportAll:
+  path: admin/result-survey/export/{id}
+  controller: App\Controller\admin\SurveyController::resultExportAll
+
+excelResult:
+  path: admin/result-survey/export/{id}/{question}
+  controller: App\Controller\admin\SurveyController::resultExport
+
+  #--- Question
+addQuestion:
+  path: admin/edit-survey/{id}/add-question
+  controller: App\Controller\admin\SurveyController::addQuestion
+
+editQuestion:
+  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}
+  controller: App\Controller\admin\SurveyController::editQuestion
+
+deleteQuestion:
+  path: admin/edit-survey/{id}/delete-question/{idQuestion}
+  controller: App\Controller\admin\SurveyController::deleteQuestion
+
+deleteChoice:
+  path: admin/edit-survey/{idSurvey}/edit-question/{idQuestion}/delete-choice/{idChoice}
+  controller: App\Controller\admin\SurveyController::deleteChoice
+
+#--- Event
+event:
+  path: /admin/event
+  controller: App\Controller\admin\EventController::event
+
+deleteEvent:
+  path: /admin/delete-event/{id}
+  controller: App\Controller\admin\EventController::deleteEvent
+
+addEvent:
+  path: /admin/add-event
+  controller: App\Controller\admin\EventController::addEvent
+
+editEvent:
+  path: /admin/edit-event/{id}
+  controller: App\Controller\admin\EventController::editEvent
+
+#--- Filiere
+filiere_list:
+  path: /admin/liste-des-filieres
+  controller: App\Controller\admin\FiliereController::filiereList
+
+filiere_add:
+  path: /admin/ajouter-une-filiere
+  controller: App\Controller\admin\FiliereController::filiereAdd
+
+filiere_edit:
+  path: /admin/editer-une-filiere/{id}
+  controller: App\Controller\admin\FiliereController::filiereEdit
+
+filiere_delete:
+  path: /admin/suppression-filiere/{id}
+  controller: App\Controller\admin\FiliereController::filiereDelete
+
+#--- Tableau
+tableau_list:
+  path: /admin/tableau-des-formations
+  controller: App\Controller\admin\TableauController::tableauList
+
+tableau_add:
+  path: /admin/ajouter-une-ligne-du-tableau
+  controller: App\Controller\admin\TableauController::tableauAdd
+
+tableau_edit:
+  path: /admin/editer-une-ligne-du-tableau/{id}
+  controller: App\Controller\admin\TableauController::tableauEdit
+
+tableau_delete:
+  path: /admin/suppression-ligne-tableau/{id}
+  controller: App\Controller\admin\TableauController::tableauDelete
+
+#--- QR Code
+singleQrcode:
+  path: "admin/qr-codes/single"
+  controller: App\Controller\admin\QRCodeController::displaySingleQRCode
+
+#--- Contact
+contact_edit:
+  path: /admin/editer-les-informations-de-contact
+  controller: App\Controller\admin\ContactController::contactEdit

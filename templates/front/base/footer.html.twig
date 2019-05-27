@@ -1,68 +1,142 @@
-<div class="container">
-    <footer class="">
-        <br />
-        <div class="row justify-content-center">
-            <div class="col-3 text-center">
+<div class="container-fluid">
+    <footer>
+
+        <div class="row justify-content-center align-items-center pt-3">
+
+            <div class="col-12 col-md-3 text-center">
                 <img src="{{ asset('img/icon/school.svg') }}" class="mb-1" alt="" width="40px">
-                <p>Lycée Professionnel <br />Marcel Pardé</p>
+{#                <p>Lycée Professionnel <br />Marcel Pardé</p>#}
+                <p>{{ contact.name }}</p>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-12 col-md-3 text-center">
                 <img src="{{ asset('img/icon/message.svg') }}" class="mb-1" alt="" width="40px">
-                <p>47 Avenue Alsace Lorraine <br />01011 Bourg-En-Bresse Cedex</p>
+{#                <p>47 Avenue Alsace Lorraine <br />01011 Bourg-En-Bresse Cedex</p>#}
+                <p>{{ contact.address }} <br />{{ contact.zipCode }} {{ contact.city }}</p>
             </div>
-            <div class="col-3 text-center">
+            <div class="col-12 col-md-3 text-center">
                 <img src="{{ asset('img/icon/telephone.svg') }}" class="mb-1" alt="" width="40px">
-                <p>Tel  : 04-74-32-76-75<br />Fax : 04-74-21-58-12 </p>
+{#                <p>Tel  : 04-74-32-76-75<br />Fax : 04-74-21-58-12 </p>#}
+                <p>Tel  : {{ contact.phone }}<br />Fax : {{ contact.fax }}</p>
             </div>
-        </div>
 
-        <div class="col-12 text-center">
-            <iframe width="800px" height="200px" id="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2761.45616675769!2d5.218390815474044!3d46.20137977911657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f353d271349057%3A0x440e12e76c81119!2sLyc%C3%A9e+Marcelle+Pard%C3%A9!5e0!3m2!1sfr!2sfr!4v1552316830556" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
-
-        <div class="col-12 text-center">
-            <p>
-                <a href="" data-toggle="modal" data-target="#exampleModal">Espace Administration</a> |
-                <a href="">Charte d'utilisation & Mentions légales |</a>
-                © 2019 Copyright marcelleparde.fr
-            </p>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Connexion à l'espace d'administration</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body container">
-                        <div class="row justify-content-center">
-                            <div class="col-8">
-                                <form>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Nom d'utilisateur">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                        </div>
-                                        <input type="text" class="form-control" placeholder="Mot de passe">
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <button type="button" class="btn btn-outline-secondary btn-block"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="text-center">
+                <p id="legales">
+                    <a href="{{ path('login') }}">Espace Administration |</a>
+                    <a href="" data-toggle="modal" data-target="#exampleModal">Mentions légales |</a>
+                    <a href="//marcelle-parde.elycee.rhonealpes.fr/" target="_blank">© 2019 Copyright marcelleparde.fr</a>
+                </p>
             </div>
+
         </div>
+
     </footer>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mentions légales</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body legales">
+
+                <h3 class="h4">Mentions Légales</h3>
+
+                <p>
+                    Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance
+                    dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site
+                    <strong>www.jpo.marcelle-parde.fr</strong> les informations suivantes :
+                </p>
+
+                <h5>Informations légales :</h5>
+
+                <ul>
+                    <li><strong>Propriétaire du site :</strong> Lycée Marcelle Pardé</li>
+                    <li><strong>Adresse de l'établissement :</strong> 47 Avenue Alsace Lorraine 01000 Bourg-En-Bresse</li>
+                    <li><strong>Adresse de courrier physique :</strong> 47 Avenue Alsace Lorraine 01011 Bourg-En-Bresse Cedex</li>
+                    <li><strong>Adresse de courrier électronique :</strong><em> à compléter</em></li>
+                    <li><strong>Tél :</strong> 04-74-32-76-75</li>
+                    <li><strong>Fax :</strong> 04-74-21-58-12</li>
+                </ul>
+
+                <ul>
+                    <li><strong>Conception du site :</strong> Les étudiants Yannick DEBREE, Céline DUCLOS & David BENTO-PEREIRA
+                            tous trois étudiants en Licence Professionnelle Metinet à l'IUT Lyon 1 de BOURG-EN-BRESSE au cours de l'année 2018-2019.
+                            La conception de ce site s'est faite dans le cadre de leur projet tutoré.</li>
+                    <li><strong>Adresse :</strong> IUT Lyon 1, Site de Bourg-en-Bresse, Département Informatique, 71 rue Peter Fink 01000 Bourg-en-Bresse</li>
+                    <li><strong>Tél :</strong> 04-74-45-50-59</li>
+                    <li><strong>Fax :</strong> 04-74-45-50-51</li>
+                    <li><strong>Adresse de courrier électronique :</strong><em> à compléter</em></li>
+                    <li><strong>Le Responsable de la publication est :</strong><em> à compléter</em></li>
+                </ul>
+
+                <h5>Hébergement du site internet :</h5>
+
+                <p>
+                    Le site est hébergé sur le serveur de l'IUT Lyon 1
+                </p>
+
+                <hr>
+
+                <h5>2. Description des services fournis :</h5>
+
+                <p>Le site <b>www.jpo.marcelle-parde.fr</b> a pour objet de fournir une information concernant le Lycée Marcelle Pardé et les filières qu'il propose. Une partie du site permet également de réaliser des sondages anonymes.</p>
+
+                <p>Le proprietaire du site s’efforce de fournir des informations aussi précises que possible. Toutefois, il ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
+
+                <p>Tous les informations proposées sur le site sont données à titre indicatif, sont non exhaustives, et sont susceptibles d’évoluer. Elles sont données sous réserve de modifications ayant été apportées depuis leur mise en ligne.</p>
+
+                <hr>
+
+                <h5>3. Propriété intellectuelle et contrefaçons :</h5>
+
+                <p>Le proprietaire du site est propriétaire des droits de propriété intellectuelle ou détient les droits d’usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels…</p>
+
+                <p>Toute reproduction, représentation, modification, publication, adaptation totale ou partielle des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite.</p>
+
+                <p>Toute exploitation non autorisée du site ou de l’un de ces éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
+
+                <hr>
+
+                <h5>4. Liens hypertextes et cookies :</h5>
+
+                <p>Le site <strong>www.jpo.marcelle-parde.fr</strong> peut contenir un certain nombre de liens hypertextes vers d’autres sites (partenaires, informations …) mis en place avec l’autorisation du proprietaire du site . Cependant, le proprietaire du site n’a pas la possibilité de vérifier le contenu des sites ainsi visités et décline donc toute responsabilité de ce fait quand aux risques éventuels de contenus illicites.</p>
+
+                <p>L’utilisateur est informé que lors de ses visites sur le site <strong>www.jpo.marcelle-parde.fr</strong>, un ou des cookies sont susceptible de s’installer automatiquement sur son ordinateur. Un cookie est un fichier de petite taille, qui ne permet pas l’identification de l’utilisateur, mais qui enregistre des informations relatives à la navigation d’un ordinateur sur un site. Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site, et ont également vocation à permettre diverses mesures de fréquentation.</p>
+
+                <p>Le paramétrage du logiciel de navigation permet d’informer de la présence de cookie et éventuellement, de refuser automatiquement leur installation</p>
+
+                <p>Le refus d’installation d’un cookie peut entraîner l’impossibilité d’accéder à certains services.</p>
+
+                <hr>
+
+                <h5>5. Protection des biens et des personnes - gestion des données personnelles :</h5>
+
+                <p>
+                    Utilisateur : Internaute se connectant, utilisant le site susnommé : <strong>www.jpo.marcelle-parde.fr</strong><br />
+                    En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.
+                </p>
+
+                <p>Sur le site <strong>www.jpo.marcelle-parde.fr</strong>, le propriétaire du site ne collecte des informations personnelles relatives à l'utilisateur que pour le besoin de certains services proposés. L'utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est alors précisé à l'utilisateur du site l’obligation ou non de fournir ces informations.</p>
+
+                <p>Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition aux données personnelles le concernant. Pour l’exercer, adressez votre demande à <strong>www.jpo.marcelle-parde.fr</strong> par email au webmaster ou en effectuant sa demande écrite et signée, accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée.</p>
+
+                <p>Aucune information personnelle de l'utilisateur du site <strong>www.jpo.marcelle-parde.fr</strong> n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers.</p>
+
+                <p>Le site <strong>www.jpo.marcelle-parde.fr</strong> est en conformité avec le RGPD.</p>
+
+                <p>Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
+
+                <hr>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
 </div>

@@ -6,6 +6,9 @@
 /public/bundles/
 /var/
 /vendor/
+.idea
+docker-compose.yml
+Dockerfile
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -17,16 +20,13 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-\.idea/encodings\.xml
+/.idea/
 
-\.idea/jpo\.iml
+### Docker tools ###
+/docker-compose.yml
+/Dockerfile
 
-\.idea/misc\.xml
-
-\.idea/modules\.xml
-
-\.idea/php\.xml
-
-\.idea/vcs\.xml
-
-\.idea/workspace\.xml
+### QR Codes ###
+/public/img/qrcodes/**
+!/public/img/qrcodes/.gitkeep
+public/js/

@@ -31,13 +31,19 @@ class Response
     private $question;
 
     /**
-     * @ORM\OneToMany(targetEntity="ResponseValue", mappedBy="response", cascade={"persist"})
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $responseValue;
+    private $value;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="QuestionOption")
+     */
+    private $options;
 
     public function __construct()
     {
-        $this->responseValue = new ArrayCollection();
+//        $this->responseValue = new ArrayCollection();
+        $this->options = new ArrayCollection();
     }
 
     /**
@@ -77,32 +83,70 @@ class Response
         return $this;
     }
 
-    /**
-     * @return Collection|ResponseValue[]
-     */
-    public function getResponseValue(): Collection
+//    /**
+//     * @return Collection|ResponseValue[]
+//     */
+//    public function getResponseValue(): Collection
+//    {
+//        return $this->responseValue;
+//    }
+
+//    public function addResponseValue(ResponseValue $responseValue): self
+//    {
+//        if (!$this->responseValue->contains($responseValue)) {
+//            $this->responseValue[] = $responseValue;
+//            $responseValue->setResponse($this);
+//        }
+//
+//        return $this;
+//    }
+
+//    public function removeResponseValue(ResponseValue $responseValue): self
+//    {
+//        if ($this->responseValue->contains($responseValue)) {
+//            $this->responseValue->removeElement($responseValue);
+//            // set the owning side to null (unless already changed)
+//            if ($responseValue->getResponse() === $this) {
+//                $responseValue->setResponse(null);
+//            }
+//        }
+//
+//        return $this;
+//    }
+
+    public function getValue(): ?string
     {
-        return $this->responseValue;
+        return $this->value;
     }
 
-    public function addResponseValue(ResponseValue $responseValue): self
+    public function setValue(?string $value): self
     {
-        if (!$this->responseValue->contains($responseValue)) {
-            $this->responseValue[] = $responseValue;
-            $responseValue->setResponse($this);
+        $this->value = $value;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|QuestionOption[]
+     */
+    public function getOptions(): Collection
+    {
+        return $this->options;
+    }
+
+    public function addOption(QuestionOption $option): self
+    {
+        if (!$this->options->contains($option)) {
+            $this->options[] = $option;
         }
 
         return $this;
     }
 
-    public function removeResponseValue(ResponseValue $responseValue): self
+    public function removeOption(QuestionOption $option): self
     {
-        if ($this->responseValue->contains($responseValue)) {
-            $this->responseValue->removeElement($responseValue);
-            // set the owning side to null (unless already changed)
-            if ($responseValue->getResponse() === $this) {
-                $responseValue->setResponse(null);
-            }
+        if ($this->options->contains($option)) {
+            $this->options->removeElement($option);
         }
 
         return $this;

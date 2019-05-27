@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,13 +24,19 @@ class QuestionOption
     private $value;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Question", inversedBy="question_options")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="questionOptions")
      */
     private $question;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Response")
+     */
+    private $response;
 
     public function __construct(string $value)
     {
         $this->value = $value;
+        $this->response = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -58,5 +66,38 @@ class QuestionOption
         $this->question = $question;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Response[]
+     */
+    public function getResponse(): Collection
+    {
+        return $this->response;
+    }
+
+    public function addResponse(Response $response): self
+    {
+        if (!$this->response->contains($response)) {
+            $this->response[] = $response;
+        }
+
+        return $this;
+    }
+
+    public function removeResponse(Response $response): self
+    {
+        if ($this->response->contains($response)) {
+            $this->response->removeElement($response);
+        }
+
+        return $this;
+    }
+
+    public function getPourcentage()
+    {
+        $nbResponseTotal = sizeof($this->question->getResponses());
+        $nbResponseOption = sizeof($this->response);
+        return (100 * $nbResponseOption) / $nbResponseTotal;
     }
 }

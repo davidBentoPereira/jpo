@@ -1,0 +1,67 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}AdminController{% endblock %}
+
+{% block body %}
+
+
+    <h1 class="display-4 text-center">{{ "Editer les informations de contact"|upper }}</h1>
+
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {{ form_start(contactForm) }}
+
+            <div class="form-row mb-5">
+
+                <div class="form-group col-12">
+                    {{ form_label(contactForm.name) }}
+                    {{ form_widget(contactForm.name, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(contactForm.address) }}
+                    {{ form_widget(contactForm.address, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-6">
+                    {{ form_label(contactForm.zipCode) }}
+                    {{ form_widget(contactForm.zipCode, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-6">
+                    {{ form_label(contactForm.city) }}
+                    {{ form_widget(contactForm.city, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-6">
+                    {{ form_label(contactForm.phone) }}
+                    {{ form_widget(contactForm.phone, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group col-6">
+                    {{ form_label(contactForm.fax) }}
+                    {{ form_widget(contactForm.fax, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-row mb-5">
+            <div class="form-group col-12">
+                <button type="submit" class="btn-lg btn-primary">Editer les informations de contact</button>
+            </div>
+        </div>
+
+        {{ form_end(contactForm) }}
+    </div>
+
+{% endblock %}

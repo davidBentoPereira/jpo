@@ -1,0 +1,135 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}Formulaire Evenement{% endblock %}
+
+{% block body %}
+    {% if type == 'add' %}
+        <h1 class="display-4">Nouvel événement</h1>
+    {% else %}
+        {% if event is defined %}
+            <h1 class="display-4">Modifier l'événement :
+                <small>{{ event.title }}</small>
+            </h1>
+        {% endif %}
+    {% endif %}
+
+    {% if event is defined %}
+        {% if error is defined %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Attention ! </strong>{{ error }}
+            </div>
+        {% endif %}
+        {{ form_start(form) }}
+        <div class="col-md-10">
+            <div class="form-group">
+                {{ form_label(form.title, 'Titre') }}
+                {{ form_widget(form.title, {'attr': {'value': event.title }}) }}
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    {{ form_label(form.dateOfOpening, 'Date de début') }}
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.day, {'attr': {'placeholder': 'jour' }, 'value': event.dateOfOpening.format('d')})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.month, {'attr': {'placeholder': 'mois' }, 'value': event.dateOfOpening.format('m')})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.year, {'attr': {'placeholder': 'année' }, 'value': event.dateOfOpening.format('Y')})}}
+                    </div>
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfOpening.time.hour, {'attr': {'placeholder': 'heure' }, 'value': event.dateOfOpening.format('H')})}}
+                    </div> :
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfOpening.time.minute, {'attr': {'placeholder': 'minute' }, 'value': event.dateOfOpening.format('i')})}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    {{ form_label(form.dateOfClosure, 'Date de fin') }}
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour' }, 'value': event.dateOfClosure.format('d')})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.month, {'attr': {'placeholder': 'mois' }, 'value': event.dateOfClosure.format('m')})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.year, {'attr': {'placeholder': 'année' }, 'value': event.dateOfClosure.format('Y')})}}
+                    </div>
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfClosure.time.hour, {'attr': {'placeholder': 'heure' }, 'value': event.dateOfClosure.format('H')})}}
+                    </div> :
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfClosure.time.minute, {'attr': {'placeholder': 'minute' }, 'value': event.dateOfClosure.format('i')})}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description, 'Description') }}
+                {{ form_widget(form.description, {'value': event.description }) }}
+            </div>
+            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+        </div>
+        {{ form_end(form) }}
+    {% else %}
+        {% if error is defined %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Attention ! </strong>{{ error }}
+            </div>
+        {% endif %}
+        {{ form_start(form) }}
+        <div class="col-md-10">
+            <div class="form-group">
+                {{ form_label(form.title, 'Titre') }}
+                {{ form_widget(form.title) }}
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    {{ form_label(form.dateOfOpening, 'Date de début') }}
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.day, {'attr': {'placeholder': 'jour'}})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.month, {'attr': {'placeholder': 'mois' }})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfOpening.date.year, {'attr': {'placeholder': 'année' }})}}
+                    </div>
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfOpening.time.hour, {'attr': {'placeholder': 'heure' }})}}
+                    </div> :
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfOpening.time.minute, {'attr': {'placeholder': 'minute' }})}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    {{ form_label(form.dateOfClosure, 'Date de fin') }}
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.day, {'attr': {'placeholder': 'jour'}})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.month, {'attr': {'placeholder': 'mois' }})}}
+                    </div> /
+                    <div class="col-md-2">
+                        {{ form_widget(form.dateOfClosure.date.year, {'attr': {'placeholder': 'année' }})}}
+                    </div>
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfClosure.time.hour, {'attr': {'placeholder': 'heure' }})}}
+                    </div> :
+                    <div class="col-md-1">
+                        {{ form_widget(form.dateOfClosure.time.minute, {'attr': {'placeholder': 'minute' }})}}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_label(form.description, 'Description') }}
+                {{ form_widget(form.description) }}
+            </div>
+            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+        </div>
+        {{ form_end(form) }}
+    {% endif %}
+{% endblock %}

@@ -29,12 +29,12 @@ class Question
     private $survey;
 
     /**
-     * @ORM\ManyToOne(targetEntity="QuestionType", inversedBy="question_type")
+     * @ORM\ManyToOne(targetEntity="QuestionType")
      */
     private $questionType;
 
     /**
-     * @ORM\OneToMany(targetEntity="QuestionOption", mappedBy="question", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="QuestionOption", mappedBy="question", fetch="EAGER", cascade={"persist", "remove"})i
      */
     private $questionOptions;
 
@@ -47,7 +47,6 @@ class Question
     {
         $this->title = $title;
         $this->questionOptions = new ArrayCollection();
-        $this->reponses = new ArrayCollection();
         $this->responses = new ArrayCollection();
     }
 
@@ -98,6 +97,11 @@ class Question
     public function getQuestionOptions(): Collection
     {
         return $this->questionOptions;
+    }
+
+    public function getNbQuestionOptions(): int
+    {
+       return $this->questionOptions->count();
     }
 
     public function addQuestionOption(QuestionOption $questionOption): self

@@ -1,0 +1,30 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}AdminController{% endblock %}
+
+{% block body %}
+    <h1 class="display-4">Filières et dispositifs</h1>
+
+    <p>
+        Retrouvez sur cette page la liste des filières et dispositifs proposés par le Lycée Marcelle Pardé.
+        Vous pouvez en ajouter de nouvelles, éditer celles et ceux qui existent ou bien les supprimer.
+    </p>
+
+    <div class="row">
+        <div class="card card-add">
+            <a href="{{ path('filiere_add') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
+        </div>
+        {% for filiere in filieres %}
+            <div class="card card-basic d-flex flex-column p-2">
+                <h2 class="card-table-title">{{ filiere.title|slice(0, 30) }} ...</h2>
+                <hr>
+                <div class="flex-end">
+                    <a href="{{ path('filiere_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger"><img src="{{ asset('img/icon/remove.png') }}" class="icon"/>Suppression</a>
+                    <a href="{{ path('filiere_edit', {'id': filiere.id }) }}" id="edit-event" class="btn btn-info"><img src="{{ asset('img/icon/edit.svg') }}" class="icon"/>Edition</a>
+                    <a href="{{ path('singleQrcode', {'item': 'filiere', 'id': filiere.id, 'url': path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }) }}" id="edit-event" class="btn btn-dark" target="_blank"><img src="{{ asset('img/icon/qrcode.png') }}" class="icon"/>QRCode</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

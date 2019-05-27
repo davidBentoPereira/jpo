@@ -1,0 +1,101 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}AdminController{% endblock %}
+
+{% block body %}
+
+    {% if type == 'add' %}
+        <h1 class="display-4 text-center">{{ "Ajouter une nouvelle ligne dans le tableau" }}</h1>
+    {% else %}
+        <h1 class="display-4 text-center">{{ "Editer cette ligne dans le tableau" }}</h1>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+
+            {{ form_start(tableauForm) }}
+
+            <div class="form-row mb-5">
+
+                <div class="form-group col-2">
+                    {{ form_label(tableauForm.couleur) }}
+                    {{ form_widget(tableauForm.couleur, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-10">
+                    {{ form_label(tableauForm.link) }}
+                    {{ form_widget(tableauForm.link, {'attr': {'class': 'form-control'}}) }}
+                    <p class="small">Copier puis coller ci-dessus l'url de la page vers laquelle la ligne du tableau doit mener.</p>
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.diplome) }}
+                    {{ form_widget(tableauForm.diplome, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.nbPlaces) }}
+                    {{ form_widget(tableauForm.nbPlaces, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.firstYear) }}
+                    {{ form_widget(tableauForm.firstYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.secondYear) }}
+                    {{ form_widget(tableauForm.secondYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.diplomeIntermediaire) }}
+                    {{ form_widget(tableauForm.diplomeIntermediaire, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.thirdYear) }}
+                    {{ form_widget(tableauForm.thirdYear, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.poursuiteEtudes) }}
+                    {{ form_widget(tableauForm.poursuiteEtudes, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.formationEtConcours) }}
+                    {{ form_widget(tableauForm.formationEtConcours, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+                <div class="form-group col-12">
+                    {{ form_label(tableauForm.vieActive) }}
+                    {{ form_widget(tableauForm.vieActive, {'attr': {'class': 'form-control'}}) }}
+                </div>
+
+            </div>
+
+            <div class="form-group col-12">
+                <div class="form-row justify-content-center">
+                    <div>
+                        <button type="submit" class="btn-lg btn-primary">
+                            {% if type == 'add' %} Ajouter la ligne {% else %} Editer la ligne {% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {{ form_end(tableauForm) }}
+        </div>
+
+    </div>
+
+{% endblock %}

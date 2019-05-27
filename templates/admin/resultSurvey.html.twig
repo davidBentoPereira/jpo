@@ -1,0 +1,120 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}Résultat Sondage{% endblock %}
+
+{% block body %}
+    <div class="flex">
+        <div class="head-title">
+            <h1>Résultat du sondage : {{ survey.title }}</h1>
+        </div>
+        <div class="head-btn">
+            <a href="{{ path("resultExportAll", {'id': survey.id}) }}" class="btn-export btn">Export Excel <img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
+        </div>
+    </div>
+    {% set i = 1 %}
+    <div class="row">
+        {% for question in survey.questions %}
+            <div class="card-result">
+                <div class="row result-title">
+                    <h5>Question n°{{ i }} : {{ question.title }}</h5>
+                    <small>{{ question.questionType.resume }}</small>
+                </div>
+                <div class="row result-body">
+                    {% if(question.questionType.label == 'Textarea' or question.questionType.label == 'Simple Text') %}
+                        <br>
+                        {% if question.responses[0] is defined %}
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="flex">
+                                        <div class="head-quest-title">
+                                            Réponses
+                                        </div>
+                                        <div class="head-quest-btn">
+                                            <a href="{{ path("excelResult", {'id': survey.id, 'question': question.id}) }}" class="btn-export btn"><img src="{{ asset('img/icon/download.svg') }}" class="icon"/></a>
+                                        </div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                {% for reponse in question.responses %}
+                                    <tr>
+                                        <td>{{ reponse.value }}</td>
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <strong>Aucune réponse</strong>
+                        {% endif %}
+                    {% else %}
+                        {% if question.responses[0] is defined %}
+                            <div id="result-chart-{{ question.id }}" class="result-chart">
+                            </div>
+                        {% else %}
+                            <strong>Aucune réponse</strong>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            {% set i = i + 1 %}
+        {% endfor %}
+    </div>
+
+    <!-- --------- Script --------- -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        {% for question in survey.questions %}
+        {% if(question.questionType.label == 'Simple Choice' or question.questionType.label == 'Multiple Choice') %}
+        {% set options = question.questionOptions %}
+        {% if question.responses[0] is defined %}
+        Highcharts.chart('result-chart-{{ question.id }}', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Réponses'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Réponse',
+                colorByPoint: true,
+                data: [
+                    {% for option in options %}
+                    {
+                        name: '{{ option.value }}',
+                        y: {{ option.pourcentage }}
+                    },
+                    {% endfor %}
+                ]
+            }]
+        });
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+    </script>
+
+{% endblock %}
+

@@ -1,0 +1,117 @@
+{% extends 'admin/base-admin.html.twig' %}
+
+{% block title %}Formulaire Question{% endblock %}
+
+{% block body %}
+    {% if type == 'add' %}
+        <h1 class="display-4">Nouvelle question <br><small>pour le sondage {{ survey.title }}</small></h1>
+    {% else %}
+        <h1 class="display-4">Modification de la question : {{ question.title }} <br><small>pour le sondage {{ survey.title }}</small></h1>
+    {% endif %}
+
+    {% if question is defined %}
+        {{ form_start(form) }}
+        <div class="col-md-11">
+            <div class="form-group">
+                {{ form_label(form.title, 'Question') }}
+                {{ form_widget(form.title, {'attr': {'value': question.title }}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.questionType, 'Type de question') }}
+                {% set id = question.questionType.label | trans %}
+                {{ form_widget(form.questionType, {value : id }) }}
+            </div>
+            <div class="form-group" id="choices">
+                {% if question.questionOptions[0] is defined %}
+                    <h6>Choix</h6>
+                    {% for option in question.questionOptions %}
+                        <div class="row">
+                            <div class="col-md-10">
+                                <input type="text" id="choice-{{ option.id }}" name="option-{{ option.id }}" placeholder="" class="form-control choices" value="{{ option.value }}"/>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-danger btn-suppr" href="{{ path('deleteChoice', {'idChoice':option.id, 'idSurvey': survey.id, 'idQuestion': question.id}) }}">
+                                    <img src="{{ asset('img/icon/remove.png') }}" class="icon">
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="row" id="btn">
+                <a href="{{ path('editSurvey', {'id':survey.id}) }}" class="btn btn-info"><img src="{{ asset('img/icon/return.png') }}" class="icon"/>Retour</a>
+                <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+                {% if question.questionType.label == 'Simple Choice' or  question.questionType.label == 'Multiple Choice' %}
+                    <button class="btn btn-violet" type="button" id="btnAddChoice"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
+                {% else %}
+                    <button class="btn btn-violet display-none" type="button" id="btnAddChoice" ><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
+                {% endif %}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    {% else %}
+        {{ form_start(form) }}
+        <div class="col-md-11">
+            <div class="form-group">
+                {{ form_row(form.title) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.questionType) }}
+            </div>
+            <div class="form-group" id="choices">
+            </div>
+            <div class="row" id="btn">
+                <a href="{{ path('editSurvey', {'id':survey.id}) }}"><button class="btn btn-info" type="button"><img src="{{ asset('img/icon/return.png') }}" class="icon"/>Retour</button></a>
+                <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+                <button class="btn btn-violet display-none" type="button" id="btnAddChoice" ><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    {% endif %}
+
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        //Changement de la liste déroulante pour bouton "Ajout d'un choix"
+        let b = 0;
+        $('#question_questionType').change(() => {
+            let value = $('#question_questionType')[0].value;
+            if(value == 'Simple Choice' || value == 'Multiple Choice')
+            {
+                if(b == 0)
+                {
+                    b++;
+                    $('#btnAddChoice').addClass('display-on');
+                    $('#btnAddChoice').removeClass('display-none');
+                    /* $('#btn').append('<button class="btn btn-violet" type="button" id="btnAddChoice"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>');*/
+                }
+            } else {
+                $('#btnAddChoice').addClass('display-none');
+                $('#btnAddChoice').removeClass('display-on');
+                b = 0;
+            }
+            console.log($('#question_questionType')[0].value);
+        });
+
+        //Input des choix
+        let i = 1;
+        {% if question is defined %}
+            if ({{ question.nbQuestionOptions }})
+            {
+                let i = {{ question.nbQuestionOptions }};
+            } else {
+                let i = 0;
+            }
+        {% endif %}
+        $('#btnAddChoice').click(function () {
+            if(i == 0){
+                if ($('#title-choice') == 'undefined') {
+                    $('#choices').append('<h6 id="title-choice">Choix</h6>');
+                }
+            }
+            $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
+            i++;
+        });
+    </script>
+{% endblock %}
