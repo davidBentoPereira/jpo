@@ -336,6 +336,7 @@ main{
 
 .result-chart {
   height: 35vh;
+  width: 100% !important;
 }
 
 /* ----- END Cards ----- */

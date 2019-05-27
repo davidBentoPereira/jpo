@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Contact;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Admin;
@@ -461,6 +462,17 @@ class AppFixtures extends Fixture
         $event->addSurvey($survey);
 
         $manager->persist($event);
+
+        // Contact
+        $contact = new Contact();
+        $contact->setName('Lycée Professionnel Marcel Pardé');
+        $contact->setAddress('47 Avenue Alsace Lorraine');
+        $contact->setZipCode('01011');
+        $contact->setPhone('Tel : 04-74-32-76-75');
+        $contact->setFax('Fax : 04-74-21-58-12');
+        $contact->setCity('Bourg-En-Bresse Cedex');
+
+        $manager->persist($contact);
 
         $manager->flush();
     }
