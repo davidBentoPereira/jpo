@@ -16,6 +16,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Csv;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -274,6 +275,8 @@ class SurveyController extends AbstractController
 
         /*$writer->save("php://output");*/
 
+        $this->removeFileCreated($fxls);
+
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
     }
@@ -335,10 +338,18 @@ class SurveyController extends AbstractController
         header('Content-Transfer-Encoding: binary');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        readfile( $fxls);
+        readfile($fxls);
         /*$writer->save("php://output");*/
+
+        $this->removeFileCreated($fxls);
 
         return $this->render('admin/resultSurvey.html.twig',
             ['survey' => $survey]);
+    }
+
+    private function removeFileCreated(string $fileName = 'resultOne.xlsx'): void
+    {
+        $fileSystem = new Filesystem();
+        $fileSystem->remove($fileName);
     }
 }
