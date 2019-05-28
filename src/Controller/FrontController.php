@@ -100,7 +100,7 @@ class FrontController extends AbstractController
 
     public function footerContact(ContactRepository $repo): Response
     {
-        return $this->render('front/base/footer.html.twig', ['contact' => $repo->find(1)]);
+        return $this->render('front/base/footer.html.twig', ['contact' => $repo->findAll()[0]]);
     }
 
 }
