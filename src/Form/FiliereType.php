@@ -18,7 +18,7 @@ class FiliereType extends AbstractType
         $builder
             ->add('title',          TextType::class,        ['label' => 'Titre :'])
             ->add('colorPicker',    ColorType::class,       ['label' => 'Couleur de l\'interface :'])
-            ->add('category',       ChoiceType::class,      ['placeholder' => 'Sélectionner une catégorie',
+            ->add('category',       ChoiceType::class,      ['label' => 'Catégorie', 'placeholder' => 'Sélectionner une catégorie',
                 'choices'  => [
                     'BAC Professionnel'     => 'BAC Professionnel',
                     'CAP'                   => 'CAP',
