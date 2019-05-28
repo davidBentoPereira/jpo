@@ -259,7 +259,7 @@ main{
 }
 
 .card-basic a {
-  width: auto;
+  width: 100%;
   margin-top: -10px;
   align-content: flex-end;
 }
