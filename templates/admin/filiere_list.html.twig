@@ -3,6 +3,7 @@
 {% block title %}AdminController{% endblock %}
 
 {% block body %}
+
     <h1 class="display-4">Filières et dispositifs</h1>
 
     <p>
@@ -10,36 +11,40 @@
         Vous pouvez en ajouter de nouvelles, éditer celles et ceux qui existent ou bien les supprimer.
     </p>
 
-    <div class="row">
-        <div class="card card-add">
-            <a href="{{ path('filiere_add') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
-        </div>
-        {% for filiere in filieres %}
-            <div class="card card-basic d-flex flex-column p-2">
-                <h2 class="card-table-title">{{ filiere.title|slice(0, 30) }} ...</h2>
-                <hr>
-                <div class="flex-end">
-                    <div class="col-6">
-                        <a href="{{ path('filiere_delete', {'id': filiere.id}) }}" id="delete-event" class="btn btn-danger btn-block">
-                            <img src="{{ asset('img/icon/remove.png') }}" class="icon" alt=""/>
-                            <span style="font-size:0.9em;">Suppression</span>
-                        </a>
-                    </div>
-                    <div class="col-6">
-                        <a href="{{ path('filiere_edit', {'id': filiere.id }) }}" id="edit-event" class="btn btn-info">
-                            <img src="{{ asset('img/icon/edit.svg') }}" class="icon" alt=""/>
-                            Edition
-                        </a>
-                    </div>
-                    <div class="col-12">
-                        <a href="{{ path('singleQrcode', {'item': 'filiere', 'id': filiere.id, 'url': path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }) }}" id="edit-event" class="btn btn-dark btn-block" target="_blank">
-                            <img src="{{ asset('img/icon/qrcode.png') }}" class="icon"/>
-                            QRCode
-                        </a>
-                    </div>
+    <div class="row cards">
+
+        <div class="card-deck">
+
+            <div class="col-12 col-md-6 col-lg-3 mb-3">
+                <div class="card card-add">
+                    <a href="{{ path('filiere_add') }}">
+                        <img src="{{ asset('img/icon/add.png') }}" class="card-add-img" alt=""/>
+                    </a>
                 </div>
             </div>
-        {% endfor %}
-    </div>
 
+            {% for filiere in filieres %}
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                    <div class="card" style="background-color: #444a90">
+                        <div class="card-header text-center">{{ filiere.category }}</div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{ filiere.title|slice(0, 28) }} ...</h6>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-danger btn-sm btn-block">
+                                <a href="{{ path('filiere_delete', {'id': filiere.id}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm btn-block">
+                                <a href="{{ path('filiere_edit', {'id': filiere.id }) }}"><i class="fas fa-edit"></i> Editer</a>
+                            </button>
+                            <button type="button" class="btn btn-dark btn-sm btn-block">
+                                <a href="{{ path('singleQrcode', {'item': 'filiere', 'id': filiere.id, 'url': path('filiere', {'id': filiere.id, 'title': slugify(filiere.title) }) }) }}" target="_blank"><i class="fas fa-qrcode"></i> QR-Code</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
 {% endblock %}

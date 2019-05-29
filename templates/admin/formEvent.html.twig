@@ -69,7 +69,7 @@
                 {{ form_label(form.description, 'Description') }}
                 {{ form_widget(form.description, {'value': event.description }) }}
             </div>
-            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i> Editer</button>
         </div>
         {{ form_end(form) }}
     {% else %}
@@ -128,7 +128,7 @@
                 {{ form_label(form.description, 'Description') }}
                 {{ form_widget(form.description) }}
             </div>
-            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i> Ajouter</button>
         </div>
         {{ form_end(form) }}
     {% endif %}

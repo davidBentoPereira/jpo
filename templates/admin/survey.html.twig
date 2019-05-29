@@ -3,6 +3,11 @@
 {% block title %}Sondage{% endblock %}
 
 {% block body %}
+
+    <style>
+        a {color:white;}
+    </style>
+
     <h1 class="display-4">Sondages</h1>
 
     <p>
@@ -11,50 +16,42 @@
     </p>
 
     <div class="row">
-        <div class="card card-add">
-            <a href="{{ path('addSurvey') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
-        </div>
-        {% for survey in surveys %}
-            <div class="card card-basic card-survey">
-                <div class="row tag-event-div">
-                    <div class="tag-event">
-                        {{ survey.event.title }}
-                    </div>
-                </div>
-                <hr>
-                <div class="row title">
-                    <h2 class="card-table-title">{{ survey.title }}</h2>
-                </div>
-                <hr>
-                <div class="flex-end">
-                    <div class="row align-items-center">
-                        <div class="col-6">
-                            <a href="{{ path('deleteSurvey', {'id':survey.id}) }}" id="delete-survey" class="btn btn-danger btn-block btn-sm" style="font-size: 0.6em; margin:-0.5em;">
-                                <img src="{{ asset('img/icon/remove.png') }}" class="icon" alt=""/>
-                                Suppression
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{ path('editSurvey', {'id':survey.id}) }}" id="edit-survey" class="btn btn-info btn-block btn-sm" style="font-size: 0.6em;" >
-                                <img src="{{ asset('img/icon/edit.svg') }}" class="icon" alt=""/>
-                                Edition
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{ path('singleQrcode', {'item': 'survey', 'id': survey.id, 'url': path('sondage', {'id': survey.id, 'title': slugify(survey.title) })}) }}" id="edit-survey" class="btn btn-dark btn-block btn-sm" target="_blank" style="font-size: 0.6em;">
-                                <img src="{{ asset('img/icon/qrcode.png') }}" class="icon" alt=""/>
-                                QR-Code
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{{ path('resultSurvey', {'id':survey.id}) }}" id="result-survey" class="btn btn-success btn-block btn-sm" style="font-size: 0.6em;">
-                                <img src="{{ asset('img/icon/result.png') }}" class="icon" alt=""/>
-                                Résultats
-                            </a>
-                        </div>
-                    </div>
+
+        <div class="card-deck">
+
+            <div class="">
+                <div class="card card-add" style="height:20em">
+                    <a href="{{ path('addSurvey') }}">
+                        <img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/>
+                    </a>
                 </div>
             </div>
-        {% endfor %}
+
+            {% for survey in surveys%}
+                <div class="mb-3">
+                    <div class="card" style="background-color: #444a90; height:20em;">
+                        <div class="card-header text-center">{{ survey.event.title }}</div>
+                        <div class="card-body">
+                            <h6 class="card-title">{{ survey.title|slice(0, 28) }} ...</h6>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-danger btn-sm btn-block">
+                                <a href="{{ path('deleteSurvey', {'id':survey.id}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm btn-block">
+                                <a href="{{ path('editSurvey', {'id':survey.id}) }}"><i class="fas fa-edit"></i> Editer</a>
+                            </button>
+                            <button type="button" class="btn btn-dark btn-sm btn-block">
+                                <a href="{{ path('singleQrcode', {'item': 'survey', 'id': survey.id, 'url': path('sondage', {'id': survey.id, 'title': slugify(survey.title) })}) }}" target="_blank"><i class="fas fa-qrcode"></i> QR-Code</a>
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm btn-block">
+                                <a href="{{ path('resultSurvey', {'id':survey.id}) }}"><i class="fas fa-poll"></i> Résultats</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
     </div>
 {% endblock %}

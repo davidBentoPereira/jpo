@@ -35,7 +35,7 @@
                                         Question n°{{ inc }}
                                     </div>
                                     <div class="head-quest-btn">
-                                        <a href="{{ path('deleteQuestion', {'id':survey.id, 'idQuestion': question.id}) }}" class="btn btn-danger btn-suppr"><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a>
+                                        <a href="{{ path('deleteQuestion', {'id':survey.id, 'idQuestion': question.id}) }}"><i class="fas fa-times" style="color:#495057;"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                     <h6 class="card-subtitle mb-2 text-muted">{{ question.questionType.resume }}</h6>
                                 </div>
                                 <div class="end-question">
-                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-violet"><img src="{{ asset('img/icon/edit.svg') }}" class="icon">Modification</a>
+                                    <a href="{{ path('editQuestion', {'idSurvey':survey.id, 'idQuestion':question.id}) }}" class="btn btn-secondary"><i class="far fa-edit"></i>Editer</a>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +53,8 @@
                     {% endfor %}
                 </div>
             </div>
-            <a {#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#} class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>
-            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+            <a {#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#} href="{{ path('addQuestion', {'id':survey.id}) }}" class="btn btn-info"><i class="fas fa-plus"></i> Ajouter une question</a>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i> Valider</button>
         </div>
         {{ form_end(form) }}
     {% else %}
@@ -69,7 +69,7 @@
             <div class="form-group">
             </div>
             {#<a #}{#data-toggle="modal" data-target="#modalQuestion"  id="btnModalQuestion"#}{# class="btn btn-violet"  href="{{ path('addQuestion', {'id':survey.id}) }}"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajout question</a>#}
-            <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+            <button class="btn btn-primary" type="submit"><i class="fas fa-check"></i> Valider</button>
         </div>
         {{ form_end(form) }}
     {% endif %}
@@ -104,4 +104,5 @@
             });
         });
     </script>#}
+    <br />
 {% endblock %}

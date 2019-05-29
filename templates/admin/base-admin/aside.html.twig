@@ -1,16 +1,67 @@
 <!-- Sidebar -->
-<div id="sidebar-wrapper">
-    <ul id="sidebar_menu" class="sidebar-nav">
+<nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+    <div class="sidebar-sticky navbar">
+
         <img src="{{ asset('img/logo-admin.png') }}" id="logo-img" alt=""/>
-    </ul>
-    <ul class="sidebar-nav" id="sidebar">
-        <li><a href="{{ path('filiere_list') }}"><img src="{{ asset('img/icon/file.png') }}" class="icon" alt=""/>Filières & Dispositifs</a></li>
-        <li><a href="{{ path('tableau_list') }}"><img src="{{ asset('img/icon/table.svg') }}" class="icon" alt=""/>Tableau</a></li>
-        <li><a href="{{ path('event') }}"><img src="{{ asset('img/icon/event.png') }}" class="icon" alt=""/>Evenements</a></li>
-        <li><a href="{{ path('survey') }}"><img src="{{ asset('img/icon/poll.png') }}" class="icon" alt=""/>Sondages</a></li>
-        <li><a href="{{ path('contact_edit') }}"><img src="{{ asset('img/icon/message2.svg') }}" class="icon" alt=""/>Contact</a></li>
-        <li><a href="{{ path('singleQrcode', {'item': 'homepage', 'id': 1, 'url': path('index') }) }}" target="_blank"><img src="{{ asset('img/icon/qrcode.png') }}" class="icon" alt=""/>QR Code Page Accueil</a></li>
-        <li><a href="{{ path('listAdmins') }}"><img src="{{ asset('img/icon/admin.svg') }}" class="icon" alt=""/>Administrateurs</a></li>
-        <li><a href="{{ path('index') }}"><img src="{{ asset('img/icon/home.png') }}" class="icon" alt=""/>Retour au site</a></li>
-    </ul>
-</div>
+
+        <h1 class="h3 text-center" style="color:#f1f2f3; font-family: 'Montserrat-bold', sans-serif">Administration</h1>
+
+        <ul class="nav flex-column">
+
+            <li>
+                <a class="nav-link" href="{{ path('filiere_list') }}">
+                    <i class="fas fa-file-alt"></i>
+                    Filières & Dispositifs
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('tableau_list') }}">
+                    <i class="fas fa-table"></i>
+                    Tableau
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('event') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    Evenements
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('survey') }}">
+                    <i class="fas fa-poll"></i>
+                    Sondages
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('contact_edit') }}">
+                    <i class="far fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('singleQrcode', {'item': 'homepage', 'id': 1, 'url': path('index') }) }}" target="_blank">
+                    <i class="fas fa-qrcode"></i>
+                    QR Code Page Accueil
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('listAdmins') }}">
+                    <i class="fas fa-user"></i>
+                    Administrateurs
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('index') }}">
+                    <i class="fas fa-home"></i>
+                    Retour au site
+                </a>
+            </li>
+            <li>
+                <a class="nav-link" href="{{ path('logout') }}" id="signout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Déconnexion
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

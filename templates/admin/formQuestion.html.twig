@@ -39,8 +39,8 @@
                 {% endif %}
             </div>
             <div class="row" id="btn">
-                <a href="{{ path('editSurvey', {'id':survey.id}) }}" class="btn btn-info"><img src="{{ asset('img/icon/return.png') }}" class="icon"/>Retour</a>
-                <button class="btn btn-success" type="submit"><img src="{{ asset('img/icon/valid.png') }}" class="icon"/>Valider</button>
+                <a href="{{ path('editSurvey', {'id':survey.id}) }}" class="btn btn-secondary mx-3"><i class="fas fa-reply"></i> Retour</a>
+                <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Valider</button>
                 {% if question.questionType.label == 'Simple Choice' or  question.questionType.label == 'Multiple Choice' %}
                     <button class="btn btn-violet" type="button" id="btnAddChoice"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
                 {% else %}

@@ -3,6 +3,10 @@
 {% block title %}Evenements{% endblock %}
 
 {% block body %}
+    <style>
+        a {color:white;}
+    </style>
+
     <h1 class="display-4">Evenements</h1>
 
     <p>
@@ -10,23 +14,64 @@
         Vous pouvez en ajouter de nouveaux, editer ceux qui existent ou bien les supprimer.
     </p>
 
-    <div class="row">
-        <div class="card card-add">
-            <a href="{{ path('addEvent') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>
-        </div>
-        {% for event in events %}
-            <div class="card card-basic">
-                <h2 class="card-table-title">{{ event.title }}</h2>
-                <hr>
-                <div class="flex-end">
-                    <div class="col-12">
-                        <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon" alt=""/>Suppression</a>
-                    </div>
-                    <div class="col-12">
-                        <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/edit.svg') }}" class="icon" alt=""/>Edition</a>
-                    </div>
+    <div class="row justify-content-between">
+
+        <div class="card-deck">
+
+            <div class="mb-3">
+                <div class="card card-add">
+                    <a href="{{ path('addEvent') }}">
+                        <img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/>
+                    </a>
                 </div>
             </div>
-        {% endfor %}
+
+            {% for event in events %}
+                <div class="mb-3">
+                    <div class="card" style="background-color: #444a90">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ event.title|slice(0, 50) }}</h5>
+                            <p class="small mt-3    ">{{ event.description|slice(0, 100) }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-danger btn-sm btn-block">
+                                <a href="{{ path('deleteEvent', {'id':event.id}) }}"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm btn-block">
+                                <a href="{{ path('editEvent', {'id':event.id}) }}"><i class="fas fa-edit"></i> Editer</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+
+
+    {#    <h1 class="display-4">Evenements</h1>#}
+
+    {#    <p>#}
+    {#        Retrouvez sur cette page la liste des événements regroupant les sondages proposés par le Lycée Marcelle Pardé.#}
+    {#        Vous pouvez en ajouter de nouveaux, editer ceux qui existent ou bien les supprimer.#}
+    {#    </p>#}
+
+    {#    <div class="row">#}
+    {#        <div class="card card-add">#}
+    {#            <a href="{{ path('addEvent') }}"><img src="{{ asset('img/icon/add.png') }}" class="card-add-img"/></a>#}
+    {#        </div>#}
+    {#        {% for event in events %}#}
+    {#            <div class="card card-basic">#}
+    {#                <h2 class="card-table-title">{{ event.title }}</h2>#}
+    {#                <hr>#}
+    {#                <div class="flex-end">#}
+    {#                    <div class="col-12">#}
+    {#                        <a href="{{ path('deleteEvent', {'id':event.id}) }}" id="delete-event" class="btn btn-danger btn-block"><img src="{{ asset('img/icon/remove.png') }}" class="icon" alt=""/>Suppression</a>#}
+    {#                    </div>#}
+    {#                    <div class="col-12">#}
+    {#                        <a href="{{ path('editEvent', {'id':event.id}) }}" id="edit-event" class="btn btn-info btn-block"><img src="{{ asset('img/icon/edit.svg') }}" class="icon" alt=""/>Edition</a>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        {% endfor %}#}
+    {#    </div>#}
 {% endblock %}
