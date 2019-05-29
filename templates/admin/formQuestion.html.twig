@@ -30,8 +30,8 @@
                                 <input type="text" id="choice-{{ option.id }}" name="option-{{ option.id }}" placeholder="" class="form-control choices" value="{{ option.value }}"/>
                             </div>
                             <div class="col-md-1">
-                                <a class="btn btn-danger btn-suppr" href="{{ path('deleteChoice', {'idChoice':option.id, 'idSurvey': survey.id, 'idQuestion': question.id}) }}">
-                                    <img src="{{ asset('img/icon/remove.png') }}" class="icon">
+                                <a class="btn btn-danger" href="{{ path('deleteChoice', {'idChoice':option.id, 'idSurvey': survey.id, 'idQuestion': question.id}) }}">
+                                    <i class="fas fa-times"></i>
                                 </a>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                 <a href="{{ path('editSurvey', {'id':survey.id}) }}" class="btn btn-secondary mx-3"><i class="fas fa-reply"></i> Retour</a>
                 <button class="btn btn-success" type="submit"><i class="fas fa-check"></i> Valider</button>
                 {% if question.questionType.label == 'Simple Choice' or  question.questionType.label == 'Multiple Choice' %}
-                    <button class="btn btn-violet" type="button" id="btnAddChoice"><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
+                    <button class="btn btn-info mx-3" type="button" id="btnAddChoice"><i class="fas fa-plus"></i> Ajouter un choix</button>
                 {% else %}
                     <button class="btn btn-violet display-none" type="button" id="btnAddChoice" ><img src="{{ asset('img/icon/add.png') }}" class="icon"/>Ajouter un choix</button>
                 {% endif %}
@@ -110,7 +110,7 @@
                     $('#choices').append('<h6 id="title-choice">Choix</h6>');
                 }
             }
-            $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><img src="{{ asset('img/icon/remove.png') }}" class="icon"></a></div></div>');
+            $('#choices').append('<div class="row"><div class="col-md-10"><input type="text" id="choice-'+i+'" name="options['+i+']" placeholder="Entrez votre choix n°'+i+'" class="form-control choices"/></div><div class="col-md-1"><a class="btn btn-danger btn-suppr" href=""><i class="fas fa-times"></i> </a></div></div>');
             i++;
         });
     </script>
