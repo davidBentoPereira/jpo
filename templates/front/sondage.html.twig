@@ -43,7 +43,7 @@
                                     {% endfor %}
 
                                 {% elseif question.questionType.label == 'Multiple Choice' %}
-
+-
                                     {% set options = question.questionOptions.toArray() %}
 
                                     {% for option in options %}

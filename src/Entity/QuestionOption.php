@@ -96,8 +96,12 @@ class QuestionOption
 
     public function getPourcentage()
     {
-        $nbResponseTotal = sizeof($this->question->getResponses());
+        $total = 0;
+        foreach ($this->question->getQuestionOptions() as $questionOption)
+        {
+            $total += sizeof($questionOption->getResponse());
+        }
         $nbResponseOption = sizeof($this->response);
-        return (100 * $nbResponseOption) / $nbResponseTotal;
+        return (100 * $nbResponseOption) / $total;
     }
 }
