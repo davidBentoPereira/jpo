@@ -123,6 +123,9 @@
     "endroid/qr-code": {
         "version": "3.5.6"
     },
+    "ezyang/htmlpurifier": {
+        "version": "v4.13.0"
+    },
     "facebook/webdriver": {
         "version": "1.6.0"
     },
@@ -146,6 +149,18 @@
     },
     "khanamiryan/qrcode-detector-decoder": {
         "version": "1.0.2"
+    },
+    "laminas/laminas-code": {
+        "version": "3.5.1"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.3.0"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.1"
+    },
+    "maennchen/zipstream-php": {
+        "version": "2.1.0"
     },
     "markbaker/complex": {
         "version": "1.4.7"
@@ -171,6 +186,9 @@
     "phenx/php-svg-lib": {
         "version": "v0.3.2"
     },
+    "php": {
+        "version": "7.4"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
@@ -188,6 +206,15 @@
     },
     "psr/container": {
         "version": "1.0.0"
+    },
+    "psr/http-client": {
+        "version": "1.0.1"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
+    "psr/http-message": {
+        "version": "1.0.1"
     },
     "psr/link": {
         "version": "1.0.0"
@@ -279,6 +306,9 @@
     },
     "symfony/dependency-injection": {
         "version": "v4.2.3"
+    },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
     },
     "symfony/doctrine-bridge": {
         "version": "v4.2.3"
@@ -403,6 +433,9 @@
     },
     "symfony/polyfill-intl-idn": {
         "version": "v1.10.0"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.22.1"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.10.0"
@@ -566,6 +599,9 @@
     },
     "twig/twig": {
         "version": "v2.6.2"
+    },
+    "webimpress/safe-writer": {
+        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.4.0"
